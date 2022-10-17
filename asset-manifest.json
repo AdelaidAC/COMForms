@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/COMForms/static/css/main.f5c1c0f4.css",
+    "main.js": "/COMForms/static/js/main.725e1897.js",
+    "static/media/adrianaslogo.jpg": "/COMForms/static/media/adrianaslogo.987fbf771df7a56625f4.jpg",
+    "static/media/v2.jpg": "/COMForms/static/media/v2.d9fefb98f16922a3f26c.jpg",
+    "static/media/v3.jpg": "/COMForms/static/media/v3.38885ac9cb0e7b934b4b.jpg",
+    "static/media/v5.jpg": "/COMForms/static/media/v5.819f473eb53efb54d982.jpg",
+    "static/media/v1.jpg": "/COMForms/static/media/v1.7ca18bf7d3a3a843434f.jpg",
+    "static/media/v6.jpg": "/COMForms/static/media/v6.81667c4f5f7afae2511f.jpg",
+    "static/media/v11.jpg": "/COMForms/static/media/v11.5837f3a44abb1cad6519.jpg",
+    "static/media/v4.jpg": "/COMForms/static/media/v4.394c09d673deb8f5e8e5.jpg",
+    "static/media/v8.jpg": "/COMForms/static/media/v8.2c89cce1aed96e76dbf8.jpg",
+    "static/media/v7.jpg": "/COMForms/static/media/v7.7737f7027fa6bff60366.jpg",
+    "static/media/v9.jpg": "/COMForms/static/media/v9.51fe4a62878eae75cffa.jpg",
+    "static/media/v10.jpg": "/COMForms/static/media/v10.e4bcdf27d0d8a260ab94.jpg",
+    "static/media/v16.jpg": "/COMForms/static/media/v16.12f281beaaffe48bb75c.jpg",
+    "static/media/v14.jpg": "/COMForms/static/media/v14.d2c14bdfd05ef2c3775a.jpg",
+    "static/media/v15.jpg": "/COMForms/static/media/v15.ed7d8750e2058be6623c.jpg",
+    "static/media/v12.jpg": "/COMForms/static/media/v12.9bbad4c31d730c48e338.jpg",
+    "static/media/v13.jpg": "/COMForms/static/media/v13.5ea0cc822a5fb7426f62.jpg",
+    "index.html": "/COMForms/index.html",
+    "main.f5c1c0f4.css.map": "/COMForms/static/css/main.f5c1c0f4.css.map",
+    "main.725e1897.js.map": "/COMForms/static/js/main.725e1897.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f5c1c0f4.css",
+    "static/js/main.725e1897.js"
+  ]
+}
