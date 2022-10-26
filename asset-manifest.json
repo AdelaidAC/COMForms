@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/COMForms/static/css/main.bb9710a6.css",
-    "main.js": "/COMForms/static/js/main.d40aa722.js",
+    "main.css": "/COMForms/static/css/main.4757f9d4.css",
+    "main.js": "/COMForms/static/js/main.54f03346.js",
     "static/media/adrianaslogo.jpg": "/COMForms/static/media/adrianaslogo.987fbf771df7a56625f4.jpg",
     "static/media/v2.jpg": "/COMForms/static/media/v2.d9fefb98f16922a3f26c.jpg",
     "static/media/v3.jpg": "/COMForms/static/media/v3.38885ac9cb0e7b934b4b.jpg",
@@ -20,11 +20,11 @@
     "static/media/v12.jpg": "/COMForms/static/media/v12.9bbad4c31d730c48e338.jpg",
     "static/media/v13.jpg": "/COMForms/static/media/v13.5ea0cc822a5fb7426f62.jpg",
     "index.html": "/COMForms/index.html",
-    "main.bb9710a6.css.map": "/COMForms/static/css/main.bb9710a6.css.map",
-    "main.d40aa722.js.map": "/COMForms/static/js/main.d40aa722.js.map"
+    "main.4757f9d4.css.map": "/COMForms/static/css/main.4757f9d4.css.map",
+    "main.54f03346.js.map": "/COMForms/static/js/main.54f03346.js.map"
   },
   "entrypoints": [
-    "static/css/main.bb9710a6.css",
-    "static/js/main.d40aa722.js"
+    "static/css/main.4757f9d4.css",
+    "static/js/main.54f03346.js"
   ]
 }
