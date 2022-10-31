@@ -19,7 +19,7 @@ const Input = (props) => {
             <input 
                 type="text"
                 className={props.className}
-                style={{ width: props.width }} 
+                style={{ width: props.width, backgroundColor: props.bColor}} 
                 name={props.name} 
                 autoFocus onChange={changeHandler} 
                 placeholder={props.placeholder}

@@ -2,7 +2,7 @@ import React, { useEffect, useState} from 'react';
 import Input from '../../Input'
 import Logo from '../../Logo'
 
-export default function CCA({name, address}) {
+export default function CCWorkersComp({name, address}) {
     
     React.useEffect(() => {
         window.scrollTo(0, 0);

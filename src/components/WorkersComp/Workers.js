@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useEffect, useState} from 'react';
+import moment from 'moment/moment'
 import Badge from "../Badge.";
-import BAWorkersComp from "./pages/BAWorkersComp";
-import CCA from "./pages/CCA";
+import BFWorkersComp from "./pages/BFWorkersComp";
+import CCWorkersComp from "./pages/CCWorkersComp";
 import ISWorkersComp from "./pages/ISWorkersComp";
 import PAWorkersComp from "./pages/PAWorkersComp";
 import PNWorkersComp from "./pages/PNWorkersComp";
-import SpanishBFWorkersComp from "./pages/SpanishBFWorkersComp";
+import SBFWorkersComp from "./pages/SBFWorkersComp";
 import VDWorkersComp from "./pages/VDWorkersComp";
 
-export default function Workers({pages, name, initials, address, phone}) {
+export default function Workers({pages, name, address, phone, date}) {
 
     let brokerFee, balanceDue, creditCard;
 
+    const [dateVD, setDateVD] = useState('')
+
+    let date2 = moment(dateVD).format('MM-DD-YYYY');
+
     if (Object.values(pages).includes("spanishBF")) {
-        brokerFee = <SpanishBFWorkersComp name={name}/>;
+        brokerFee = <SBFWorkersComp name={name} date={date}/>;
     } else {
-        brokerFee = <BAWorkersComp name={name}/>;
+        brokerFee = <BFWorkersComp name={name} date={date}/>;
     }
 
     if (Object.values(pages).includes("balanceDue")) {
@@ -23,7 +28,7 @@ export default function Workers({pages, name, initials, address, phone}) {
     }
 
     if (Object.values(pages).includes("creditCard")) {
-        creditCard = <><Badge text="6"/><CCA name={name} address={address}/></>;
+        creditCard = <><Badge text="6"/><CCWorkersComp name={name} address={address}/></>;
     }
 
     React.useEffect(() => {
@@ -34,11 +39,11 @@ export default function Workers({pages, name, initials, address, phone}) {
 
         <div>
             <Badge text="1"/>
-            <ISWorkersComp name={name} initials={initials} address={address} phone={phone}/>
+            <ISWorkersComp/>
             <Badge text="2"/>
-            <VDWorkersComp name={name} initials={initials} address={address} phone={phone}/>
+            <VDWorkersComp name={name} date={date} setDateVD={setDateVD}/>
             <Badge text="3"/>
-            <PAWorkersComp name={name} initials={initials} address={address} phone={phone}/>
+            <PAWorkersComp name={name} date={date} date2={date2}/>
             <Badge text="4"/>
             {brokerFee}
             {balanceDue}

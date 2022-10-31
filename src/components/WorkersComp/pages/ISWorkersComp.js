@@ -1,10 +1,9 @@
 import React from 'react'
 import Input from '../../Input'
-import CDate from '../../CDate';
 import Title from '../../Title'
 import Logo from '../../Logo'
 
-export default function ISWorkersComp({name, address}) {
+export default function ISWorkersComp({}) {
     
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -27,14 +26,14 @@ export default function ISWorkersComp({name, address}) {
             <div className="d-flex my-1">
                 <b>Insured's Name <span className='font-8 fst-italic'> Nombre:</span></b>
                 <span className="flex-fill">
-                    <Input className="w-100 ms-1 text-center" value = {name}/>
+                    <Input className="w-100 ms-1 text-center" disabled/>
                 </span>
             </div>
 
             <div className="d-flex my-1">
                 <b>DBA <span className='font-8 fst-italic'> Nombre del Negocio:</span></b>
                 <span className="flex-fill">
-                    <Input className="w-100 ms-1 text-center" maxlength="40"/>
+                    <Input className="w-100 ms-1 text-center" disabled/>
                 </span>
             </div>
 
@@ -42,12 +41,12 @@ export default function ISWorkersComp({name, address}) {
                 <div className='d-flex flex-fill'>
                     <b>Mailing Address <span className='font-8 fst-italic'> Dirección del Negocio:</span></b>
                     <span className='flex-fill mx-1'>
-                        <Input className="w-100 text-center" value={address}/>
+                        <Input className="w-100 text-center" disabled/>
                     </span>
                 </div>
                 <div>
                     <b>Unit <span className='font-8 fst-italic'> Unidad:</span></b>
-                    <Input className="ms-1 text-center" maxlength="6"/>
+                    <Input className="ms-1 text-center" disabled/>
                 </div>
             </div>
 
@@ -55,19 +54,19 @@ export default function ISWorkersComp({name, address}) {
                 <div className='d-flex flex-fill'>
                     <b>City <span className='font-8 fst-italic'> Ciudad:</span></b>
                     <span className='flex-fill mx-1'>
-                        <Input className="w-100 text-center" maxlength="25"/>
+                        <Input className="w-100 text-center" disabled/>
                     </span>
                 </div>
                 <div className='d-flex flex-fill'>
                     <b>Zip Code <span className='font-8 fst-italic'> Codigo Postal:</span></b>
                     <span className='flex-fill mx-1'>
-                        <Input className="w-100 text-center" maxlength="25"/>
+                        <Input className="w-100 text-center" disabled/>
                     </span>
                 </div>
                 <div className='d-flex flex-fill'>
                     <b>Telephone:</b>
                     <span className='flex-fill mx-1'>
-                        <Input className="w-100 text-center" maxlength="15"/>
+                        <Input className="w-100 text-center" disabled/>
                     </span>
                 </div>
             </div>
@@ -77,28 +76,28 @@ export default function ISWorkersComp({name, address}) {
             <div className="d-flex my-1">
                 <b>Business Description <span className='font-8 fst-italic'> Descripcion del Negocio:</span></b>
                 <span className="flex-fill">
-                    <Input className="w-100 ms-1 text-center" maxlength="95"/>
+                    <Input className="w-100 ms-1 text-center" disabled/>
                 </span>
             </div>
 
             <div className="d-flex my-1">
                 <b>Number of Employees <span className='font-8 fst-italic'> Numero de Empleados:</span></b>
                 <span className="flex-fill">
-                    <Input className="w-100 ms-1 text-center" maxlength="15"/>
+                    <Input className="w-100 ms-1 text-center" disabled/>
                 </span>
             </div>
 
             <div className="d-flex my-1">
                 <b>Number of Owners and % of ownership <span className='font-8 fst-italic'> Numero de Dueños y % de dueño:</span></b>
                 <span className="flex-fill">
-                    <Input className="w-100 ms-1 text-center" maxlength="75"/>
+                    <Input className="w-100 ms-1 text-center" disabled/>
                 </span>
             </div>
 
             <div className="d-flex my-1">
                 <b>Employees’ Payroll <span className='font-8 fst-italic'> Nomina de Pago Total:</span></b>
                 <span className="flex-fill">
-                    <Input className="w-100 ms-1 text-center" maxlength="100"/>
+                    <Input className="w-100 ms-1 text-center" disabled/>
                 </span>
             </div>
 
@@ -122,24 +121,24 @@ export default function ISWorkersComp({name, address}) {
                     </td>
                 </tr>
                 <tr>
-                    <td><Input className="w-100 text-center" maxlength="25"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
+                    <td><Input className="w-100 text-center" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
                 </tr>
                 <tr>
-                    <td><Input className="w-100 text-center" maxlength="25"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
+                    <td><Input className="w-100 text-center" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
                 </tr>
                 <tr>
-                    <td><Input className="text-center w-100" maxlength="25"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
+                    <td><Input className="text-center w-100" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
                 </tr>
                 <tr>
-                    <td><Input className="w-100 text-center" maxlength="25"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
+                    <td><Input className="w-100 text-center" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
                 </tr>
                 </table>
                 <table class="d-inline">
@@ -161,24 +160,24 @@ export default function ISWorkersComp({name, address}) {
                     </td>
                 </tr>
                 <tr>
-                    <td><Input className="w-100 text-center" maxlength="25"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
+                    <td><Input className="w-100 text-center" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
                 </tr>
                 <tr>
-                    <td><Input className="w-100 text-center" maxlength="25"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
+                    <td><Input className="w-100 text-center" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
                 </tr>
                 <tr>
-                    <td><Input className="w-100 text-center" maxlength="25"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
+                    <td><Input className="w-100 text-center" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
                 </tr>
                 <tr>
-                    <td><Input className="w-100 text-center" maxlength="25"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
-                    <td><Input className="text-center" width="100px" maxlength="18"/></td>
+                    <td><Input className="w-100 text-center" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
+                    <td><Input className="text-center" width="100px" disabled/></td>
                 </tr>
                 </table>
             </div>  
@@ -186,7 +185,7 @@ export default function ISWorkersComp({name, address}) {
 
             <div className='font-9 text-justify lh-1'>
                 <p>
-                    I hereby apply to Adriana’s Insurance for a policy of insurance. I agree that such policy shall be null and void if such information is materially false or misleading. I understand that
+                    I hereby apply to Adriana’s Insurance Services, Inc. for a policy of insurance. I agree that such policy shall be null and void if such information is materially false or misleading. I understand that
                     any existing claim at the time of application will not be covered by this insurance. I further understand that the insurance company can audit the policy upon their discretion and they
                     have the right to adjust the premium according o the information obtained in that audit. If I do not disclose any new employees immediately, my coverage could be revoked
                     completely, even if the employee that made the claim was added to the policy, since it can be considered as misrepresentation. The companies do not accept temporary laborers and
@@ -199,7 +198,7 @@ export default function ISWorkersComp({name, address}) {
                 </p>
                 <p>
                     <i>
-                        Yo estoy aquí aplicando en Adriana’s Insurance para una Póliza de Seguro. Y acepto que esta póliza es Nula o Cancelada si la información que les doy es falsa o errónea. Yo
+                        Yo estoy aquí aplicando en Adriana’s Insurance Services, Inc. para una Póliza de Seguro. Y acepto que esta póliza es Nula o Cancelada si la información que les doy es falsa o errónea. Yo
                         entiendo que si existe un reclamo previo al tiempo de este trámite NO tendré ningún tipo de cobertura através de este seguro. Yo entiendo que en un futuro mi compañía de seguro
                         me hará una revisión a su discreción y tiene el derecho de ajustar el precio en caso de que encuentre que la información que di fue incorrecta. Si yo no declaro nuevos empleados en
                         el futuro, mi reclamo será negado, sea que ese empleado fuera el del reclamo u otro diferente, por mal representarme ante la compañía de seguros. Mi póliza no acepta a empleados
@@ -219,12 +218,12 @@ export default function ISWorkersComp({name, address}) {
                 <div className='d-flex flex-fill'>
                     <b>Applicant Signature: </b>
                     <span className='flex-fill mx-1'>
-                        <Input className="w-100 text-center" maxlength="80" disabled = "true"/>
+                        <Input className="w-100 text-center" disabled/>
                     </span>
                 </div>
                 <div>
                     <b>Date: </b>
-                    <Input className="ms-1 text-center" maxlength="10" width = "80px"/>
+                    <Input className="ms-1 text-center" width = "80px" disabled/>
                 </div>
             </div>
 

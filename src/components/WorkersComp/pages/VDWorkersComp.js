@@ -2,8 +2,10 @@ import React from "react";
 import Input from "../../Input";
 import Logo from "../../Logo";
 import Title from "../../Title";
+import CurrencyFormat from 'react-currency-format';
 
-export default function VDWorkersComp({name}) {
+
+export default function VDWorkersComp({name, date, setDateVD}) {
     return (
         <div className="sheet font-11 text-justify">
             
@@ -34,12 +36,12 @@ export default function VDWorkersComp({name}) {
                     </span>
                 </div>
                 <div>
-                    <b>Date Coverage Starts: </b><input className="text-center" type="date" style={{width: "110px"}}/>
+                    <b>Date Coverage Starts: <input type="date" className='text-center' style={{width: "100px"}} onChange = {e => setDateVD(e.target.value)}/></b>
                 </div>
             </div>
 
             <p className="my-3">
-                I, <Input className="text-center" width="260px" value={name}/> hereby appoint Adriana’s Insurance Svcs, Inc. as my Broker/Attorney in fact
+                I, <Input className="text-center fw-bold" width="260px" value={name}/> hereby appoint Adriana’s Insurance Svcs, Inc. as my Broker/Attorney in fact
                 to sign papers, applications, documents that are necessary in order to secure the insurance coverage specified below.
             </p>
 
@@ -50,7 +52,7 @@ export default function VDWorkersComp({name}) {
             <table className="table table-fit text-center table-borderless">
                 <thead>
                     <tr style={{style: "text-align:center;"}}>
-                        <td scope="col"><strong>Worker's Compensation</strong></td>
+                        <td scope="col"><b>Worker's Compensation</b></td>
                         <td className="fst-italic" scope="col">LIMITS</td>
                     </tr>
                 </thead>
@@ -61,7 +63,15 @@ export default function VDWorkersComp({name}) {
                         </td>
                         <td>
                             <label>
-                            $ <input list="BIAccident" name="myBIAccident" />
+                            $
+                            <CurrencyFormat 
+                                thousandSeparator={true}
+                                maxlength="12"
+                                style = {{width:"100px"}}
+                                className='fw-bold text-center input-default'
+                                list="BIAccident" 
+                                name="myBIAccident"
+                            />
                             </label>
                             <datalist id="BIAccident">
                                 <option value="25,000"></option>
@@ -79,7 +89,15 @@ export default function VDWorkersComp({name}) {
                         </td>
                         <td>
                             <label>
-                                $ <input list="BIDisease" name="myBIDisease" />
+                            $
+                            <CurrencyFormat 
+                                thousandSeparator={true}
+                                maxlength="12"
+                                style = {{width:"100px"}}
+                                className='fw-bold text-center input-default'
+                                list="BIDisease" 
+                                name="myBIDisease"
+                            />
                             </label>
                             <datalist id="BIDisease">
                                 <option value="25,000"></option>
@@ -97,9 +115,17 @@ export default function VDWorkersComp({name}) {
                         </td>
                         <td>
                             <label>
-                                $ <input list="BIDisease" name="myBIDisease" />
+                            $
+                            <CurrencyFormat 
+                                thousandSeparator={true}
+                                maxlength="12"
+                                style = {{width:"100px"}}
+                                className='fw-bold text-center input-default'
+                                list="BIDisease2" 
+                                name="myBIDisease2"
+                            />
                             </label>
-                            <datalist id="BIDisease">
+                            <datalist id="BIDisease2">
                                 <option value="25,000"></option>
                                 <option value="50,000"></option>
                                 <option value="100,000"></option>
@@ -115,8 +141,8 @@ export default function VDWorkersComp({name}) {
                         </td>
                         <td>
                             <label>
-                                &nbsp;&nbsp;&nbsp;
-                                <input list="WSubrogation" name="myWSubrogation" />
+                                &nbsp;&nbsp;
+                                <input list="WSubrogation" name="myWSubrogation" style={{width:"100px"}} className="text-center input-default" maxlength="13"/>
                             </label>
                             <datalist id="WSubrogation">
                                 <option value="Not Purchased"></option>
@@ -148,10 +174,10 @@ export default function VDWorkersComp({name}) {
             </table>
 
             <div className="d-flex ">
-                <label><strong>Description of Operations:</strong></label>
-                <strong className="flex-fill">
+                <label><b>Description of Operations:</b></label>
+                <b className="flex-fill">
                     <Input className="w-100 ms-1 text-center" maxlength="70"/>
-                </strong>
+                </b>
             </div>
 
             <div className="d-flex">
@@ -178,46 +204,78 @@ export default function VDWorkersComp({name}) {
             
             <div className='d-flex justify-content-between text-center'>
                 <div>
-                    <p className='mb-0'><strong>Gross Annual Sales:</strong></p>
+                    <p className='mb-0'><b>Gross Annual Sales:</b></p>
+                    <CurrencyFormat 
+                        thousandSeparator={true} 
+                        prefix={'$'}
+                        maxlength="13"
+                        style = {{width:"170px"}}
+                        className='fw-bold text-center input-default'
+                    />
+                </div>
+                <div>
+                    <p className='mb-0'><b>Employee Payroll:</b></p>
+                    <CurrencyFormat 
+                        thousandSeparator={true} 
+                        prefix={'$'}
+                        maxlength="13"
+                        style = {{width:"170px"}}
+                        className='fw-bold text-center input-default'
+                    />
+                </div>
+                <div>
+                    <p className='mb-0'><b>P.T. Employees:</b></p>
                     <Input className="text-center" width = "170px" maxlength="20"/>
                 </div>
                 <div>
-                    <p className='mb-0'><strong>Employee Payroll:</strong></p>
-                    <Input className="text-center" width = "170px" maxlength="20"/>
-                </div>
-                <div>
-                    <p className='mb-0'><strong>P.T. Employees:</strong></p>
-                    <Input className="text-center" width = "170px" maxlength="20"/>
-                </div>
-                <div>
-                    <p className='mb-0'><strong>F.T. Employees:</strong></p>
+                    <p className='mb-0'><b>F.T. Employees:</b></p>
                     <Input className="text-center" width = "170px" maxlength="20"/>
                 </div>
             </div>
 
             <div className="mx-5 mt-3">
-                <div className="border border-1 border-dark mt-4 mb-1"></div>
+                <div className="border border-1 border-dark mt-4 mb-2"></div>
                 <div className='d-flex justify-content-between text-center'>
                     <div >
-                        <label><strong>TOTAL:</strong></label>
-                        <Input className="text-center" width = "125px" maxlength="16"/>
+                        <label><b>TOTAL:</b></label>
+                        <CurrencyFormat 
+                            thousandSeparator={true} 
+                            prefix={'$'}
+                            maxlength="13"
+                            style = {{width:"125px"}}
+                            className='fw-bold text-center input-default'
+                        />
                     </div>
                     <div>
-                        <label><strong>Down Payment:</strong></label>
-                        <Input className="text-center" width = "125px" maxlength="16"/>
+                        <label><b>Down Payment:</b></label>
+                        <CurrencyFormat 
+                            thousandSeparator={true} 
+                            prefix={'$'}
+                            maxlength="13"
+                            style = {{width:"125px"}}
+                            className='fw-bold text-center input-default'
+                        />
                     </div>
                     <div>
-                        <label><strong>Payments of:</strong></label>
-                        <Input className="text-center" width = "125px" maxlength="16"/>
+                        <label><b>Payments of:</b></label>
+                        <CurrencyFormat 
+                            thousandSeparator={true} 
+                            prefix={'$'}
+                            maxlength="13"
+                            style = {{width:"125px"}}
+                            className='fw-bold text-center input-default'
+                        />
                     </div>
                 </div>
-                <div className="border border-1 border-dark mt-1 mb-4"></div>
+                <div className="border border-1 border-dark mt-2 mb-4"></div>
             </div>
 
-            <div className="d-flex justify-content-between my-3">
-                <div></div>
+            <div className="d-flex justify-content-between mt-5 fw-bold">
                 <div>
-                    <b>Date: </b><input type="date" className="text-center"/>
+                    Insured’s Signature: <Input width="300px" bColor="yellow" disabled/>
+                </div>
+                <div>
+                    Date: <Input value = {date} width = "80px" className = "text-center fw-bold"/>
                 </div>
             </div>
             
