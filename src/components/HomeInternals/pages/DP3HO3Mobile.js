@@ -4,7 +4,7 @@ import Input from "../../Input";
 import Logo from "../../Logo";
 import Title from "../../Title";
 
-export default function DP3HO3Mobile({name, date, setDateHO}) {
+export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -182,7 +182,13 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
             <p className="mx-0 mb-0 mt-3">
                 I <Input className="text-center fw-bold" width="400px" value={name}/>hereby appoint Adriana's Insurance Services Inc. as my Broker / Attorney in fact
                 to sign papers, applications, documents that are necessary in order to secure the insurance coverage specified below. I have
-                also been advised of the importance of the effective date of the policy and have chosen to have coverage start on: <input type="date" className='text-center' style={{width: "100px"}} onChange = {e => setDateHO(e.target.value)}/>
+                also been advised of the importance of the effective date of the policy and have chosen to have coverage start on: 
+                <input 
+                    type="date" 
+                    style={{width: "100px"}} 
+                    onChange = {e => setDateHO(e.target.value)}
+                    {... date2 === "Invalid date" ? {className:"y text-center fw-bold"} : {className:"text-center fw-bold"}}
+                />
             </p>
 
             <table className="fw-bold my-3">
@@ -218,7 +224,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                     </td>
                     <td><input type="checkbox" checked={chkAYes}/></td>
                     <td><input type="checkbox" checked={chkANo}/></td>
-                    <td>Initials <Input disabled width="60px"/></td>
+                    <td>Initials <Input disabled width="60px" bColor="yellow"/></td>
                 </tr>
                 <tr>
                     <td>B. Other Structures</td>
@@ -237,7 +243,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                     </td>
                     <td><input type="checkbox" checked={chkBYes}/></td>
                     <td><input type="checkbox" checked={chkBNo}/></td>
-                    <td>Initials <Input disabled width="60px"/></td>
+                    <td>Initials <Input disabled width="60px" bColor="yellow"/></td>
                 </tr>
                 <tr>
                     <td>C. Personal Property</td>
@@ -256,7 +262,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                     </td>
                     <td><input type="checkbox" checked={chkCYes}/></td>
                     <td><input type="checkbox" checked={chkCNo}/></td>
-                    <td>Initials <Input disabled width="60px"/></td>
+                    <td>Initials <Input disabled width="60px" bColor="yellow"/></td>
                 </tr>
                 <tr>
                     <td rowspan="3" className='text-center'>
@@ -286,7 +292,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                     </td>
                     <td><input type="checkbox" checked={chkDYes}/></td>
                     <td><input type="checkbox" checked={chkDNo}/></td>
-                    <td>Initials <Input disabled width="60px"/></td>
+                    <td>Initials <Input disabled width="60px" bColor="yellow"/></td>
                 </tr>
                 <tr>
                     <td>E. {e}</td> {/* E. Personal Liability */}
@@ -305,7 +311,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                     </td>
                     <td><input type="checkbox" checked={chkEYes}/></td>
                     <td><input type="checkbox" checked={chkENo}/></td>
-                    <td>Initials <Input disabled width="60px"/></td>
+                    <td>Initials <Input disabled width="60px" bColor="yellow"/></td>
                 </tr>
                 <tr>
                     <td>F. Medical Payments</td>
@@ -324,7 +330,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                     </td>
                     <td><input type="checkbox" checked={chkFYes}/></td>
                     <td><input type="checkbox" checked={chkFNo}/></td>
-                    <td>Initials <Input disabled width="60px"/></td>
+                    <td>Initials <Input disabled width="60px" bColor="yellow"/></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -341,7 +347,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                         />
                     </td>
                     <td colspan="2"></td>
-                    <td>Initials <Input disabled width="60px"/></td>
+                    <td>Initials <Input disabled width="60px" bColor="yellow"/></td>
                 </tr>
             </table>
     
@@ -363,6 +369,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                                 className="text-center fw-bold"
                                 width="90px" 
                                 value={c1}
+                                {...(c1 === "" ? {bColor:"yellow"} : {})}
                             />
                         </span>
                     </td>
@@ -384,6 +391,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                                 className="text-center fw-bold"
                                 width="90px" 
                                 value={c2}
+                                {...(c2 === "" ? {bColor:"yellow"} : {})}
                             />
                         </span>
                     </td>
@@ -403,6 +411,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                                 className="text-center fw-bold"
                                 width="90px" 
                                 value={c3}
+                                {...(c3 === "" ? {bColor:"yellow"} : {})}
                             />
                         </span>
                     </td>
@@ -423,6 +432,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                                 className="text-center fw-bold"
                                 width="90px" 
                                 value={c4}
+                                {...(c4 === "" ? {bColor:"yellow"} : {})}
                             />
                         </span>
                     </td>
@@ -443,6 +453,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                                 className="text-center fw-bold"
                                 width="90px" 
                                 value={c5}
+                                {...(c5 === "" ? {bColor:"yellow"} : {})}
                             />
                         </span>
                     </td>
@@ -464,6 +475,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                                 className="text-center fw-bold"
                                 width="90px" 
                                 value={c6}
+                                {...(c6 === "" ? {bColor:"yellow"} : {})}
                             />
                         </span>
                     </td>
@@ -484,6 +496,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                                 className="text-center fw-bold"
                                 width="90px" 
                                 value={c7}
+                                {...(c7 === "" ? {bColor:"yellow"} : {})}
                             />
                         </span>
                     </td>
@@ -510,6 +523,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                                 className="text-center fw-bold" 
                                 width="90px" 
                                 value={c8}
+                                {...(c8 === "" ? {bColor:"yellow"} : {})}
                             />
                         </span>
                     </td>
@@ -535,6 +549,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                                 className="text-center fw-bold"
                                 width="90px" 
                                 value={c9}
+                                {...(c9 === "" ? {bColor:"yellow"} : {})}
                             />
                         </span>
                     </td>
@@ -560,6 +575,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                                 className="text-center fw-bold" 
                                 width="90px" 
                                 value={c10}
+                                {...(c10 === "" ? {bColor:"yellow"} : {})}
                             />
                         </span>
                     </td>
@@ -585,6 +601,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
                                 className="text-center fw-bold" 
                                 width="90px" 
                                 value={c11}
+                                {...(c11 === "" ? {bColor:"yellow"} : {})}
                             />
                         </span>
                     </td>
@@ -593,7 +610,7 @@ export default function DP3HO3Mobile({name, date, setDateHO}) {
 
             <div className="d-flex justify-content-between mt-5 fw-bold">
                 <div>
-                    Named Insured Signature: <Input width="300px" disabled/>
+                    Named Insured Signature: <Input width="300px" disabled bColor="yellow"/>
                 </div>
                 <div>
                     Date: <Input value = {date} width = "80px" className = "text-center fw-bold"/>

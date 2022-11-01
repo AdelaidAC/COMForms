@@ -348,7 +348,7 @@ export default function CCHomeInternals({name, address}) {
 
                 <div className="row text-center pt-4 pb-2"  style={{borderTop: '3px solid black'}}>
                     <div className="col">
-                        <Input className="text-center" width="300px" disabled/>
+                        <Input className="text-center" width="300px" disabled bColor="yellow"/>
                         <p className='mb-0 fw-bold'>Signature of Card Holder</p>
                     </div>
                     <div className="col">

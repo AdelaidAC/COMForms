@@ -90,20 +90,22 @@ export default function PNHomeInternals({name, address, phone}) {
                 received by the aforementioned due date, the entire balance of principal then remaining unpaid, shall immediately become due and
                 payable with <i>interest from the date of this note,</i> at the rate of 18% per annum, along with an added late charge of <u>Thirty dollars ($30.00).</u>
             </div>
-            
+
             <div className='d-flex justify-content-between mt-5 mx-5 mb-3 pt-5 text-center fw-bold'>
-                <div className='border-top border-dark w-40'>
-                    <p className='mb-0'>Signature</p>
+                <div>
+                    <Input width="300px" className="text-center" disabled bColor="yellow"/>
+                    <p>Signature</p>
                 </div>
-                <div className='border-top border-dark w-40'>
-                    <p className='mb-0'>Witness</p>
+                <div>
+                    <Input width="300px" className="text-center" disabled/>
+                    <p>Witness</p>
                 </div>
             </div>
             
             <Subtitle text="POWER TO CANCEL INSURANCE FOR NON-PAYMENT"/>
             
             <p className='lh-4'>
-                <Input disabled width="60px"/>
+                <Input disabled width="60px" bColor="yellow"/>
                 <b className="me-3 ms-1">Initials</b>
                 I understand and agree that, if this Promissory Note to Adriana’s is not paid as agreed, I hereby grant Adriana’s the
                 power to request cancellation of my policy(ies) applied for through the California Automobile Assigned Risk Plan or
@@ -115,7 +117,7 @@ export default function PNHomeInternals({name, address, phone}) {
             <Subtitle text="PROMISSORY NOTE GUARANTEE"/>
             
             <p className='lh-4'>
-                <Input disabled width="60px"/>
+                <Input disabled width="60px" bColor="yellow"/>
                 <b className="me-3 ms-1">Initials</b>
                 By initialing this Promissory Note GUARANTEE and signing the Promissory Note above, I understand and
                 acknowledge that I am legally bound, under the California Civil Code and the Uniform Commercial Code to make the
@@ -143,7 +145,7 @@ export default function PNHomeInternals({name, address, phone}) {
                     <p className='mb-0 fw-bold'>Insured’s Name</p>
                 </div>
                 <div>
-                    <Input width="260px" disabled/>
+                    <Input width="260px" disabled bColor="yellow"/>
                     <p className='mb-0 fw-bold'>Insured’s Signature</p>
                 </div>
                 <div>

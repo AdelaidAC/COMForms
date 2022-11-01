@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react';
 import CurrencyFormat from 'react-currency-format';
 import Input from '../../Input'
 import Logo from '../../Logo'
 
 export default function BFHomeInternals({name, date}) {
+
+    const [inputBF, setBF] = useState('');
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -59,7 +61,7 @@ export default function BFHomeInternals({name, date}) {
             </p>
             <br/>
             <p className='m-0'>
-                Client Initials: <Input disabled width="60px"/>
+                Client Initials: <Input disabled width="60px" bColor="yellow"/>
             </p>
 
             <p className='text-center fw-bold font-10 my-1'>Appointment of Insurance Broker and Agreement to Pay Broker Fee</p>
@@ -73,7 +75,14 @@ export default function BFHomeInternals({name, date}) {
                 insurance if premiums or fees remain unpaid to Broker.
                 <br/>
                 <br/>
-                CLIENT agrees to pay BROKER a broker fee for BROKER’S services. The <b>Broker Fee is</b> <CurrencyFormat thousandSeparator={true} prefix={'$'} maxlength="10" style = {{width:"100px"}} className='fw-bold text-center input-default'/> (Client Initials: <Input disabled width="60px"/>). Client understands
+                CLIENT agrees to pay BROKER a broker fee for BROKER’S services. The <b>Broker Fee is</b> <CurrencyFormat 
+                    onChange={e => setBF(e.target.value)} 
+                    {...(inputBF === "" ? {style: {width: "100px", backgroundColor: 'yellow'}} : {style: {width: "100px"}})}
+                    thousandSeparator={true} 
+                    prefix={'$'} 
+                    maxlength="10"
+                    className='fw-bold text-center input-default'
+                /> (Client Initials: <Input disabled width="60px" bColor="yellow"/>). Client understands
                 this fee and understands that the broker fee <b>IS / <span className='bf-radius'>IS NOT REFUNDABLE</span></b>, irrespective of whether the policy is cancelled or rejected by the Client or insurer. Client
                 authorizes Broker to maintain premium payments in interest-bearing trust accounts and to receive any interest income there from until paid to the insurance company.
                 Additional Services: Broker may charge the following fees for the following services in addition to the broker fee:
@@ -258,23 +267,19 @@ export default function BFHomeInternals({name, date}) {
                 issued. Broker and Client agree to binding arbitration with ADR of any disputes in which the amount claimed exceeds the small Claims Court jurisdiction under the
                 rules set up by the DR, in accordance with California Code of Civil Procedure, without right of appeal.
             </p>
-            
-            {/*<div className='d-flex justify-content-center text-center pt-5'>
-                <div className='border-top border-dark' style={{ width: "300px"}}>
-                    <p className='mb-0 fw-bold'>Broker's Signature</p>
-                </div>
-            </div>*/}
 
-            <div className='d-flex justify-content-between mt-4 mx-5 pt-4 text-center fw-bold'>
-                <div className='border-top border-dark w-40'>
-                    <p className='mb-0'>Named Insured Signature</p>
+            <div className='d-flex justify-content-between mt-3 mx-5 pt-3 text-center fw-bold'>
+                <div>
+                    <Input width="300px" className="text-center" disabled bColor="yellow"/>
+                    <p>Named Insured Signature</p>
                 </div>
-                <div className='border-top border-dark w-40'>
-                    <p className='mb-0'>Broker's Signature</p>
+                <div>
+                    <Input width="300px" className="text-center" disabled/>
+                    <p>Broker's Signature</p>
                 </div>
             </div>
             
-            <p className='text-center mt-3 fw-bold'>
+            <p className='text-center mt-2 fw-bold'>
                 If you have any questions or complaints please call our customer service toll free number at 1-888-290-4040. In any case of questions/problems concerning broker fees or insurance,
                 contact the Department of Insurance at 1-800-927-HELP.
             </p>

@@ -142,7 +142,7 @@ export default function VDWorkersComp({name, date, setDateVD}) {
                         <td>
                             <label>
                                 &nbsp;&nbsp;
-                                <input list="WSubrogation" name="myWSubrogation" style={{width:"100px"}} className="text-center input-default" maxlength="13"/>
+                                <input list="WSubrogation" name="myWSubrogation" style={{width:"100px"}} className="text-center input-default fw-bold" maxlength="13"/>
                             </label>
                             <datalist id="WSubrogation">
                                 <option value="Not Purchased"></option>
@@ -225,11 +225,11 @@ export default function VDWorkersComp({name, date, setDateVD}) {
                 </div>
                 <div>
                     <p className='mb-0'><b>P.T. Employees:</b></p>
-                    <Input className="text-center" width = "170px" maxlength="20"/>
+                    <Input className="text-center fw-bold" width = "170px" maxlength="20"/>
                 </div>
                 <div>
                     <p className='mb-0'><b>F.T. Employees:</b></p>
-                    <Input className="text-center" width = "170px" maxlength="20"/>
+                    <Input className="text-center fw-bold" width = "170px" maxlength="20"/>
                 </div>
             </div>
 

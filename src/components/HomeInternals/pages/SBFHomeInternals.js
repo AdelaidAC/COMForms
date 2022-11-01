@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react';
 import CurrencyFormat from 'react-currency-format';
 import Input from '../../Input'
 import Logo from '../../Logo'
 
 export default function SBFHomeInternals({name, date}) {
+
+    const [inputBF, setBF] = useState('');
     
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -58,7 +60,7 @@ export default function SBFHomeInternals({name, date}) {
             </p>
             <br/>
             <p className='m-0'>
-                Iniciales del Cliente: <Input disabled width="60px"/>
+                Iniciales del Cliente: <Input disabled width="60px" bColor="yellow"/>
             </p>
 
             <p className='text-center fw-bold font-10 my-1'>DESIGNACION DE BROKER DE SEGURO Y ACUERDO PARA PAGAR CUOTA DE BROKER</p>
@@ -73,7 +75,14 @@ export default function SBFHomeInternals({name, date}) {
                 detallados a continuación. El cliente autoriza al corredor cancelar su seguro si la prima o cuotas permanecen si ser pagados al corredor (Broker).
                 <br/>
                 <br/>
-                El honorario del <b>Broker es</b> <CurrencyFormat thousandSeparator={true} prefix={'$'} maxlength="10" style = {{width:"100px"}} className='fw-bold text-center input-default'/> (Iniciales del Cliente: <Input disabled width="60px"/>). El cliente está de acuerdo en pagar esta cuota y entiende que los honorarios <b>SON / <span className='bf-radius'>NO SON REEMBOLSABLES</span></b> independientemente de que la póliza sea cancelada o rechazada por el cliente o la aseguradora. El cliente
+                El honorario del <b>Broker es</b> <CurrencyFormat 
+                    onChange={e => setBF(e.target.value)} 
+                    {...(inputBF === "" ? {style: {width: "100px", backgroundColor: 'yellow'}} : {style: {width: "100px"}})}
+                    thousandSeparator={true} 
+                    prefix={'$'} 
+                    maxlength="10"
+                    className='fw-bold text-center input-default'
+                /> (Iniciales del Cliente: <Input disabled width="60px" bColor="yellow"/>). El cliente está de acuerdo en pagar esta cuota y entiende que los honorarios <b>SON / <span className='bf-radius'>NO SON REEMBOLSABLES</span></b> independientemente de que la póliza sea cancelada o rechazada por el cliente o la aseguradora. El cliente
                 autoriza al corredor mantener los pagos de las primas en cuentas de fideicomiso y recibir cualquier ingreso por intereses del de las mismas, hasta que sea pagado a la
                 compañía de seguros. Servicios adicionales: el corredor puede cobrarlos siguientes tarifas por los siguientes servicios por encima de la cuota.            
             </p>
@@ -256,17 +265,19 @@ export default function SBFHomeInternals({name, date}) {
                 declaración sea emitida. El corredor y el cliente están de acuerdo con el arbitraje obligatorio con ADR de cualquier disputa en el cual la cantidad reclamada exceda la
                 jurisdicción de la corte de reclamos pequeños bajo las reglas establecidas por ADR, de conformidad con el código civil de procedimientos de California, in derecho a apelación.
             </p>
-            
-            <div className='d-flex justify-content-between mt-4 mx-5 pt-4 text-center fw-bold'>
-                <div className='border-top border-dark w-40'>
-                    <p className='mb-0'>Firma del Asegurado</p>
+
+            <div className='d-flex justify-content-between mt-3 mx-5 pt-3 text-center fw-bold'>
+                <div>
+                    <Input width="300px" className="text-center" disabled bColor="yellow"/>
+                    <p>Firma del Asegurado</p>
                 </div>
-                <div className='border-top border-dark w-40'>
-                    <p className='mb-0'>Firma del Agente</p>
+                <div>
+                    <Input width="300px" className="text-center" disabled/>
+                    <p>Firma del Agente</p>
                 </div>
             </div>
             
-            <p className='text-center mt-3 fw-bold'>
+            <p className='text-center mt-2 fw-bold'>
                 Si usted tiene cualquier pregunta o queja por favor comuníquese al nuestro teléfono gratuito de servicio al cliente al 1-888-290-4040. En cualquier caso de preguntas/problemas referente a la
                 cuota de corredor o seguro, contacte al Departamento de Seguros al 1-800-927-HELP.
             </p>

@@ -19,7 +19,7 @@ export default function Home({pages, name, address, phone, date}) {
 
     const [dateHO, setDateHO] = useState('')
 
-    let date2 = moment(dateHO).format('MM-DD-YYYY');
+    let date2 = moment(dateHO).format('MM/DD/YYYY');
 
     if (Object.values(pages).includes("renters")) {
         count++;
@@ -31,17 +31,17 @@ export default function Home({pages, name, address, phone, date}) {
 
     if (Object.values(pages).includes("dp3")) {
         count++;
-        dP3 = <><Badge text={count}/><DP3HO3Mobile name={name} date={date} setDateHO={setDateHO}/></>;
+        dP3 = <><Badge text={count}/><DP3HO3Mobile name={name} date={date} setDateHO={setDateHO} date2={date2}/></>;
     }
 
     if (Object.values(pages).includes("ho4")) {
         count++;
-        hO4 = <><Badge text={count}/><HO4 name={name} date={date} setDateHO={setDateHO}/></>;
+        hO4 = <><Badge text={count}/><HO4 name={name} date={date} setDateHO={setDateHO} date2={date2}/></>;
     }
 
     if (Object.values(pages).includes("ho6")) {
         count++;
-        hO6 = <><Badge text={count}/><HO6 name={name} date={date} setDateHO={setDateHO}/></>;
+        hO6 = <><Badge text={count}/><HO6 name={name} date={date} setDateHO={setDateHO} date2={date2}/></>;
     }
     
     count++;

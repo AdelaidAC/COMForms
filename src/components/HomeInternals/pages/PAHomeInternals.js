@@ -111,12 +111,6 @@ export default function PAHomeInternals({name, date, date2}) {
                 of my down payment and fully-earned Broker’s Fee, and I may incur a financial loss.
             </p>
 
-            {/*<div className='d-flex justify-content-center text-center pt-4'>
-                <div className='border-top border-dark' style={{ width: "300px"}}>
-                    <p className='mb-0 fw-bold'>Broker's Signature</p>
-                </div>
-            </div>*/}
-
             <Signature firstSignature="Named Insured Signature"/>
 
         </div>
