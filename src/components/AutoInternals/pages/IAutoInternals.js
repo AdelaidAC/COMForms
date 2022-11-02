@@ -20,7 +20,7 @@ import V15 from '../../../img/v15.jpg'
 import V16 from '../../../img/v16.jpg'
 
 
-export default function IAutoInternals({name}) {
+export default function IAutoInternals({name, date}) {
     
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -39,7 +39,8 @@ export default function IAutoInternals({name}) {
                     </span>
                 </div>
                 <div>
-                    <b>Date: </b><CDate/>
+                    <b>Date: </b>
+                    <Input value = {date} width = "80px" className = "text-center fw-bold"/>
                 </div>
             </div>
 

@@ -2,17 +2,17 @@ import React, { useEffect, useState} from 'react';
 import moment from 'moment/moment'
 import Badge from "../Badge.";
 import BFAutoInternals from "./pages/BFAutoInternals";
-import CCAAutoInternals from "./pages/CCAAutoInternals";
+import CCAutoInternals from "./pages/CCAutoInternals";
 import IAutoInternals from "./pages/IAutoInternals";
 import ISAutoInternals from "./pages/ISAutoInternals";
 import PAAutoInternals from "./pages/PAAutoInternals";
 import PNAutoInternals from "./pages/PNAutoInternals";
-import SpanishBFAutoInternals from "./pages/SpanishBFAutoInternals";
+import SBFAutoInternals from "./pages/SBFAutoInternals";
 import VDAutoInternals from "./pages/VDAutoInternals";
 
 export default function Auto({pages, name, address, phone, date}) {
 
-    let brokerFee, balanceDue, creditCard, infinity;
+    let brokerFee, balanceDue, creditCard, iS, vD, pA, infinity;
 
     let count = 0;
 
@@ -20,22 +20,35 @@ export default function Auto({pages, name, address, phone, date}) {
 
     let date2 = moment(dateVD).format('MM/DD/YYYY');
 
+    count++;
+    iS = <><Badge text={count}/><ISAutoInternals/></>;
+
+    count++;
+    vD = <><Badge text={count}/><VDAutoInternals name={name} date={date} setDateVD={setDateVD} date2={date2}/></>;
+
+    count++;
+    pA = <><Badge text={count}/><PAAutoInternals name={name} date={date} date2={date2}/></>;
+
     if (Object.values(pages).includes("spanishBF")) {
-        brokerFee = <SpanishBFAutoInternals name={name}/>;
+        count++;
+        brokerFee = <><Badge text={count}/><SBFAutoInternals name={name} date={date}/></>;
     } else {
-        brokerFee = <BFAutoInternals name={name}/>;
+        count++;
+        brokerFee = <><Badge text={count}/><BFAutoInternals name={name} date={date}/></>;
     }
 
     if (Object.values(pages).includes("balanceDue")) {
-        balanceDue = <><Badge text="5"/><PNAutoInternals name={name}/></>;
+        count++;
+        balanceDue = <><Badge text={count}/><PNAutoInternals name={name} address={address} phone={phone}/></>;
     }
 
     if (Object.values(pages).includes("creditCard")) {
-        creditCard = <><Badge text="6"/><CCAAutoInternals name={name}/></>;
+        count++;
+        creditCard = <><Badge text={count}/><CCAutoInternals name={name} address={address}/></>;
     }
 
     if (!Object.values(pages).includes("infinity")) {
-        infinity = <><Badge text="6"/><IAutoInternals name={name}/></>;
+        infinity = <><Badge text={count}/><IAutoInternals name={name} date={date}/></>;
     }
 
     React.useEffect(() => {
@@ -44,12 +57,9 @@ export default function Auto({pages, name, address, phone, date}) {
 
     return (
         <div>
-            <ISAutoInternals name={name}/>
-            <Badge text="1"/>
-            <VDAutoInternals name={name} date={date} setDateVD={setDateVD} date2={date2}/>
-            <Badge text="2"/>
-            <PAAutoInternals name={name} date={date} date2={date2}/>
-            <Badge text="3"/>
+            {iS}
+            {vD}
+            {pA}
             {brokerFee}
             {balanceDue}
             {creditCard}
