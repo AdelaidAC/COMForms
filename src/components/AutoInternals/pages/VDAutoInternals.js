@@ -33,21 +33,19 @@ export default function VDAutoInternals({name}) {
                 chosen to have coverage start on: <input type="date"/>
             </p>
 
-            <table style={{"margin-left": "auto", "margin-right": "auto"}} className="tb">
+            <table style={{"margin-left": "auto", "margin-right": "auto"}}>
                 <thead>
                     <tr>
                         <td colspan="4" className="fw-bold text-center font-14">Coverage Limits</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             Liability Bodily Injury:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL1"/>
-                            </label>
+                            <b>$</b> <input list="dL1" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL1">
                                 <option>15,000/30,000</option>
                                 <option>25,000/50,000</option>
@@ -62,9 +60,7 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                         <td className="fw-bold">
-                            <label>
-                                <span><u>Liability Deductible:</u> $</span> <input list="dL2"/>
-                            </label>
+                            <b><u>Liability Deductible:</u> $</b> <input list="dL2" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL2">
                                 <option>None</option>
                                 <option>250</option>
@@ -76,14 +72,12 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             Liability Property Damage:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL3"/>
-                            </label>
+                            <b>$</b> <input list="dL3" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL3">
                                 <option>***CSL***</option>
                                 <option>5,000</option>
@@ -97,14 +91,12 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             Medical Payment:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL4"/>
-                            </label>
+                            <b>$</b> <input list="dL4" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL4">
                                 <option>Not Purchased</option>
                                 <option>500</option>
@@ -115,14 +107,12 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             Uninsured Motorist BI:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL5"/>
-                            </label>
+                            <b>$</b> <input list="dL5" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL5">
                                 <option>Rejected</option>
                                 <option>15,000/30,000</option>
@@ -135,14 +125,12 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             Uninsured Motorist PD:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL6"/>
-                            </label>
+                            <b>$</b> <input list="dL6" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL6">
                                 <option>Rejected</option>
                                 <option>3,500</option>
@@ -152,14 +140,12 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             Comprehensive Deductible:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL7"/>
-                            </label>
+                            <b>$</b> <input list="dL7" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL7">
                                 <option>250,000</option>
                                 <option>500,000</option>
@@ -175,14 +161,12 @@ export default function VDAutoInternals({name}) {
                             6<input className="me-1" type="checkbox"/>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             Collision Deductible:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL8"/>
-                            </label>
+                            <b>$</b> <input list="dL8" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL8">
                                 <option>Not Purchased</option>
                                 <option>250</option>
@@ -202,14 +186,12 @@ export default function VDAutoInternals({name}) {
                             6<input className="me-1" type="checkbox"/>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             Theft and Fire Deductible:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL9"/>
-                            </label>
+                            <b>$</b> <input list="dL9" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL9">
                                 <option>Not Purchased</option>
                                 <option>250</option>
@@ -229,14 +211,12 @@ export default function VDAutoInternals({name}) {
                             6<input className="me-1" type="checkbox"/>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             Additional Insured:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL10"/>
-                            </label>
+                            <b>$</b> <input list="dL10" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL10">
                                 <option>Not Purchased</option>
                                 <option>250</option>
@@ -248,28 +228,24 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             Special Equipment:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL11"/>
-                            </label>
+                            <b>$</b> <input list="dL11" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL11">
                                 <option>Excluded</option>
                                 <option>Included</option>
                             </datalist>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             Tool Coverage:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL12"/>
-                            </label>
+                            <b>$</b> <input list="dL12" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL12">
                                 <option>Not Purchased</option>
                                 <option>30,000</option>
@@ -281,28 +257,24 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             Trailer Interchange:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL13"/>
-                            </label>
+                            <b>$</b> <input list="dL13" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL13">
                                 <option>Excluded</option>
                                 <option>Included</option>
                             </datalist>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             Motor Truck Cargo:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL14"/>
-                            </label>
+                            <b>$</b> <input list="dL14" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL14">
                                 <option>Not Purchased</option>
                                 <option>1 Purchased</option>
@@ -312,9 +284,7 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                         <td className="fw-bold">
-                            <label>
-                                <span><u>Deductible:</u> $</span> <input list="dL15"/>
-                            </label>
+                            <b><u>Deductible:</u> $</b> <input list="dL15" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL15">
                                 <option>Not Purchased</option>
                                 <option>250</option>
@@ -326,14 +296,12 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             Reefer Breakdown:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL16"/>
-                            </label>
+                            <b>$</b> <input list="dL16" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL16">
                                 <option>Not Purchased</option>
                                 <option>1 Purchased</option>
@@ -343,23 +311,19 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                         <td className="fw-bold">
-                            <label>
-                                <span><u>Deductible:</u> $</span> <input list="dL17"/>
-                            </label>
+                            <b><u>Deductible:</u> $</b> <input list="dL17" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL17">
                                 <option>2,500</option>
                                 <option>3,500</option>
                             </datalist>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="tr-h">
                         <td>
                             GL Coverage:
                         </td>
                         <td>
-                            <label>
-                                $ <input list="dL18"/>
-                            </label>
+                            <b>$</b> <input list="dL18" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL18">
                                 <option>Not Purchased</option>
                             </datalist>
@@ -369,7 +333,7 @@ export default function VDAutoInternals({name}) {
             </table>
 
         
-            <table className="mt-3 font-10">
+            <table className="mt-3 font-10 tb">
                 <thead>
                     <tr>
                         <td className="text-center border border-dark" colspan="2">Salvage Title</td>
@@ -377,7 +341,7 @@ export default function VDAutoInternals({name}) {
                     </tr>
                 </thead>
                 <tbody>
-                <tr className="text-center">
+                <tr className="text-center tr-h">
                     <td className="border-start border-dark">Yes</td>
                     <td className="border-end border-dark">No</td>
                     <td>Year</td>
@@ -386,7 +350,7 @@ export default function VDAutoInternals({name}) {
                     <td>VIN #</td>
                     <td>Stated Value</td>
                 </tr>
-                <tr className="text-center">
+                <tr className="text-center tr-h">
                     <td className="border-start border-dark">
                         <input type="checkbox"/>
                     </td>
@@ -415,7 +379,7 @@ export default function VDAutoInternals({name}) {
                         </datalist>
                     </td>
                 </tr>
-                <tr className="text-center">
+                <tr className="text-center tr-h">
                     <td className="border-start border-dark">
                         <input type="checkbox"/>
                     </td>
@@ -444,7 +408,7 @@ export default function VDAutoInternals({name}) {
                         </datalist>
                     </td>
                 </tr>
-                <tr className="text-center">
+                <tr className="text-center tr-h">
                     <td className="border-start border-dark">
                         <input type="checkbox"/>
                     </td>
@@ -473,7 +437,7 @@ export default function VDAutoInternals({name}) {
                         </datalist>
                     </td>
                 </tr>
-                <tr className="text-center">
+                <tr className="text-center tr-h">
                     <td className="border-start border-dark">
                         <input type="checkbox"/>
                     </td>
@@ -502,7 +466,7 @@ export default function VDAutoInternals({name}) {
                         </datalist>
                     </td>
                 </tr>
-                <tr className="text-center">
+                <tr className="text-center tr-h">
                     <td className="border-start border-dark">
                         <input type="checkbox"/>
                     </td>
@@ -531,7 +495,7 @@ export default function VDAutoInternals({name}) {
                         </datalist>
                     </td>
                 </tr>
-                <tr className="text-center">
+                <tr className="text-center tr-h">
                     <td className="border-start border-bottom border-dark">
                         <input type="checkbox"/>
                     </td>

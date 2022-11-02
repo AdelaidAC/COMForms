@@ -69,8 +69,7 @@ export default function VDWorkersComp({name, date, setDateVD}) {
                                 maxlength="12"
                                 style = {{width:"100px"}}
                                 className='fw-bold text-center input-default'
-                                list="BIAccident" 
-                                name="myBIAccident"
+                                list="BIAccident"
                             />
                             </label>
                             <datalist id="BIAccident">
@@ -95,8 +94,7 @@ export default function VDWorkersComp({name, date, setDateVD}) {
                                 maxlength="12"
                                 style = {{width:"100px"}}
                                 className='fw-bold text-center input-default'
-                                list="BIDisease" 
-                                name="myBIDisease"
+                                list="BIDisease"
                             />
                             </label>
                             <datalist id="BIDisease">
@@ -121,8 +119,7 @@ export default function VDWorkersComp({name, date, setDateVD}) {
                                 maxlength="12"
                                 style = {{width:"100px"}}
                                 className='fw-bold text-center input-default'
-                                list="BIDisease2" 
-                                name="myBIDisease2"
+                                list="BIDisease2"
                             />
                             </label>
                             <datalist id="BIDisease2">
@@ -142,7 +139,7 @@ export default function VDWorkersComp({name, date, setDateVD}) {
                         <td>
                             <label>
                                 &nbsp;&nbsp;
-                                <input list="WSubrogation" name="myWSubrogation" style={{width:"100px"}} className="text-center input-default fw-bold" maxlength="13"/>
+                                <input list="WSubrogation" style={{width:"100px"}} className="text-center input-default fw-bold" maxlength="13"/>
                             </label>
                             <datalist id="WSubrogation">
                                 <option value="Not Purchased"></option>
