@@ -9,10 +9,11 @@ import PAAutoInternals from "./pages/PAAutoInternals";
 import PNAutoInternals from "./pages/PNAutoInternals";
 import SBFAutoInternals from "./pages/SBFAutoInternals";
 import VDAutoInternals from "./pages/VDAutoInternals";
+import MotorCarrier from './pages/MotorCarrier';
 
 export default function Auto({pages, name, address, phone, date}) {
 
-    let brokerFee, balanceDue, creditCard, iS, vD, pA, infinity;
+    let brokerFee, balanceDue, creditCard, iS, vD, pA, infinity, mC;
 
     let count = 0;
 
@@ -51,6 +52,9 @@ export default function Auto({pages, name, address, phone, date}) {
         infinity = <><Badge text={count}/><IAutoInternals name={name} date={date}/></>;
     }
 
+    count++;
+    mC = <><Badge text={count}/><MotorCarrier name={name}/></>;
+
     React.useEffect(() => {
         window.scrollTo(0, 0);
       }, []);
@@ -64,6 +68,7 @@ export default function Auto({pages, name, address, phone, date}) {
             {balanceDue}
             {creditCard}
             {infinity}
+            {mC}
         </div>
     );
 }
