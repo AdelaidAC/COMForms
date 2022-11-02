@@ -4,7 +4,7 @@ import Input from "../../Input";
 import Logo from "../../Logo";
 import Title from "../../Title";
 
-export default function VDAutoInternals({name}) {
+export default function VDAutoInternals({name, date, setDateVD, date2}) {
     return (
         <div className="sheet font-11 text-justify">
             <Logo />
@@ -30,7 +30,13 @@ export default function VDAutoInternals({name}) {
                 I, <Input width="400px" className="text-center" value={name}/> hereby appoint Adriana’s Insurance Svcs, Inc. as my
                 Broker/Attorney in fact to sign papers, applications, documents that are
                 necessary in order to secure the insurance coverage specified below. I have also been advised of the importance of the effective date of the policy and have 
-                chosen to have coverage start on: <input type="date"/>
+                chosen to have coverage start on: 
+                <input 
+                    type="date" 
+                    style={{width: "100px"}} 
+                    onChange = {e => setDateVD(e.target.value)}
+                    {... date2 === "Invalid date" ? {className:"y text-center fw-bold"} : {className:"text-center fw-bold"}}
+                />
             </p>
 
             <table style={{"margin-left": "auto", "margin-right": "auto"}}>
@@ -152,13 +158,13 @@ export default function VDAutoInternals({name}) {
                                 <option>1,000,000</option>
                             </datalist>
                         </td>
-                        <td className="fw-bold">
-                            On Vehicle #1<input className="me-1" type="checkbox"/>
-                            2<input className="me-1" type="checkbox"/>
-                            3<input className="me-1" type="checkbox"/>
-                            4<input className="me-1" type="checkbox"/>
-                            5<input className="me-1" type="checkbox"/>
-                            6<input className="me-1" type="checkbox"/>
+                        <td className="fw-bold d-flex align-items-center">
+                            On Vehicle &nbsp;&nbsp;#1&nbsp;<input className="me-3" type="checkbox"/>
+                            2&nbsp;<input className="me-3" type="checkbox"/>
+                            3&nbsp;<input className="me-3" type="checkbox"/>
+                            4&nbsp;<input className="me-3" type="checkbox"/>
+                            5&nbsp;<input className="me-3" type="checkbox"/>
+                            6&nbsp;<input type="checkbox"/>
                         </td>
                     </tr>
                     <tr className="tr-h">
@@ -177,13 +183,13 @@ export default function VDAutoInternals({name}) {
                                 <option>2500</option>
                             </datalist>
                         </td> 
-                        <td className="fw-bold">
-                            On Vehicle #1<input className="me-1" type="checkbox"/>
-                            2<input className="me-1" type="checkbox"/>
-                            3<input className="me-1" type="checkbox"/>
-                            4<input className="me-1" type="checkbox"/>
-                            5<input className="me-1" type="checkbox"/>
-                            6<input className="me-1" type="checkbox"/>
+                        <td className="fw-bold d-flex align-items-center">
+                            On Vehicle &nbsp;&nbsp;#1&nbsp;<input className="me-3" type="checkbox"/>
+                            2&nbsp;<input className="me-3" type="checkbox"/>
+                            3&nbsp;<input className="me-3" type="checkbox"/>
+                            4&nbsp;<input className="me-3" type="checkbox"/>
+                            5&nbsp;<input className="me-3" type="checkbox"/>
+                            6&nbsp;<input type="checkbox"/>
                         </td>
                     </tr>
                     <tr className="tr-h">
@@ -202,13 +208,13 @@ export default function VDAutoInternals({name}) {
                                 <option>2500</option>
                             </datalist>
                         </td>
-                        <td className="fw-bold">
-                            On Vehicle #1<input className="me-1" type="checkbox"/>
-                            2<input className="me-1" type="checkbox"/>
-                            3<input className="me-1" type="checkbox"/>
-                            4<input className="me-1" type="checkbox"/>
-                            5<input className="me-1" type="checkbox"/>
-                            6<input className="me-1" type="checkbox"/>
+                        <td className="fw-bold d-flex align-items-center">
+                            On Vehicle &nbsp;&nbsp;#1&nbsp;<input className="me-3" type="checkbox"/>
+                            2&nbsp;<input className="me-3" type="checkbox"/>
+                            3&nbsp;<input className="me-3" type="checkbox"/>
+                            4&nbsp;<input className="me-3" type="checkbox"/>
+                            5&nbsp;<input className="me-3" type="checkbox"/>
+                            6&nbsp;<input type="checkbox"/>
                         </td>
                     </tr>
                     <tr className="tr-h">
@@ -336,12 +342,12 @@ export default function VDAutoInternals({name}) {
             <table className="mt-3 font-10 tb">
                 <thead>
                     <tr>
-                        <td className="text-center border border-dark" colspan="2">Salvage Title</td>
+                        <td className="text-center border border-dark fw-bold" colspan="2">Salvage Title</td>
                         <td colspan="5"></td>
                     </tr>
                 </thead>
                 <tbody>
-                <tr className="text-center tr-h">
+                <tr className="text-center tr-h fw-bold">
                     <td className="border-start border-dark">Yes</td>
                     <td className="border-end border-dark">No</td>
                     <td>Year</td>
@@ -358,8 +364,7 @@ export default function VDAutoInternals({name}) {
                         <input type="checkbox"/>
                     </td>
                     <td className="fw-bold">
-                        #1
-                        <Input className="text-center" maxlength="4"/>
+                        <span className="ms-2">#1 <Input className="text-center" maxlength="4"/></span>
                     </td>
                     <td>
                         <Input width="110px" className="text-center" maxlength="16"/> 
@@ -371,9 +376,7 @@ export default function VDAutoInternals({name}) {
                         <Input width="135px" className="text-center" maxlength="17"/> 
                     </td>
                     <td>
-                        <label>
-                            $ <input list="dLSV1" style={{width: "105px"}}/>
-                        </label>
+                        <b>$</b> <input list="dLSV1" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
                         <datalist id="dLSV1">
                             <option>None</option>
                         </datalist>
@@ -387,8 +390,7 @@ export default function VDAutoInternals({name}) {
                         <input type="checkbox"/>
                     </td>
                     <td className="fw-bold">
-                        #2
-                        <Input className="text-center" maxlength="4"/>
+                        <span className="ms-2">#2 <Input className="text-center" maxlength="4"/></span>
                     </td>
                     <td>
                         <Input width="110px" className="text-center" maxlength="16"/> 
@@ -400,9 +402,7 @@ export default function VDAutoInternals({name}) {
                         <Input width="135px" className="text-center" maxlength="17"/> 
                     </td>
                     <td>
-                        <label>
-                            $ <input list="dLSV2" style={{width: "105px"}}/>
-                        </label>
+                        <b>$</b> <input list="dLSV2" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
                         <datalist id="dLSV2">
                             <option>None</option>
                         </datalist>
@@ -416,8 +416,7 @@ export default function VDAutoInternals({name}) {
                         <input type="checkbox"/>
                     </td>
                     <td className="fw-bold">
-                        #3
-                        <Input className="text-center" maxlength="4"/>
+                        <span className="ms-2">#3 <Input className="text-center" maxlength="4"/></span>
                     </td>
                     <td>
                         <Input width="110px" className="text-center" maxlength="16"/> 
@@ -429,9 +428,7 @@ export default function VDAutoInternals({name}) {
                         <Input width="135px" className="text-center" maxlength="17"/> 
                     </td>
                     <td>
-                        <label>
-                            $ <input list="dLSV3" style={{width: "105px"}}/>
-                        </label>
+                        <b>$</b> <input list="dLSV3" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
                         <datalist id="dLSV3">
                             <option>None</option>
                         </datalist>
@@ -445,8 +442,7 @@ export default function VDAutoInternals({name}) {
                         <input type="checkbox"/>
                     </td>
                     <td className="fw-bold">
-                        #4
-                        <Input className="text-center" maxlength="4"/>
+                        <span className="ms-2">#4 <Input className="text-center" maxlength="4"/></span>
                     </td>
                     <td>
                         <Input width="110px" className="text-center" maxlength="16"/> 
@@ -458,9 +454,7 @@ export default function VDAutoInternals({name}) {
                         <Input width="135px" className="text-center" maxlength="17"/> 
                     </td>
                     <td>
-                        <label>
-                            $ <input list="dLSV4" style={{width: "105px"}}/>
-                        </label>
+                        <b>$</b> <input list="dLSV4" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
                         <datalist id="dLSV4">
                             <option>None</option>
                         </datalist>
@@ -474,8 +468,7 @@ export default function VDAutoInternals({name}) {
                         <input type="checkbox"/>
                     </td>
                     <td className="fw-bold">
-                        #5
-                        <Input className="text-center" maxlength="4"/>
+                        <span className="ms-2">#5 <Input className="text-center" maxlength="4"/></span>
                     </td>
                     <td>
                         <Input width="110px" className="text-center" maxlength="16"/> 
@@ -487,9 +480,7 @@ export default function VDAutoInternals({name}) {
                         <Input width="135px" className="text-center" maxlength="17"/> 
                     </td>
                     <td>
-                        <label>
-                            $ <input list="dLSV5" style={{width: "105px"}}/>
-                        </label>
+                        <b>$</b> <input list="dLSV5" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
                         <datalist id="dLSV5">
                             <option>None</option>
                         </datalist>
@@ -503,8 +494,7 @@ export default function VDAutoInternals({name}) {
                         <input type="checkbox"/>
                     </td>
                     <td className="fw-bold">
-                        #6
-                        <Input className="text-center" maxlength="4"/>
+                        <span className="ms-2">#6 <Input className="text-center" maxlength="4"/></span>
                     </td>
                     <td>
                         <Input width="110px" className="text-center" maxlength="16"/> 
@@ -516,9 +506,7 @@ export default function VDAutoInternals({name}) {
                         <Input width="135px" className="text-center" maxlength="17"/> 
                     </td>
                     <td>
-                        <label>
-                            $ <input list="dLSV6" style={{width: "105px"}}/>
-                        </label>
+                        <b>$</b> <input list="dLSV6" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
                         <datalist id="dLSV6">
                             <option>None</option>
                         </datalist>
@@ -540,7 +528,7 @@ export default function VDAutoInternals({name}) {
                     </tr>
                     <tr>
                         <td>
-                            1.- <input list="dLV1" style={{width: "140px"}}/>
+                            1.- <input list="dLV1" style={{width: "140px"}} className="text-center input-default"/>
                             <datalist id="dLV1">
                                 <option>Commercial</option>
                                 <option>Personal</option>
@@ -548,7 +536,7 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                         <td className="text-center">
-                            <input list="dLV3" style={{width: "60px"}}/>
+                            <input list="dLV3" style={{width: "60px"}} className="text-center input-default"/>
                             <datalist id="dLV3">
                                 <option>N/A</option>
                             </datalist>
@@ -556,14 +544,14 @@ export default function VDAutoInternals({name}) {
                         <td className="text-center">
                             <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
-                        <td>
-                            YES <input className="me-1" type="checkbox"/>
-                            NO <input className="me-1" type="checkbox"/>
+                        <td className="d-flex align-items-center">
+                            YES<input className="ms-1 me-3" type="checkbox"/>
+                            NO<input className="ms-1" type="checkbox"/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            2.- <input list="dLV4" style={{width: "140px"}}/>
+                            2.- <input list="dLV4" style={{width: "140px"}} className="text-center input-default"/>
                             <datalist id="dLV4">
                                 <option>Commercial</option>
                                 <option>Personal</option>
@@ -571,7 +559,7 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                         <td className="text-center">
-                            <input list="dLV6" style={{width: "60px"}}/>
+                            <input list="dLV6" style={{width: "60px"}} className="text-center input-default"/>
                             <datalist id="dLV6">
                                 <option>N/A</option>
                             </datalist>
@@ -579,14 +567,14 @@ export default function VDAutoInternals({name}) {
                         <td className="text-center">
                             <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
-                        <td>
-                            YES <input className="me-1" type="checkbox"/>
-                            NO <input className="me-1" type="checkbox"/>
+                        <td className="d-flex align-items-center">
+                            YES<input className="ms-1 me-3" type="checkbox"/>
+                            NO<input className="ms-1" type="checkbox"/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            3.- <input list="dLV7" style={{width: "140px"}}/>
+                            3.- <input list="dLV7" style={{width: "140px"}} className="text-center input-default"/>
                             <datalist id="dLV7">
                                 <option>Commercial</option>
                                 <option>Personal</option>
@@ -594,7 +582,7 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                         <td className="text-center">
-                            <input list="dLV9" style={{width: "60px"}}/>
+                            <input list="dLV9" style={{width: "60px"}} className="text-center input-default"/>
                             <datalist id="dLV9">
                                 <option>N/A</option>
                             </datalist>
@@ -602,14 +590,14 @@ export default function VDAutoInternals({name}) {
                         <td className="text-center">
                             <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
-                        <td>
-                            YES <input className="me-1" type="checkbox"/>
-                            NO <input className="me-1" type="checkbox"/>
+                        <td className="d-flex align-items-center">
+                            YES<input className="ms-1 me-3" type="checkbox"/>
+                            NO<input className="ms-1" type="checkbox"/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            4.- <input list="dLV10" style={{width: "140px"}}/>
+                            4.- <input list="dLV10" style={{width: "140px"}} className="text-center input-default"/>
                             <datalist id="dLV10">
                                 <option>Commercial</option>
                                 <option>Personal</option>
@@ -617,7 +605,7 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                         <td className="text-center">
-                            <input list="dLV12" style={{width: "60px"}}/>
+                            <input list="dLV12" style={{width: "60px"}} className="text-center input-default"/>
                             <datalist id="dLV12">
                                 <option>N/A</option>
                             </datalist>
@@ -625,14 +613,14 @@ export default function VDAutoInternals({name}) {
                         <td className="text-center">
                             <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
-                        <td>
-                            YES <input className="me-1" type="checkbox"/>
-                            NO <input className="me-1" type="checkbox"/>
+                        <td className="d-flex align-items-center">
+                            YES<input className="ms-1 me-3" type="checkbox"/>
+                            NO<input className="ms-1" type="checkbox"/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            5.- <input list="dLV13" style={{width: "140px"}}/>
+                            5.- <input list="dLV13" style={{width: "140px"}} className="text-center input-default"/>
                             <datalist id="dLV13">
                                 <option>Commercial</option>
                                 <option>Personal</option>
@@ -640,7 +628,7 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                         <td className="text-center">
-                            <input list="dLV15" style={{width: "60px"}}/>
+                            <input list="dLV15" style={{width: "60px"}} className="text-center input-default"/>
                             <datalist id="dLV15">
                                 <option>N/A</option>
                             </datalist>
@@ -648,14 +636,14 @@ export default function VDAutoInternals({name}) {
                         <td className="text-center">
                             <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
-                        <td>
-                            YES <input className="me-1" type="checkbox"/>
-                            NO <input className="me-1" type="checkbox"/>
+                        <td className="d-flex align-items-center">
+                            YES<input className="ms-1 me-3" type="checkbox"/>
+                            NO<input className="ms-1" type="checkbox"/>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            6.- <input list="dLV16" style={{width: "140px"}}/>
+                            6.- <input list="dLV16" style={{width: "140px"}} className="text-center input-default"/>
                             <datalist id="dLV16">
                                 <option>Commercial</option>
                                 <option>Personal</option>
@@ -663,7 +651,7 @@ export default function VDAutoInternals({name}) {
                             </datalist>
                         </td>
                         <td className="text-center">
-                            <input list="dLV18" style={{width: "60px"}}/>
+                            <input list="dLV18" style={{width: "60px"}} className="text-center input-default"/>
                             <datalist id="dLV18">
                                 <option>N/A</option>
                             </datalist>
@@ -671,9 +659,9 @@ export default function VDAutoInternals({name}) {
                         <td className="text-center">
                             <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
-                        <td>
-                            YES <input className="me-1" type="checkbox"/>
-                            NO <input className="me-1" type="checkbox"/>
+                        <td className="d-flex align-items-center">
+                            YES<input className="ms-1 me-3" type="checkbox"/>
+                            NO<input className="ms-1" type="checkbox"/>
                         </td>
                     </tr>
                 </tbody>
@@ -687,18 +675,13 @@ export default function VDAutoInternals({name}) {
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td className="d-flex align-items-center">
                         Filings Purchased:
-                        <b className="ms-2">MCP</b> 
-                        <input className="ms-1 me-2" type="checkbox"/>
-                        <b>ICC</b> 
-                        <input className="ms-1 me-2" type="checkbox"/>
-                        <b>DOT</b> 
-                        <input className="ms-1 me-2" type="checkbox"/>
-                        <b>PUC</b> 
-                        <input className="ms-1 me-2" type="checkbox"/>
-                        <b>NONE</b> 
-                        <input className="ms-1" type="checkbox"/>
+                        <b className="ms-3">MCP</b><input className="ms-2 me-3" type="checkbox"/>
+                        <b>ICC</b><input className="ms-2 me-3" type="checkbox"/>
+                        <b>DOT</b><input className="ms-2 me-3" type="checkbox"/>
+                        <b>PUC</b><input className="ms-2 me-3" type="checkbox"/>
+                        <b>NONE</b><input className="ms-2" type="checkbox"/>
                     </td>
                 </tr>
                 <tr>
@@ -708,12 +691,16 @@ export default function VDAutoInternals({name}) {
                 </tr>
             </table>
 
-            
+            <p className="fw-bold text-center my-4">
+                All the above described coverage and conditions have been reviewed and approved by the signer below.
+            </p>
 
-            <div className="d-flex justify-content-between my-3">
-                <div></div>
+            <div className="d-flex justify-content-between fw-bold">
                 <div>
-                    <b>Date:</b> <CDate/>
+                    Insured’s Signature: <Input width="300px" disabled bColor="yellow"/>
+                </div>
+                <div>
+                    Date: <Input value = {date} width = "80px" className = "text-center fw-bold"/>
                 </div>
             </div>
             

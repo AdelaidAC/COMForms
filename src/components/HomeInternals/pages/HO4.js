@@ -11,10 +11,6 @@ export default function HO4({name, date, setDateHO, date2}) {
         window.scrollTo(0, 0);
     }, []);
 
-    console.log(typeof date2);
-    console.log(date2);
-    console.log(date2 === "Invalid date");
-
     const [c1, setC1] = useState('');
     const [c2, setC2] = useState('');
     const [c3, setC3] = useState('');

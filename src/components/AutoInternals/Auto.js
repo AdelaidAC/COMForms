@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState} from 'react';
+import moment from 'moment/moment'
 import Badge from "../Badge.";
 import BFAutoInternals from "./pages/BFAutoInternals";
 import CCAAutoInternals from "./pages/CCAAutoInternals";
@@ -9,9 +10,15 @@ import PNAutoInternals from "./pages/PNAutoInternals";
 import SpanishBFAutoInternals from "./pages/SpanishBFAutoInternals";
 import VDAutoInternals from "./pages/VDAutoInternals";
 
-export default function Auto({pages, name, initials, address, phone}) {
+export default function Auto({pages, name, address, phone, date}) {
 
     let brokerFee, balanceDue, creditCard, infinity;
+
+    let count = 0;
+
+    const [dateVD, setDateVD] = useState('')
+
+    let date2 = moment(dateVD).format('MM/DD/YYYY');
 
     if (Object.values(pages).includes("spanishBF")) {
         brokerFee = <SpanishBFAutoInternals name={name}/>;
@@ -39,9 +46,9 @@ export default function Auto({pages, name, initials, address, phone}) {
         <div>
             <ISAutoInternals name={name}/>
             <Badge text="1"/>
-            <VDAutoInternals name={name}/>
+            <VDAutoInternals name={name} date={date} setDateVD={setDateVD} date2={date2}/>
             <Badge text="2"/>
-            <PAAutoInternals name={name}/>
+            <PAAutoInternals name={name} date={date} date2={date2}/>
             <Badge text="3"/>
             {brokerFee}
             {balanceDue}

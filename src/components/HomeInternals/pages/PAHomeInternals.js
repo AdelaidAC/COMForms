@@ -24,8 +24,6 @@ export default function PAHomeInternals({name, date, date2}) {
         window.scrollTo(0, 0);
     }, []);
 
-    {/*const [startDate, setStartDate] = useState('');*/}
-
     let endDate = moment(date2).add(7, 'days').format('MM/DD/YYYY');
 
     return (
@@ -48,10 +46,6 @@ export default function PAHomeInternals({name, date, date2}) {
                     <Input value = {date} width = "80px" className = "text-center fw-bold"/>
                 </div>
             </div>
-
-            {/*<p>
-                It is my stated intention to obtain insurance coverage effective <strong>{info.date}</strong>, however I do not have copies of the following information with me:
-            </p>*/}
 
             <p className='font-11 my-4'>
                 It is my stated intention to obtain insurance coverage effective <Input value = {date2} width = "80px" className = "text-center fw-bold"/>, however I do not have copies of the following information with me:
