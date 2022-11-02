@@ -570,7 +570,6 @@ export default function VDAutoInternals({name}) {
                     </tr>
                     <tr className="text-center fw-bold font-11">
                         <td className="border border-dark">#</td>
-                        <td className="border border-dark">States</td>
                         <td className="border border-dark">Stops per day:</td>
                         <td className="border border-dark">Miles Radius:</td>
                         <td className="border border-dark">Telematics</td>
@@ -582,16 +581,6 @@ export default function VDAutoInternals({name}) {
                                 <option>Commercial</option>
                                 <option>Personal</option>
                                 <option>Commercial & Personal</option>
-                            </datalist>
-                        </td>
-                        <td>
-                            <input list="dLV2" style={{width: "125px"}}/>
-                            <datalist id="dLV2">
-                                <option>California Only</option>
-                                <option>11 Western States</option>
-                                <option>27 Western States</option>
-                                <option>27 Western + Texas</option>
-                                <option>48 Continental States</option>
                             </datalist>
                         </td>
                         <td className="text-center">
@@ -617,16 +606,6 @@ export default function VDAutoInternals({name}) {
                                 <option>Commercial & Personal</option>
                             </datalist>
                         </td>
-                        <td>
-                            <input list="dLV5" style={{width: "125px"}}/>
-                            <datalist id="dLV5">
-                                <option>California Only</option>
-                                <option>11 Western States</option>
-                                <option>27 Western States</option>
-                                <option>27 Western + Texas</option>
-                                <option>48 Continental States</option>
-                            </datalist>
-                        </td>
                         <td className="text-center">
                             <input list="dLV6" style={{width: "60px"}}/>
                             <datalist id="dLV6">
@@ -648,16 +627,6 @@ export default function VDAutoInternals({name}) {
                                 <option>Commercial</option>
                                 <option>Personal</option>
                                 <option>Commercial & Personal</option>
-                            </datalist>
-                        </td>
-                        <td>
-                            <input list="dLV8" style={{width: "125px"}}/>
-                            <datalist id="dLV8">
-                                <option>California Only</option>
-                                <option>11 Western States</option>
-                                <option>27 Western States</option>
-                                <option>27 Western + Texas</option>
-                                <option>48 Continental States</option>
                             </datalist>
                         </td>
                         <td className="text-center">
@@ -683,16 +652,6 @@ export default function VDAutoInternals({name}) {
                                 <option>Commercial & Personal</option>
                             </datalist>
                         </td>
-                        <td>
-                            <input list="dLV11" style={{width: "125px"}}/>
-                            <datalist id="dLV11">
-                                <option>California Only</option>
-                                <option>11 Western States</option>
-                                <option>27 Western States</option>
-                                <option>27 Western + Texas</option>
-                                <option>48 Continental States</option>
-                            </datalist>
-                        </td>
                         <td className="text-center">
                             <input list="dLV12" style={{width: "60px"}}/>
                             <datalist id="dLV12">
@@ -716,16 +675,6 @@ export default function VDAutoInternals({name}) {
                                 <option>Commercial & Personal</option>
                             </datalist>
                         </td>
-                        <td>
-                            <input list="dLV14" style={{width: "125px"}}/>
-                            <datalist id="dLV14">
-                                <option>California Only</option>
-                                <option>11 Western States</option>
-                                <option>27 Western States</option>
-                                <option>27 Western + Texas</option>
-                                <option>48 Continental States</option>
-                            </datalist>
-                        </td>
                         <td className="text-center">
                             <input list="dLV15" style={{width: "60px"}}/>
                             <datalist id="dLV15">
@@ -747,16 +696,6 @@ export default function VDAutoInternals({name}) {
                                 <option>Commercial</option>
                                 <option>Personal</option>
                                 <option>Commercial & Personal</option>
-                            </datalist>
-                        </td>
-                        <td>
-                            <input list="dLV17" style={{width: "125px"}}/>
-                            <datalist id="dLV17">
-                                <option>California Only</option>
-                                <option>11 Western States</option>
-                                <option>27 Western States</option>
-                                <option>27 Western + Texas</option>
-                                <option>48 Continental States</option>
                             </datalist>
                         </td>
                         <td className="text-center">

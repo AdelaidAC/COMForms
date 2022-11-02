@@ -4,7 +4,7 @@ import CDate from '../../CDate';
 import Title from '../../Title'
 import Logo from '../../Logo'
 
-export default function ISAutoInternals ({name, address, phone}) {
+export default function ISAutoInternals ({}) {
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -22,19 +22,14 @@ export default function ISAutoInternals ({name, address, phone}) {
             </p>
 
             <div className='d-flex justify-content-between'>
-                <div className='d-flex col-9'>
+                <div className='d-flex col-8'>
                     <b>Business Name:</b>
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1" maxlength="40" value={name}/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
                 <div className='d-flex'>
-                    <b>Entity Type:</b>
-                    <select className='ms-1'>
-                        <option>Individual</option>
-                        <option>Corporation</option>
-                        <option>LLC</option>
-                    </select>
+                <span><b>Entity Type:</b>&nbsp;&nbsp;Invidual&nbsp;&nbsp;Corporation&nbsp;&nbsp;LLC</span>
                 </div>
             </div>
 
@@ -42,13 +37,13 @@ export default function ISAutoInternals ({name, address, phone}) {
                 <div className='d-flex col-9'>
                     <b>Insured’s Name:</b>
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1" maxlength="40" value={name}/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
                 <div className='d-flex'>
                     <b>Date of Birth:</b>
                     <span className="flex-fill">
-                        <Input className="ms-1" maxlength="40" width = "80px" placeholder = "mm/dd/yyyy"/>
+                        <Input className="ms-1" width = "80px" disabled/>
                     </span>
                 </div>
             </div>
@@ -57,13 +52,13 @@ export default function ISAutoInternals ({name, address, phone}) {
                 <div class="col d-flex">
                     <span><b><u>Garaging</u></b> Address/Dirección de Garage:</span>
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1" maxlength="40" value={phone}/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
                 <div className='ms-2 d-flex'>
                     Apt. No.
                     <span className="flex-fill">
-                        <Input className="ms-1" maxlength="40" width = "85px"/>
+                        <Input className="ms-1" width = "85px" disabled/>
                     </span>
                 </div>
             </div>
@@ -72,19 +67,19 @@ export default function ISAutoInternals ({name, address, phone}) {
                 <div class="col d-flex">
                     City/Ciudad:
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1" maxlength="40" value={phone}/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
                 <div class="col d-flex">
                     Zip Code/C.P.
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1" maxlength="45"/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
                 <div class="col d-flex">
                     Telephone No.
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1" maxlength="45" placeholder="(000) 000 - 0000"/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
             </div>
@@ -93,13 +88,13 @@ export default function ISAutoInternals ({name, address, phone}) {
                 <div class="col d-flex">
                     <span><b><u>Mailing</u></b> Address/Dirección de Correspondencia:</span>
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1" maxlength="40" value={phone}/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
                 <div className='ms-2 d-flex'>
                     Apt. No.
                     <span className="flex-fill">
-                        <Input className="ms-1" maxlength="40" width = "85px"/>
+                        <Input className="ms-1" width = "85px" disabled/>
                     </span>
                 </div>
             </div>
@@ -108,46 +103,55 @@ export default function ISAutoInternals ({name, address, phone}) {
                 <div class="col d-flex">
                     City/Ciudad:
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1" maxlength="40" value={phone}/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
                 <div class="col d-flex">
                     Zip Code/C.P.
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1" maxlength="45"/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
                 <div class="col d-flex">
                     Mobile No.
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1" maxlength="45" placeholder="(000) 000 - 0000"/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
             </div>
 
-            <div className="d-flex my-1">
-                <span>Civil Status/<i>Estatus Civil:</i></span>
-                <select className='ms-1'>
-                    <option>Married/Casado</option>
-                    <option>Single/Soltero</option>
-                    <option>Divorced/Divorciado</option>
-                    <option>Widowed/Viudo</option>
-                    <option>Separated/Separado</option>
-                    <option>Registered Domestic Partner/Vive con su pareja</option>
-                </select>
-            </div>
+            <table className="table table-fit w-100 m-0 p-0">
+                <tr>
+                    <td className='fw-bold'>Civil Status:</td>
+                    <td className='text-center'>Married</td>
+                    <td className='text-center'>Single</td>
+                    <td className='text-center'>Divorced</td>
+                    <td className='text-center'>Widowed</td>
+                    <td className='text-center'>Separated</td>
+                    <td className='text-center'>Registered Domestic Partner</td>
+                </tr>
+                <tr>
+                    <td className='fw-bold'>Estatus Civil:</td>
+                    <td className='text-center'>Casado</td>
+                    <td className='text-center'>Soltero</td>
+                    <td className='text-center'>Divorciado</td>
+                    <td className='text-center'>Viudo</td>
+                    <td className='text-center'>Separado</td>
+                    <td className='text-center'>Vive con su pareja</td>
+                </tr>
+            </table>
 
-            <div className="d-flex my-1">
+            <div className="d-flex mb-1">
                 <span>Occupation & Description/<i>Oficio y Descripcion:</i></span>
                 <span className="flex-fill">
-                    <Input className="w-100 ms-1" maxlength="80" value={name}/>
+                    <Input className="w-100 ms-1" disabled/>
                 </span>
             </div>
 
             <div className="d-flex my-1">
                 <span>Ever do work out of state/<i>Sale del estado para hacer trabajos:</i></span>
                 <span className="flex-fill">
-                    <Input className="w-100 ms-1" maxlength="80" value={name}/>
+                    <Input className="w-100 ms-1" disabled/>
                 </span>
             </div>
 
@@ -155,26 +159,19 @@ export default function ISAutoInternals ({name, address, phone}) {
                 <div className='d-flex'>
                     <span>How many miles radius do you operate/<i>Cuantas millas a la redonda trabaja:</i></span>
                     <span className="flex-fill">
-                        <Input className="ms-1" maxlength="40" width="70px"/>
+                        <Input className="ms-1" width="70px" disabled/>
                     </span>
                 </div>
                 <div className='d-flex'>
                     <span>Years in business/<i>Años con el negocio:</i></span>
                     <span className="flex-fill">
-                        <Input className="ms-1" maxlength="40" width="60px"/>
+                        <Input className="ms-1" width="60px" disabled/>
                     </span>
                 </div>
             </div>
 
             <div className="d-flex my-1">
-                Do you have a CA # or DOT #?
-                <span className="flex-fill">
-                    <input list="caDot" className="w-100 ms-1" maxlength="80"/>
-                    <datalist id="caDot">
-                        <option>Yes</option>
-                        <option>No</option>
-                    </datalist>
-                </span>
+                <span><b>Do you have a CA # or DOT #?</b>&nbsp;&nbsp;Yes&nbsp;&nbsp;No</span>
             </div>
 
             <table className='w-100'>
@@ -199,22 +196,22 @@ export default function ISAutoInternals ({name, address, phone}) {
                 </tr>
                 <tr className='text-center'>
                     <td colspan="4">
-                        <Input className="w-100 text-center" maxlength="80"/>
+                        <Input className="w-100" disabled/>
                     </td>
                 </tr>
                 <tr className='text-center'>
                     <td colspan="4">
-                        <Input className="w-100 text-center" maxlength="80"/>
+                        <Input className="w-100" disabled/>
                     </td>
                 </tr>
                 <tr className='text-center'>
                     <td colspan="4">
-                        <Input className="w-100 text-center" maxlength="80"/>
+                        <Input className="w-100" disabled/>
                     </td>
                 </tr>
                 <tr className='text-center'>
                     <td colspan="4">
-                        <Input className="w-100 text-center" maxlength="80"/>
+                        <Input className="w-100" disabled/>
                     </td>
                 </tr>
             </table>
@@ -236,90 +233,70 @@ export default function ISAutoInternals ({name, address, phone}) {
                 </tr>
                 <tr className="text-center">
                     <td className="fw-bold">
-                        <Input className="text-center" maxlength="4"/>
+                        <Input disabled/>
                     </td>
                     <td>
-                        <Input width="110px" className="text-center" maxlength="16"/> 
+                        <Input width="110px" disabled/> 
                     </td>
                     <td>
-                        <Input width="180px" className="text-center" maxlength="25"/> 
+                        <Input width="180px" disabled/> 
                     </td>
                     <td>
-                        <Input width="135px" className="text-center" maxlength="17"/> 
+                        <Input width="135px" disabled/> 
                     </td>
                     <td>
-                        <label>
-                            $ <input list="dLSV1" style={{width: "105px"}}/>
-                        </label>
-                        <datalist id="dLSV1">
-                            <option>None</option>
-                        </datalist>
+                        $ <Input width="105px" disabled/>
                     </td>
                 </tr>
                 <tr className="text-center">
                     <td className="fw-bold">
-                        <Input className="text-center" maxlength="4"/>
+                        <Input disabled/>
                     </td>
                     <td>
-                        <Input width="110px" className="text-center" maxlength="16"/> 
+                        <Input width="110px" disabled/> 
                     </td>
                     <td>
-                        <Input width="180px" className="text-center" maxlength="25"/> 
+                        <Input width="180px" disabled/> 
                     </td>
                     <td>
-                        <Input width="135px" className="text-center" maxlength="17"/> 
+                        <Input width="135px" disabled/> 
                     </td>
                     <td>
-                        <label>
-                            $ <input list="dLSV1" style={{width: "105px"}}/>
-                        </label>
-                        <datalist id="dLSV1">
-                            <option>None</option>
-                        </datalist>
+                        $ <Input width="105px" disabled/>
                     </td>
                 </tr>
                 <tr className="text-center">
                     <td className="fw-bold">
-                        <Input className="text-center" maxlength="4"/>
+                        <Input disabled/>
                     </td>
                     <td>
-                        <Input width="110px" className="text-center" maxlength="16"/> 
+                        <Input width="110px" disabled/> 
                     </td>
                     <td>
-                        <Input width="180px" className="text-center" maxlength="25"/> 
+                        <Input width="180px" disabled/> 
                     </td>
                     <td>
-                        <Input width="135px" className="text-center" maxlength="17"/> 
+                        <Input width="135px" disabled/> 
                     </td>
                     <td>
-                        <label>
-                            $ <input list="dLSV1" style={{width: "105px"}}/>
-                        </label>
-                        <datalist id="dLSV1">
-                            <option>None</option>
-                        </datalist>
+                        $ <Input width="105px" disabled/>
                     </td>
                 </tr>
                 <tr className="text-center">
                     <td className="fw-bold">
-                        <Input className="text-center" maxlength="4"/>
+                        <Input disabled/>
                     </td>
                     <td>
-                        <Input width="110px" className="text-center" maxlength="16"/> 
+                        <Input width="110px" disabled/> 
                     </td>
                     <td>
-                        <Input width="180px" className="text-center" maxlength="25"/> 
+                        <Input width="180px" disabled/> 
                     </td>
                     <td>
-                        <Input width="135px" className="text-center" maxlength="17"/> 
+                        <Input width="135px" disabled/> 
                     </td>
                     <td>
-                        <label>
-                            $ <input list="dLSV1" style={{width: "105px"}}/>
-                        </label>
-                        <datalist id="dLSV1">
-                            <option>None</option>
-                        </datalist>
+                        $ <Input width="105px" disabled/>
                     </td>
                 </tr>
             </table>
@@ -328,14 +305,14 @@ export default function ISAutoInternals ({name, address, phone}) {
 
             <div className='font-9 text-justify mt-2 lh-2'>
                 <p>
-                    I hereby apply to Adriana’s Insurance for a policy of insurance. I agree that such policy shall be null and void if such information is materially false or misleading. I understand
+                    I hereby apply to Adriana’s Insurance Services, Inc. for a policy of insurance. I agree that such policy shall be null and void if such information is materially false or misleading. I understand
                     that any existing damage to my car at the time of application will not be covered by this insurance. I further understand that my policy does not covered any special equipment
                     not factory installed to my insured vehicle. I agree that the Insurance Company may correct my premium if rated incorrectly or if information obtained from additional sources,
                     including motor vehicle reports, changes factors which affect the premium. I agree and understand that if the correct premium is not paid, my policy will expire, or be cancelled
                     for non payment of premium, based on the correct premium developed.
                     <br/><br/>
                     <i>
-                        Yo estoy aquí aplicando en Adriana’s Insurance para una Póliza de Seguro. Y acepto que esta póliza es Nula o Cancelada si la información que les doy es falsa o errónea. Yo
+                        Yo estoy aquí aplicando en Adriana’s Insurance Services, Inc. para una Póliza de Seguro. Y acepto que esta póliza es Nula o Cancelada si la información que les doy es falsa o errónea. Yo
                         entiendo que si existe un daño previo en mi auto al tiempo de este trámite NO tendré ningún tipo de cobertura através de este seguro. Yo entiendo que en un futuro mi póliza
                         puede no darme cobertura por cualquier equipo especial instalado en mi auto que No sea de fábrica. Acepto que la Compañía de Seguros puede corregir el Premium de mi
                         seguro en caso de que el Premium sea incorrecto debido a la información obtenida através de otros servicios adicionales tales como El Departamento de Motores y Vehículos,
@@ -349,12 +326,12 @@ export default function ISAutoInternals ({name, address, phone}) {
                 <div className='d-flex flex-fill'>
                     <b>Applicant Signature: </b>
                     <span className='flex-fill mx-1'>
-                        <Input className="w-100" maxlength="80" disabled = "true"/>
+                        <Input className="w-100 text-center" disabled/>
                     </span>
                 </div>
                 <div>
                     <b>Date: </b>
-                    <CDate/>
+                    <Input className="ms-1 text-center" width = "80px" disabled/>
                 </div>
             </div>
 
