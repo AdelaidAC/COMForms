@@ -5,7 +5,7 @@ import Title from "../../Title";
 import CurrencyFormat from 'react-currency-format';
 
 
-export default function VDWorkersComp({name, date, setDateVD}) {
+export default function VDWorkersComp({name, date, setDateVD, date2}) {
     return (
         <div className="sheet font-11 text-justify">
             
@@ -36,7 +36,12 @@ export default function VDWorkersComp({name, date, setDateVD}) {
                     </span>
                 </div>
                 <div>
-                    <b>Date Coverage Starts: <input type="date" className='text-center' style={{width: "100px"}} onChange = {e => setDateVD(e.target.value)}/></b>
+                    <b>Date Coverage Starts: <input 
+                    type="date" 
+                    style={{width: "100px"}} 
+                    onChange = {e => setDateVD(e.target.value)}
+                    {... date2 === "Invalid date" ? {className:"y text-center fw-bold"} : {className:"text-center fw-bold"}}
+                    /></b>
                 </div>
             </div>
 

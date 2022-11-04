@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 import './App.css';
 import ReactToPrint from 'react-to-print';
 
-import Bond from './components/BondInternals/Bond';
+import Bond from './components/Bond/Bond';
 import GeneralLiability from './components/GeneralLiability/GeneralLiability';
 import Flood from './components/FloodInternals/Flood';
 import Home from './components/HomeInternals/Home';

@@ -23,7 +23,7 @@ export default function Workers({pages, name, address, phone, date}) {
     iS = <><Badge text={count}/><ISWorkersComp/></>;
 
     count++;
-    vD = <><Badge text={count}/><VDWorkersComp name={name} date={date} setDateVD={setDateVD}/></>;
+    vD = <><Badge text={count}/><VDWorkersComp name={name} date={date} setDateVD={setDateVD} date2={date2}/></>;
 
     count++;
     pA = <><Badge text={count}/><PAWorkersComp name={name} date={date} date2={date2}/></>;
