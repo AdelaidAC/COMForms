@@ -6,7 +6,7 @@ import Subtitle from '../../Subtitle'
 import CDate from '../../CDate';
 import Title from '../../Title'
 
-export default function BAFloodInternals({firstSignature, secondSignature, name, initials, address, phone}) {
+export default function BAFlood({firstSignature, secondSignature, name, initials, address, phone}) {
     return (
         <div className='sheet font-12 text-justify'>
             

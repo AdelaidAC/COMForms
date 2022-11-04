@@ -3,7 +3,7 @@ import Input from "../../Input";
 import Logo from "../../Logo";
 import Title from "../../Title";
 
-export default function SBFDFFloodInternals({name, initials, address, phone}) {
+export default function SBFDFFlood({name, initials, address, phone}) {
     return (
         <div className="sheet font-14 text-justify">
             

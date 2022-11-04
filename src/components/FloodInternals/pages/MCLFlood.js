@@ -3,7 +3,7 @@ import Input from '../../Input'
 import CDate from '../../CDate';
 import Title from '../../Title'
 
-export default function MCLFloodInternals({firstSignature, secondSignature, name, initials, address, phone}) {
+export default function MCLFlood({firstSignature, secondSignature, name, initials, address, phone}) {
     return (
         <div className='sheet font-12 text-justify'>
             

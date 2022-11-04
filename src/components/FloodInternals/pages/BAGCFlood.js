@@ -31,7 +31,7 @@ const disclosures = [
     },
 ];
 
-export default function BAGCFloodInternals({name, initials, address, phone}) {
+export default function BAGCFlood({name, initials, address, phone}) {
     return (
         
         <div className="sheet font-12 text-justify">

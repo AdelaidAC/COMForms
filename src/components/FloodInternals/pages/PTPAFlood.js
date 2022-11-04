@@ -16,7 +16,7 @@ const agreementValues = [
     "OTHER"
 ]
 
-export default function PTPAFloodInternals({name, initials, address, phone}) {
+export default function PTPAFlood({name, initials, address, phone}) {
     return (
         
         <div className='sheet font-14 text-justify'>

@@ -4,7 +4,7 @@ import Logo from "../../Logo";
 import Title from "../../Title";
 import CDate from '../../CDate';
 
-export default function TwoFloodInternals({name, initials, address, phone}) {
+export default function TwoFlood({name, initials, address, phone}) {
     return (
         <div className="sheet font-12">
             
