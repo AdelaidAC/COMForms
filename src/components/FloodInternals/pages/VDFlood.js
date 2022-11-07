@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from 'react';
+import parse from "html-react-parser";
 import CurrencyFormat from 'react-currency-format';
 import Input from "../../Input";
 import Logo from "../../Logo";
@@ -26,8 +27,6 @@ export default function VDFlood({name, date, setDateVD, date2}) {
     const [inputC, setInputC] = useState('');
     const [inputD, setInputD] = useState('');
     const [inputE, setInputE] = useState('');
-    const [inputF, setInputF] = useState('');
-    const [deductible, setDeductible] = useState(''); /* Input Deductible */
 
     const [chkAYes, setChkAYes] = useState(false);
     const [chkANo, setChkANo] = useState(false);
@@ -44,14 +43,12 @@ export default function VDFlood({name, date, setDateVD, date2}) {
     const [chkEYes, setChkEYes] = useState(false);
     const [chkENo, setChkENo] = useState(false);
 
-    const [chkFYes, setChkFYes] = useState(false);
-    const [chkFNo, setChkFNo] = useState(false);
-
+    const [checked6, setChecked6] = useState(false);
+    const [checked7, setChecked7] = useState(false);
     const [checked8, setChecked8] = useState(false);
     const [checked9, setChecked9] = useState(false);
     const [checked10, setChecked10] = useState(false);
     const [checked11, setChecked11] = useState(false);
-
 
     const [dType, setDType] = useState("addLivingExpense");
     const [eType, setEType] = useState("costMaterial");
@@ -87,6 +84,14 @@ export default function VDFlood({name, date, setDateVD, date2}) {
           setE("I have been offered <u><b><i>Debris Removal</u></b></i> coverage which pays the additional cost incurred up to limit for the unexpected costs of removing Debris left behind after a loss in the covered premises. I have elected to refuse such coverage.");
         }
     }, [eType])
+
+    useEffect(() => {
+        checked6 === true ? setC6("Included") : setC6("");
+    }, [checked6])
+
+    useEffect(() => {
+        checked7 === true ? setC7("Included") : setC7("");
+    }, [checked7])
 
     useEffect(() => {
         checked8 === true ? setC8("Included") : setC8("");
@@ -164,29 +169,8 @@ export default function VDFlood({name, date, setDateVD, date2}) {
         }
     }, [inputE])
 
-    useEffect(() => {
-        if (inputF.trim().length !== 0) {
-            setC6("Included");
-            setChkFYes(true);
-            setChkFNo(false);
-        } else {
-            setC6("");
-            setChkFYes(false);
-            setChkFNo(true);
-        }
-    }, [inputF])
-
-    useEffect(() => {
-        if (deductible.trim().length !== 0) {
-            setC7("Included");
-        } else {
-            setC7("");
-        }
-    }, [deductible])
-
-
     return (
-        <div className="sheet font-11 lh-1 text-justify">
+        <div className="sheet font-10 lh-1 text-justify">
             
             <Logo />
 
@@ -340,8 +324,7 @@ export default function VDFlood({name, date, setDateVD, date2}) {
 
             <table>
                 <tr>
-                    <td></td>
-                    <td>
+                    <td className='d-flex justify-content-center'>
                         <b>1.</b>
                     </td>
                     <td className="col-9">
@@ -362,8 +345,7 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td>
+                    <td className='d-flex justify-content-center'>
                         <b>2.</b>
                     </td>
                     <td className="col-9">
@@ -384,8 +366,7 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td>
+                    <td className='d-flex justify-content-center'>
                         <b>3.</b>
                     </td>
                     <td className="col-9">
@@ -404,8 +385,7 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td>
+                    <td className='d-flex justify-content-center'>
                         <b>4.</b>
                     </td>
                     <td className="col-9">
@@ -425,12 +405,11 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td>
+                    <td className='d-flex justify-content-center'>
                         <b>5.</b>
                     </td>
                     <td className="col-9">
-                        {e}
+                        {parse(e)}
                     </td>
                     <td className='text-end'>
                         <span>
@@ -445,14 +424,85 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td>
+                    <td className='d-flex align-items-start'>
+                        <input
+                            className='me-1' 
+                            type="checkbox" 
+                            checked={checked6} 
+                            onChange={e => setChecked6(e.target.checked)}
+                        />
                         <b>6.</b>
                     </td>
                     <td className="col-9">
-                        I have been offered <u><b><i>Medical Payments</i></b></u> in which the insurer agrees to reimburse the insured and others up
-                        to a certain limit for medical or funeral expenses as a result of bodily injury or death by accident.
-                        Payments are without regard to fault. I have elected to refuse this coverage.
+                        The <b><i><u>Deductible</u></i></b> is the amount that the policyholder has agreed to pay on each claim. I understand and agree
+                        that my <b><i><u>Deductibles</u></i></b> are as follows: 
+                        <br/>
+                        <table className="d-inline text-end fw-bold text-decoration-underline fst-italic">
+                            <tr>
+                            <td>
+                                Earthquake:
+                            </td>
+                            <td>
+                                <input className="me-1" type="checkbox"/>
+                            </td>
+                            <td>
+                                <select className="ms-1">
+                                    <option>5%</option>
+                                    <option>$1,000</option>
+                                    <option>$2,500</option>
+                                    <option>$5,000</option>
+                                    <option>N/P</option>
+                                </select>
+                            </td>
+                            <td>
+                                Landslide:
+                            </td>
+                            <td>
+                                <input className="me-1" type="checkbox"/>
+                            </td>
+                            <td>
+                                <select className="ms-1">
+                                    <option>5%</option>
+                                    <option>$1,000</option>
+                                    <option>$2,500</option>
+                                    <option>$5,000</option>
+                                    <option>N/P</option>
+                                </select>
+                            </td>
+                            </tr>
+                            <tr>
+                            <td>
+                                Flood:
+                            </td>
+                            <td>
+                                <input className="me-1" type="checkbox"/>
+                            </td>
+                            <td>
+                                <select className="ms-1">
+                                    <option>5%</option>
+                                    <option>$1,000</option>
+                                    <option>$2,500</option>
+                                    <option>$5,000</option>
+                                    <option>N/P</option>
+                                </select>
+                            </td>
+                            <td>
+                                Coverage D:
+                            </td>
+                            <td>
+                                <input className="me-1" type="checkbox"/>
+                            </td>
+                            <td>
+                                <select className="ms-1">
+                                    <option>5%</option>
+                                    <option>$1,000</option>
+                                    <option>$2,500</option>
+                                    <option>$5,000</option>
+                                    <option>N/P</option>
+                                </select>
+                            </td>
+                            </tr>
+                        </table>
                     </td>
                     <td className='text-end'>
                         <span>
@@ -467,13 +517,20 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td>
+                    <td className='d-flex align-items-start'>
+                        <input
+                            className='me-1' 
+                            type="checkbox" 
+                            checked={checked7} 
+                            onChange={e => setChecked7(e.target.checked)}
+                        />
                         <b>7.</b>
                     </td>
                     <td className="col-9">
-                        The <u><b><i>Deductible</i></b></u> is the amount that the policyholder has agreed to pay on each claim. I understand and agree
-                        that my <u><b><i>Deductible</i></b></u> is <Input className="text-center fw-bold" value={deductible} width="80px"/>.
+                        I have been offered <b><i><u>Replacement Cost</u></i></b> coverage which is the amount it costs to replace lost or damaged
+                        property with new property of the like, kind, and quality in the local market and reject this coverage. In place
+                        of such coverage, I have opted to choose Actual Cash Value which is the amount the property is currently
+                        valued without the land value in the current market.
                     </td>
                     <td className='text-end'>
                         <span>
@@ -488,19 +545,18 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <input 
+                    <td className='d-flex align-items-start'>
+                        <input
+                            className='me-1' 
                             type="checkbox" 
                             checked={checked8} 
                             onChange={e => setChecked8(e.target.checked)}
                         />
-                    </td>
-                    <td>
                         <b>8.</b>
                     </td>
                     <td className="col-9">
-                        I have been offered <u><b><i>Water Damage</i></b></u> coverage which covers against sudden and accidental water damage
-                        from bust pipes and I have elected to refuse such coverage.
+                        I have been offered <b><i><u>Earthquake</u></i></b> coverage which is coverage for direct damage to property resulting from
+                        an earthquake and elected to refuse such coverage.
                     </td>
                     <td className='text-end'>
                         <span>
@@ -515,18 +571,19 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <input 
+                    <td className='d-flex align-items-start'>
+                        <input
+                            className='me-1' 
                             type="checkbox" 
                             checked={checked9} 
                             onChange={e => setChecked9(e.target.checked)}
                         />
-                    </td>
-                    <td>
                         <b>9.</b>
                     </td>
                     <td className="col-9">
-                        I have been offered <u><b><i>Animal Liability</i></b></u> and I have elected to refuse such coverage.
+                        I have been offered <b><i><u>Landslide</u></i></b> coverage which covers when there is a geological phenomenon in which a
+                        wide range of ground movement, such as rock falls, deep failure of slopes, and shallow debris flows. I have
+                        elected to refuse such coverage.
                     </td>
                     <td className='text-end'>
                         <span>
@@ -541,18 +598,18 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td className='d-flex align-items-start'>
                         <input 
+                            className='me-1'
                             type="checkbox" 
                             checked={checked10} 
                             onChange={e => setChecked10(e.target.checked)}
                         />
-                    </td>
-                    <td>
                         <b>10.</b>
                     </td>
                     <td className="col-9">
-                        I have been offered <u><b><i>Earthquake</i></b></u> coverage and decided to reject this coverage.
+                        I am aware that regardless of the <b><i><u>Deductibles</u></i></b> choosen, a separate <b><i><u>$1000</u></i></b> deductible for <b><i><u>Additional Living
+                        Expense</u></i></b> will automatically apply at the time of the loss.
                     </td>
                     <td className='text-end'>
                         <span>
@@ -567,18 +624,19 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <input 
+                    <td className='d-flex align-items-start'>
+                        <input
+                            className='me-1' 
                             type="checkbox" 
                             checked={checked11} 
                             onChange={e => setChecked11(e.target.checked)}
                         />
-                    </td>
-                    <td>
                         <b>11.</b>
                     </td>
                     <td className="col-9">
-                        I have been offered <u><b><i>Flood</i></b></u> coverage and decided to reject this coverage.
+                        I am aware that coverage is <b><i><u>Effective 12:01am</u></i></b>, local time, on the <b><i><u>fifteenth calendar day</u></i></b> after the inception
+                        date of the Certificate issued by the Insurance Company, not Adriana's Insurance Svcs, Inc. regardless of
+                        what proposed effective date was on this and other forms signed.
                     </td>
                     <td className='text-end'>
                         <span>
@@ -593,174 +651,6 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                     </td>
                 </tr>
             </table>
-
-            <ol className="list-group list-group-numbered px-5">
-                <li className="list-group-item d-flex justify-content-between align-items-start">
-                    <div className="ms-2 me-auto">
-                    I understand that <b><i><u>Dwelling</u></i></b> coverage covers my house and attached structures against fire. 
-                    Dwelling Amount is based on the square footage given by the insured and multiplied by 
-                    labor costs in that area. I understand and agree with the dwelling amount of <Input/>.
-                    </div>
-                    1. <Input/>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-start">
-                    <div className="ms-2 me-auto">
-                    I understand that <b><i><u>Other Structures</u></i></b> covers structures such as a garage or storage shed, which are
-                    separated from an insured dwelling by a clear space, or are connected only by a fence or utility line.
-                    I have elected to refuse such coverage.
-                    </div>
-                    2. <select className="ms-1" name="myELLimits">
-                        <option selected value=""></option>
-                        <option value="INCLUDED">INCLUDED</option>
-                    </select>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-start">
-                    <div className="ms-2 me-auto">
-                    <b><i><u>Personal Property</u></i></b> is any property of an insured other than real property. I have elected to refuse coverage.
-                    </div>
-                    3. <select className="ms-1" name="myELLimits">
-                        <option selected value=""></option>
-                        <option value="INCLUDED">INCLUDED</option>
-                    </select>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-start">
-                    <div className="ms-2 me-auto">
-                    I have been offered <input className="me-1" type="checkbox" name="CD1" value="1"/> <b><i><u>Loss of use/ALE</u></i></b> <input className="me-1" type="checkbox" name="CD1" value="1"/> <b><i><u>Fair Rental           Value</u></i></b> coverage, which reimburses the extra cost of living elsewhere while the house is being restored after a loss. I have elected to refuse this coverage.
-                    </div>
-                    4. <select className="ms-1" name="myELLimits">
-                        <option selected value=""></option>
-                        <option value="INCLUDED">INCLUDED</option>
-                    </select>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-start">
-                    <div className="ms-2 me-auto">
-                    I have been offered <input className="me-1" type="checkbox" name="CD1" value="1"/> <b><i><u>Debris Removal</u></i></b> coverage which pays the additional cost incurred up to limit for
-                    the unexpected costs of removing Debris left behind after a loss in the covered premises or have been
-                    offered <input className="me-1" type="checkbox" name="CD1" value="1"/> <b><i><u>Increased Cost/Material</u></i></b> which covers any additional cost for material which supersedes the
-                    amount of coverage provided to complete the process. I have elected to refuse such coverage.
-                    </div>
-                    5. <select className="ms-1" name="myELLimits">
-                        <option selected value=""></option>
-                        <option value="INCLUDED">INCLUDED</option>
-                    </select>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-start">
-                    <div className="ms-2 me-auto">
-                    The <b><i><u>Deductible</u></i></b> is the amount that the policyholder has agreed to pay on each claim. I understand and agree
-                    that my <b><i><u>Deductibles</u></i></b> are as follows: 
-                    <table className="d-inline text-end fw-bold text-decoration-underline fst-italic">
-                        <tr>
-                        <td>
-                            Earthquake:
-                        </td>
-                        <td>
-                            <input className="me-1" type="checkbox" name="CD1" value="1"/>
-                        </td>
-                        <td>
-                            <select className="ms-1" name="myELLimits">
-                            <option value="250,000">250,000</option>
-                            <option value="500,000">500,000</option>
-                            <option value="1,000,000">1,000,000</option>
-                            </select>
-                        </td>
-                        <td>
-                            Landslide:
-                        </td>
-                        <td>
-                            <input className="me-1" type="checkbox" name="CD1" value="1"/>
-                        </td>
-                        <td>
-                            <select className="ms-1" name="myELLimits">
-                            <option value="250,000">250,000</option>
-                            <option value="500,000">500,000</option>
-                            <option value="1,000,000">1,000,000</option>
-                            </select>
-                        </td>
-                        </tr>
-                        <tr>
-                        <td>
-                            Flood:
-                        </td>
-                        <td>
-                            <input className="me-1" type="checkbox" name="CD1" value="1"/>
-                        </td>
-                        <td>
-                            <select className="ms-1" name="myELLimits">
-                            <option value="250,000">250,000</option>
-                            <option value="500,000">500,000</option>
-                            <option value="1,000,000">1,000,000</option>
-                            </select>
-                        </td>
-                        <td>
-                            Coverage D:
-                        </td>
-                        <td>
-                            <input className="me-1" type="checkbox" name="CD1" value="1"/>
-                        </td>
-                        <td>
-                            <select className="ms-1" name="myELLimits">
-                            <option value="250,000">250,000</option>
-                            <option value="500,000">500,000</option>
-                            <option value="1,000,000">1,000,000</option>
-                            </select>
-                        </td>
-                        </tr>
-                    </table>
-                    </div>
-                    6. <Input/>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-start">
-                    <div className="ms-2 me-auto">
-                    I have been offered <b><i><u>Replacement Cost</u></i></b> coverage which is the amount it costs to replace lost or damaged
-                    property with new property of the like, kind, and quality in the local market and reject this coverage. In place
-                    of such coverage, I have opted to choose Actual Cash Value which is the amount the property is currently
-                    valued without the land value in the current market.
-                    </div>
-                    7. <select className="ms-1" name="myELLimits">
-                        <option selected value=""></option>
-                        <option value="INCLUDED">INCLUDED</option>
-                    </select>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-start">
-                    <div className="ms-2 me-auto">
-                    I have been offered <b><i><u>Earthquake</u></i></b> coverage which is coverage for direct damage to property resulting from
-                    an earthquake and elected to refuse such coverage.
-                    </div>
-                    8. <select className="ms-1" name="myELLimits">
-                        <option selected value=""></option>
-                        <option value="INCLUDED">INCLUDED</option>
-                    </select>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-start">
-                    <div className="ms-2 me-auto">
-                    I have been offered <b><i><u>Landslide</u></i></b> coverage which covers when there is a geological phenomenon in which a
-                    wide range of ground movement, such as rock falls, deep failure of slopes, and shallow debris flows. I have
-                    elected to refuse such coverage.
-                    </div>
-                    9. <select className="ms-1" name="myELLimits">
-                        <option selected value=""></option>
-                        <option value="INCLUDED">INCLUDED</option>
-                    </select>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-start">
-                    <div className="ms-2 me-auto">
-                    I am aware that regardless of the <b><i><u>Deductibles</u></i></b> choosen, a separate <b><i><u>$1000</u></i></b> deductible for <b><i><u>Additional Living
-                    Expense</u></i></b> will automatically apply at the time of the loss.
-                    </div>
-                    10. <select className="ms-1" name="myELLimits">
-                        <option selected value=""></option>
-                        <option value="INCLUDED">N/A</option>
-                        </select>
-                </li>
-                <li className="list-group-item d-flex justify-content-between align-items-start">
-                    <div className="ms-2 me-auto">
-                    I am aware that coverage is <b><i><u>Effective 12:01am</u></i></b>, local time, on the <b><i><u>fifteenth calendar day</u></i></b> after the inception
-                    date of the Certificate issued by the Insurance Company, not Adriana's Insurance Svcs, Inc. regardless of
-                    what proposed effective date was on this and other forms signed.
-                    </div>
-                    11. <Input/>
-                </li>
-            </ol>
 
             <div className="d-flex justify-content-between mt-5 fw-bold">
                 <div>
