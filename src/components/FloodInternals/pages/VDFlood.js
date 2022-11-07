@@ -5,7 +5,20 @@ import Input from "../../Input";
 import Logo from "../../Logo";
 import Title from "../../Title";
 
-export default function VDFlood({name, date, setDateVD, date2}) {
+export default function VDFlood(
+    {
+        name, 
+        date, 
+        setDateVD, 
+        date2,
+        setLimitA,
+        setLimitB,
+        setLimitC,
+        setLimitD,
+        setLimitE,
+        setPD,
+        setPE
+    }) {
 
     const [d, setD] = useState('');
     const [e, setE] = useState('');
@@ -70,18 +83,22 @@ export default function VDFlood({name, date, setDateVD, date2}) {
     useEffect(() => {
         if(dType === "addLivingExpense"){
           setD("Loss of Use"); 
+          setPD("Loss of Use"); 
         }
         else if(dType === "fairRentalValue"){
           setD("Fair Rental Value");
+          setPD("Fair Rental Value");
         }
     }, [dType])
 
     useEffect(() => {
         if(eType === "costMaterial"){
           setE("I have been offered <u><b><i>Increased Cost/Material</u></b></i> which covers any additional cost for material which supersedes the amount of coverage provided to complete the process. I have elected to refuse such coverage."); 
+          setPE("Increased Cost/Material");
         }
         else if(eType === "debrisRemoval"){
           setE("I have been offered <u><b><i>Debris Removal</u></b></i> coverage which pays the additional cost incurred up to limit for the unexpected costs of removing Debris left behind after a loss in the covered premises. I have elected to refuse such coverage.");
+          setPE("Debris Removal");
         }
     }, [eType])
 
@@ -169,6 +186,36 @@ export default function VDFlood({name, date, setDateVD, date2}) {
         }
     }, [inputE])
 
+    function hLimitA(e)
+    {
+        setDwelling(e.target.value);
+        setLimitA(e.target.value);
+    }
+
+    function hLimitB(e)
+    {
+        setInputB(e.target.value);
+        setLimitB(e.target.value);
+    }
+
+    function hLimitC(e)
+    {
+        setInputC(e.target.value);
+        setLimitC(e.target.value);
+    }
+
+    function hLimitD(e)
+    {
+        setInputD(e.target.value);
+        setLimitD(e.target.value);
+    }
+
+    function hLimitE(e)
+    {
+        setInputE(e.target.value);
+        setLimitE(e.target.value);
+    }
+
     return (
         <div className="sheet font-10 lh-1 text-justify">
             
@@ -215,7 +262,7 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                             maxlength="10"
                             style = {{width:"80px"}}
                             className='fw-bold text-center input-default'
-                            onChange = {e => setDwelling(e.target.value)}
+                            onChange={hLimitA}
                         />
                     </td>
                     <td><input type="checkbox" checked={chkAYes}/></td>
@@ -234,7 +281,7 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                             maxlength="10"
                             style = {{width:"80px"}}
                             className='fw-bold text-center input-default'
-                            onChange = {e => setInputB(e.target.value)}
+                            onChange={hLimitB}
                         />
                     </td>
                     <td><input type="checkbox" checked={chkBYes}/></td>
@@ -253,7 +300,7 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                             maxlength="10"
                             style = {{width:"80px"}}
                             className='fw-bold text-center input-default'
-                            onChange = {e => setInputC(e.target.value)}
+                            onChange={hLimitC}
                         />
                     </td>
                     <td><input type="checkbox" checked={chkCYes}/></td>
@@ -288,7 +335,7 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                             maxlength="10"
                             style = {{width:"80px"}}
                             className='fw-bold text-center input-default'
-                            onChange = {e => setInputD(e.target.value)}
+                            onChange={hLimitD}
                         />
                     </td>
                     <td><input type="checkbox" checked={chkDYes}/></td>
@@ -312,7 +359,7 @@ export default function VDFlood({name, date, setDateVD, date2}) {
                             maxlength="10"
                             style = {{width:"80px"}}
                             className='fw-bold text-center input-default'
-                            onChange = {e => setInputE(e.target.value)}
+                            onChange={hLimitE}
                         />
                     </td>
                     <td><input type="checkbox" checked={chkEYes}/></td>
