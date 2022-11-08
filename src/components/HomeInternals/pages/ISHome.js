@@ -309,12 +309,12 @@ export default function ISHome() {
                 <div className='d-flex flex-fill'>
                     <b>Applicant Signature: </b>
                     <span className='flex-fill mx-1'>
-                        <Input className="w-100 text-center" disabled/>
+                        <Input className="w-100" disabled bColor="yellow"/>
                     </span>
                 </div>
                 <div>
                     <b>Date: </b>
-                    <Input className="ms-1 text-center" width = "80px" disabled/>
+                    <Input className="ms-1" width = "80px" disabled/>
                 </div>
             </div>
 

@@ -15,43 +15,43 @@ export default function GarageLiability({}) {
             <Logo/>
             <Title text="INSURED’S STATEMENT"/>
             
-            <p className='font-8 text-center'>
+            <p className='font-9 text-center m-0'>
                 Form <b>must</b> be completed by <b>Insured.</b> (Please have customer handwrite)
                 <br/>
                 <i>Esta forma debe ser llenada por el Asegurado. (Por favor llenar a Mano)</i>
             </p>
 
-            <div className="d-flex my-1">
+            <div className="d-flex mt-2 mb-1">
                 <b>Insured Name/Nombre:</b>
                 <span className="flex-fill">
-                    <Input className="w-100 ms-1 text-center"/>
+                    <Input className="w-100 ms-1" disabled/>
                 </span>
             </div>
 
             <div className="d-flex my-1">
                 <b>DBA (Doing Business As)/Nombre del Negocio:</b>
                 <span className="flex-fill">
-                    <Input className="w-100 ms-1 text-center" maxlength="70"/>
+                    <Input className="w-100 ms-1" disabled/>
                 </span>
             </div>
 
             <div className="my-1">
                 <b>Mailing Address/Dirección para Correspondencia:</b>
                 <div className="flex-fill">
-                    <Input className="w-100 text-center" maxlength="110"/>
+                    <Input className="w-100" disabled/>
                 </div>
                 <div className="flex-fill">
-                    <Input className="w-100 text-center" maxlength="110"/>
+                    <Input className="w-100" disabled/>
                 </div>
             </div>
 
             <div className="my-1">
                 <b>Property Address/Dirección del Negocio/Oficina:</b>
                 <div className="flex-fill">
-                    <Input className="w-100 text-center"/>
+                    <Input className="w-100" disabled/>
                 </div>
                 <div className="flex-fill">
-                    <Input className="w-100 text-center" maxlength="110"/>
+                    <Input className="w-100" disabled/>
                 </div>
             </div>
 
@@ -59,13 +59,13 @@ export default function GarageLiability({}) {
                 <div class="col d-flex">
                     <b>Business Phone:</b>
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1 text-center" maxlength="40"/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
                 <div class="col d-flex">
                     <b>Annual Gross:</b>
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1 text-center" maxlength="35"/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
             </div>
@@ -74,13 +74,13 @@ export default function GarageLiability({}) {
                 <div class="col d-flex">
                     <b>Number of Employees:</b>
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1 text-center" maxlength="35"/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
                 <div class="col d-flex">
                     <b>Annual Payroll:</b>
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1 text-center" maxlength="35"/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
             </div>
@@ -89,7 +89,7 @@ export default function GarageLiability({}) {
                 <div class="col d-flex">
                     <b>Business Email/Website:</b>
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1 text-center" maxlength="85"/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
             </div>
@@ -110,13 +110,13 @@ export default function GarageLiability({}) {
             <div className="my-1">
                 <b>Description of all operations:</b>
                 <div className="flex-fill">
-                    <Input className="w-100 text-center" maxlength="110"/>
+                    <Input className="w-100" disabled/>
                 </div>
                 <div className="flex-fill">
-                    <Input className="w-100 text-center" maxlength="110"/>
+                    <Input className="w-100" disabled/>
                 </div>
                 <div className="flex-fill">
-                    <Input className="w-100 text-center" maxlength="110"/>
+                    <Input className="w-100" disabled/>
                 </div>
             </div>
 
@@ -124,13 +124,13 @@ export default function GarageLiability({}) {
                 <div class="col d-flex">
                     <b>Vehicle(s) Value:</b>
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1 text-center" maxlength="40"/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
                 <div class="col d-flex">
                     <b>Total Lot Coverage:</b>
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1 text-center" maxlength="35"/>
+                        <Input className="w-100 ms-1" disabled/>
                     </span>
                 </div>
             </div>
@@ -138,16 +138,16 @@ export default function GarageLiability({}) {
             <div className="my-1">
                 <b>List any additional insureds to be named and advise what their interest is in this operation:</b>
                 <div className="flex-fill">
-                    <Input className="w-100 text-center" maxlength="110"/>
+                    <Input className="w-100" disabled/>
                 </div>
                 <div className="flex-fill">
-                    <Input className="w-100 text-center" maxlength="110"/>
+                    <Input className="w-100" disabled/>
                 </div>
             </div>
 
-            <div className='font-8 text-justify mt-4'>
+            <div className='lh-1 text-justify mt-4'>
                 <p>
-                    I hereby apply to Adriana’s Insurance for a policy of insurance. I agree that such policy shall be null and void if such information is
+                    I hereby apply to Adriana’s Insurance Services, Inc. for a policy of insurance. I agree that such policy shall be null and void if such information is
                     materially false or misleading. I understand that any existing damage to my car at the time of application will not be covered by this
                     insurance. I further understand that my policy does not covered any special equipment not factory installed to my insured vehicle.
                 </p>
@@ -158,7 +158,7 @@ export default function GarageLiability({}) {
                 </p>
                 <p>
                     <i>
-                        Yo estoy aquí aplicando en Adriana’s Insurance para una Póliza de Seguro. Y acepto que esta póliza es Nula o Cancelada si la
+                        Yo estoy aquí aplicando en Adriana’s Insurance Services, Inc. para una Póliza de Seguro. Y acepto que esta póliza es Nula o Cancelada si la
                         información que les doy es falsa o errónea. Yo entiendo que si existe un daño previo en mi auto al tiempo de este trámite NO tendré
                         ningún tipo de cobertura através de este seguro. Yo entiendo que en un futuro mi póliza puede No darme cobertura por cualquier
                         equipo especial instalado en mi auto que No sea de fábrica.
@@ -174,20 +174,20 @@ export default function GarageLiability({}) {
                 </p>
             </div>
 
-            <div className="d-flex justify-content-between my-4">
+            <div className="d-flex justify-content-between mt-4 mb-1">
                 <div className='d-flex flex-fill'>
                     <b>Applicant Signature: </b>
                     <span className='flex-fill mx-1'>
-                        <Input className="w-100" maxlength="80" disabled = "true"/>
+                        <Input className="w-100" disabled bColor="yellow"/>
                     </span>
                 </div>
                 <div>
                     <b>Date: </b>
-                    <Input className="ms-1 text-center" maxlength="10" width = "80px"/>
+                    <Input className="ms-1" width = "80px" disabled/>
                 </div>
             </div>
 
-            <div class="text-center font-9">9445 Charles Smith Avenue, Rancho Cucamonga, CA 91730 Ph: 909-291-4040 Fax: 909-373-4795</div>
+            <p class="text-center font-9">9445 Charles Smith Avenue, Rancho Cucamonga, CA 91730 Ph: 909-291-4040 Fax: 909-963-5083</p>
 
         </div>
 

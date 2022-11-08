@@ -144,7 +144,7 @@ export default function RentersIS() {
                 <div className='d-flex flex-fill'>
                     <b>Applicant Signature: </b>
                     <span className='flex-fill mx-1'>
-                        <Input className="w-100" disabled/>
+                        <Input className="w-100" disabled bColor="yellow"/>
                     </span>
                 </div>
                 <div>
