@@ -2,12 +2,18 @@ import React, { useEffect, useState} from 'react';
 import moment from 'moment/moment'
 import Badge from "../Badge.";
 import VDFlood from './pages/VDFlood';
-import PTPAFlood from './pages/PTPAFlood';
+import PTPAFlood from './pages/PAFlood';
 import TwoFlood from './pages/TwoFlood';
+import PAFlood from './pages/PAFlood';
+import BFFlood from './pages/BFFlood';
+import SBFFlood from './pages/SBFFlood';
+import PNFlood from './pages/PNFlood';
+import MCLFlood from './pages/MCLFlood';
+import BAGCFlood from './pages/BAGCFlood';
 
 export default function Flood({pages, name, address, phone, date}) {
 
-    let vD, vD2, pA, brokerFee, balanceDue, creditCard;
+    let vD, vD2, pA, brokerFee, bAGC, balanceDue, mCheckList;
     
     let count = 0;
 
@@ -61,7 +67,26 @@ export default function Flood({pages, name, address, phone, date}) {
             </>;
 
     count++;
-    pA = <><Badge text={count}/><PTPAFlood name={name} date={date} date2={date2}/></>;
+    pA = <><Badge text={count}/><PAFlood name={name} date={date} date2={date2}/></>;
+
+    count++;
+    bAGC = <><Badge text={count}/><BAGCFlood name={name} date={date}/></>;
+
+    if (Object.values(pages).includes("spanishBF")) {
+        count++;
+        brokerFee = <><Badge text={count}/><SBFFlood name={name} date={date}/></>;
+    } else {
+        count++;
+        brokerFee = <><Badge text={count}/><BFFlood name={name} date={date}/></>;
+    }
+
+    if (Object.values(pages).includes("balanceDue")) {
+        count++;
+        balanceDue = <><Badge text={count}/><PNFlood name={name} address={address} phone={phone}/></>;
+    }
+
+    count++;
+    mCheckList = <><Badge text={count}/><MCLFlood name={name} date={date}/></>;
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -71,6 +96,11 @@ export default function Flood({pages, name, address, phone, date}) {
         <div>
             {vD}
             {vD2}
+            {pA}
+            {bAGC}
+            {brokerFee}
+            {balanceDue}
+            {mCheckList}
         </div>
     );
 }

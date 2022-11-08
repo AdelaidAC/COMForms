@@ -31,7 +31,7 @@ const disclosures = [
     },
 ];
 
-export default function BAGCFlood({name, initials, address, phone}) {
+export default function BAGCFlood({name, date}) {
     return (
         
         <div className="sheet font-12 text-justify">
@@ -71,7 +71,7 @@ export default function BAGCFlood({name, initials, address, phone}) {
                             </p>
                             <p className="my-0">
                                 <strong className="mx-1">
-                                    <Input value={initials} className="text-center"/>
+                                    <Input className="text-center"/>
                                 </strong>{" "}
                                 <strong className="me-3">Initials</strong> {elem.disclosure}
                             </p>

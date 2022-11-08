@@ -33,6 +33,7 @@ const Page = React.forwardRef((
     pageH, 
     pageA, 
     pageB, 
+    pageF,
     nameI,
     addressI,
     phoneI,
@@ -45,7 +46,7 @@ const Page = React.forwardRef((
 
       {bond && <Bond pages={pageB} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
       {commercialAuto && <Auto pages={pageA} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
-      {flood && <Flood name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
+      {flood && <Flood pages={pageF} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
       {generalLiability && <GeneralLiability pages={pageGL} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
       {home && <Home pages={pageH} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
       {trucking && <Trucking pages={pageT} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
@@ -112,12 +113,17 @@ function App() {
     pagesB: []
   });
 
+  const [pageFInfo, setPageFInfo] = useState({
+    pagesF: []
+  });
+
   const { pagesGL } = pageGLInfo;
   const { pagesT } = pageTInfo;
   const { pagesWC } = pageWCInfo;
   const { pagesH } = pageHInfo;
   const { pagesA } = pageAInfo;
   const { pagesB } = pageBInfo;
+  const { pagesF } = pageFInfo;
 
   const [nameInsured, setNameI] = useState('');
   const [addressInsured, setAddressI] = useState('');
@@ -258,6 +264,28 @@ function App() {
     }
   };
 
+  const handleF = (e) => {
+    
+    // Destructuring
+    const { value, checked } = e.target;
+      
+    console.log(`${value} is ${checked}`);
+     
+    // Case 1 : The user checks the box
+    if (checked) {
+      setPageFInfo({
+        pagesF: [...pagesF, value]
+      });
+    }
+  
+    // Case 2  : The user unchecks the box
+    else {
+      setPageFInfo({
+        pagesF: pagesF.filter((e) => e !== value)
+      });
+    }
+  };
+
   /*const handleSubmit = (e) => {
     e.preventDefault();
     const name = e.target.insuredName.value;
@@ -391,6 +419,14 @@ function App() {
               <input class="ms-2 me-1" type="checkbox" value="spanishBF" name="pagesB" onChange={handleB}/> Spanish BF
             </div>
           }
+
+          {floodVisible &&
+            <div class="d-flex align-items-center">
+              <label className="ms-2 fw-bold" for="doc">Pages:</label>
+              <input class="ms-2 me-1" type="checkbox" value="balanceDue" name="pagesF" onChange={handleF}/> Balance Due
+              <input class="ms-2 me-1" type="checkbox" value="spanishBF" name="pagesF" onChange={handleF}/> Spanish BF
+            </div>
+          }
       </div>
     </nav>
 
@@ -411,6 +447,7 @@ function App() {
         pageH = {pagesH}
         pageA = {pagesA}
         pageB = {pagesB}
+        pageF = {pagesF}
         nameI = {nameInsured}
         addressI = {addressInsured}
         phoneI = {phoneInsured}
