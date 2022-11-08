@@ -211,7 +211,7 @@ export default function BFAutoInternals({name, date}) {
                             <b>BF MK:</b>
                         </td>
                         <td>
-                            $10.00 per Transaction
+                            $20.00 per Transaction
                             <br/>
                             NB or Endo
                         </td>

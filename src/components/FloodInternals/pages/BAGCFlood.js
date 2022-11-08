@@ -1,7 +1,6 @@
 import React from "react";
 import Input from "../../Input";
 import Logo from "../../Logo";
-import CDate from '../../CDate';
 
 const disclosures = [
     {
@@ -38,7 +37,7 @@ export default function BAGCFlood({name, date}) {
             
             <Logo />
             
-            <h5 className="text-center fw-bold text-decoration-underline">
+            <h5 className="text-center fw-bold text-decoration-underline my-3">
                 BROKER AGREEMENT GENERAL CONDITIONS
             </h5>
 
@@ -54,55 +53,51 @@ export default function BAGCFlood({name, date}) {
                 </div>
             </div>
 
-            <div className="mx-4">
-                <p className="my-0">
-                    I understand and agree that if at any time I want to make any changes through my Broker on my policy(ies), 
-                    including upon renewal(s), it is my obligation to request such changes in writing to my Broker. I will 
-                    thereafter be responsible for any fees or premium increase resulting from such changes.
-                </p>
-            </div>
+            <p className="mt-0 mb-3 mx-4">
+                I understand and agree that if at any time I want to make any changes through my Broker on my policy(ies), 
+                including upon renewal(s), it is my obligation to request such changes in writing to my Broker. I will 
+                thereafter be responsible for any fees or premium increase resulting from such changes.
+            </p>
 
             {disclosures.map((elem, i) => {
                 return (
                     <div key={i} >
-                        <div className="mx-4">
+                        <div className="mx-4 my-3">
                             <p className="text-center mb-0 fw-bold">
                                 {elem.title}
                             </p>
                             <p className="my-0">
-                                <strong className="mx-1">
-                                    <Input className="text-center"/>
-                                </strong>{" "}
-                                <strong className="me-3">Initials</strong> {elem.disclosure}
+                                <input disabled className="input-default y me-1" style={{width: "60px"}} />
+                                <b className="me-3">Initials</b> {elem.disclosure}
                             </p>
                         </div>
                     </div>
                 );
             })}
 
-            <div className="ms-4 me-3" >
-                <p >
-                    I certify by my signature below that all information contained in my application(s) 
-                    for insurance is true and accurate. I understand that additional
-                    efforts may be made by Broker or the insurance company to verify the 
-                    accuracy of the information contained in the Application, and that if I
-                    provided inaccurate information, it may result in an increase in my premium, 
-                    rejection of my application, and/or cancellation of my policy(ies).
-                </p>
-                <label className="d-block text-center fw-bold">I AGREE TO THE CONDITONS AND DISCLOSURES ABOVE AND ACKNOWLEDGE RECEIPT OF A COPY OF THIS DISCLOSURE.</label>
-            </div>
+            <p className="my-3 mx-4">
+                I certify by my signature below that all information contained in my application(s) 
+                for insurance is true and accurate. I understand that additional
+                efforts may be made by Broker or the insurance company to verify the 
+                accuracy of the information contained in the Application, and that if I
+                provided inaccurate information, it may result in an increase in my premium, 
+                rejection of my application, and/or cancellation of my policy(ies).
+            </p>
 
-            <div className="d-flex justify-content-between my-3">
+            <p className="text-center fw-bold font-10 mx-4">I AGREE TO THE CONDITONS AND DISCLOSURES ABOVE AND ACKNOWLEDGE RECEIPT OF A COPY OF THIS DISCLOSURE.</p>
+
+            <div className='d-flex justify-content-between mt-5 mx-5 text-center'>
                 <div>
-                    Insured’s Name:
-                    <Input width="400px" className="ms-1 text-center" value={name}/>
+                    <Input width="260px" value={name} className='text-center'/>
+                    <p className='mb-0 fw-bold'>Insured’s Name</p>
                 </div>
                 <div>
-                    Insured’s Signature:
-                    <Input width="200px" className="ms-1 text-center"/>
+                    <Input width="260px" disabled bColor="yellow"/>
+                    <p className='mb-0 fw-bold'>Insured’s Signature</p>
                 </div>
                 <div>
-                    Date: <CDate/>
+                <Input value = {date} width = "80px" className = "text-center fw-bold"/>
+                    <p className='mb-0 fw-bold'>Date</p>
                 </div>
             </div>
 

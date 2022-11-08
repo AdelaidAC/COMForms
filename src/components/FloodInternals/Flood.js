@@ -100,7 +100,6 @@ export default function Flood({pages, name, address, phone, date}) {
             {bAGC}
             {brokerFee}
             {balanceDue}
-            {mCheckList}
         </div>
     );
 }
