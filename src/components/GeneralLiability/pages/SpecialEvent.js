@@ -1,9 +1,9 @@
 import React from 'react'
-import Input from '../Input'
-import Title from '../Title'
-import Logo from '../Logo'
+import Input from '../../Input'
+import Title from '../../Title'
+import Logo from '../../Logo'
 
-export default function SpecialEvent({name, address, phone}) {
+export default function SpecialEvent({}) {
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -24,7 +24,7 @@ export default function SpecialEvent({name, address, phone}) {
             <div className="d-flex my-1">
                 <b>Insured Name/Nombre:</b>
                 <span className="flex-fill">
-                    <Input className="w-100 ms-1 text-center" value={name}/>
+                    <Input className="w-100 ms-1 text-center"/>
                 </span>
             </div>
 
@@ -38,7 +38,7 @@ export default function SpecialEvent({name, address, phone}) {
             <div className="my-1">
                 <b>Mailing Address/Dirección para Correspondencia:</b>
                 <div className="flex-fill">
-                    <Input className="w-100 text-center" value={address}/>
+                    <Input className="w-100 text-center"/>
                 </div>
                 <div className="flex-fill">
                     <Input className="w-100 text-center" maxlength="110"/>
@@ -59,7 +59,7 @@ export default function SpecialEvent({name, address, phone}) {
                 <div class="col d-flex">
                     <b>Phone:</b>
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1 text-center" value={phone}/>
+                        <Input className="w-100 ms-1 text-center"/>
                     </span>
                 </div>
                 <div class="col d-flex">
@@ -72,13 +72,13 @@ export default function SpecialEvent({name, address, phone}) {
 
             <div className="d-flex my-1">
                 <b>Type of business:</b>
-                <input className="ms-4 me-1" type="checkbox" value="1"/>
+                <input className="ms-4 me-1" type="checkbox"/>
                 Individual
-                <input className="ms-4 me-1" type="checkbox" value="1"/>
+                <input className="ms-4 me-1" type="checkbox"/>
                 Partnership
-                <input className="ms-4 me-1" type="checkbox" value="1"/>
+                <input className="ms-4 me-1" type="checkbox"/>
                 Corporation
-                <input className="ms-4 me-1" type="checkbox" value="1"/>
+                <input className="ms-4 me-1" type="checkbox"/>
                 Other
             </div>
 

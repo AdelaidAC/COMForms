@@ -10,8 +10,6 @@ import Home from './components/HomeInternals/Home';
 import Auto from './components/AutoInternals/Auto';
 import Trucking from './components/TruckingInternals/Trucking';
 import Workers from './components/WorkersComp/Workers';
-import SpecialEvent from './components/SpecialEvent/SpecialEvent';
-import GarageLiabilityIS from './components/GarageLiability/GarageLiabilityIS';
 import CurrencyFormat from 'react-currency-format';
 import moment from 'moment';
 
@@ -24,9 +22,7 @@ const Page = React.forwardRef((
     generalLiability, 
     home, 
     trucking, 
-    workersComp, 
-    specialEvent,
-    garageLiability,
+    workersComp,
     pageGL, 
     pageT, 
     pageWC, 
@@ -51,8 +47,6 @@ const Page = React.forwardRef((
       {home && <Home pages={pageH} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
       {trucking && <Trucking pages={pageT} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
       {workersComp && <Workers pages={pageWC} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
-      {specialEvent && <SpecialEvent name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
-      {garageLiability && <GarageLiabilityIS name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
       
     </div>
   )
@@ -79,8 +73,6 @@ function App() {
   const [homeVisible, setHomeVisible] = useState(false);
   const [truckingVisible, setTruckingVisible] = useState(false);
   const [workersCompVisible, setWorkersCompVisible] = useState(false);
-  const [specialEventVisible, setSpecialEventVisible] = useState(false);
-  const [garageLiabilityVisible, setGarageLiabilityVisible] = useState(false);
 
   const handleRadioButton = (e) => {
     setDocument(e.target.value);
@@ -286,14 +278,6 @@ function App() {
     }
   };
 
-  /*const handleSubmit = (e) => {
-    e.preventDefault();
-    const name = e.target.insuredName.value;
-    const initials = e.target.insuredInitials.value;
-    console.log("Insured Name: " + name);
-    console.log("Initials: " + initials);
-  }*/
-
   /* OTROS */
 
   useEffect(() => {
@@ -304,8 +288,6 @@ function App() {
     document === "home" ? setHomeVisible(true) : setHomeVisible(false);
     document === "trucking" ? setTruckingVisible(true) : setTruckingVisible(false);
     document === "workersComp" ? setWorkersCompVisible(true) : setWorkersCompVisible(false);
-    document === "specialEvent" ? setSpecialEventVisible(true) : setSpecialEventVisible(false);
-    document === "garageLiability" ? setGarageLiabilityVisible(true) : setGarageLiabilityVisible(false);
   }, [document])
 
   const [visible, setVisible] = useState(true)
@@ -355,14 +337,14 @@ function App() {
                 <option value="home">Home</option>
                 <option value="trucking">Trucking</option>
                 <option value="workersComp">Workers' Comp</option>
-                <option value="specialEvent">Special Event</option>
-                <option value="garageLiability">Garage Liability</option>
             </select>
           </div>
 
           {generalLiabilityVisible &&
             <div class="d-flex align-items-center">
               <label className="ms-2 fw-bold" for="doc">Pages:</label>
+              <input class="ms-2 me-1" type="checkbox" value="garage" name="pagesGL" onChange={handleGL}/> Garage Liability
+              <input class="ms-2 me-1" type="checkbox" value="special" name="pagesGL" onChange={handleGL}/> Special Event
               <input class="ms-2 me-1" type="checkbox" value="balanceDue" name="pagesGL" onChange={handleGL}/> Balance Due
               <input class="ms-2 me-1" type="checkbox" value="creditCard" name="pagesGL" onChange={handleGL}/> Credit Card
               <input class="ms-2 me-1" type="checkbox" value="spanishBF" name="pagesGL" onChange={handleGL}/> Spanish BF
@@ -439,8 +421,6 @@ function App() {
         home = {homeVisible}
         trucking = {truckingVisible}
         workersComp = {workersCompVisible}
-        specialEvent = {specialEventVisible}
-        garageLiability = {garageLiabilityVisible}
         pageGL = {pagesGL}
         pageT = {pagesT}
         pageWC = {pagesWC}

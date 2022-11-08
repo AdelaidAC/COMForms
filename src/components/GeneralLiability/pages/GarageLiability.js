@@ -1,10 +1,9 @@
 import React from 'react'
-import Input from '../Input'
-import CDate from '../CDate';
-import Title from '../Title'
-import Logo from '../Logo'
+import Input from '../../Input'
+import Title from '../../Title'
+import Logo from '../../Logo'
 
-export default function GarageLiabilityIS({name, address}) {
+export default function GarageLiability({}) {
     
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -25,7 +24,7 @@ export default function GarageLiabilityIS({name, address}) {
             <div className="d-flex my-1">
                 <b>Insured Name/Nombre:</b>
                 <span className="flex-fill">
-                    <Input className="w-100 ms-1 text-center" value={name}/>
+                    <Input className="w-100 ms-1 text-center"/>
                 </span>
             </div>
 
@@ -49,7 +48,7 @@ export default function GarageLiabilityIS({name, address}) {
             <div className="my-1">
                 <b>Property Address/Dirección del Negocio/Oficina:</b>
                 <div className="flex-fill">
-                    <Input className="w-100 text-center" value={address}/>
+                    <Input className="w-100 text-center"/>
                 </div>
                 <div className="flex-fill">
                     <Input className="w-100 text-center" maxlength="110"/>
@@ -98,13 +97,13 @@ export default function GarageLiabilityIS({name, address}) {
 
             <div className="d-flex my-1">
                 <b>Type of business:</b>
-                <input className="ms-4 me-1" type="checkbox" value="1"/>
+                <input className="ms-4 me-1" type="checkbox"/>
                 Individual
-                <input className="ms-4 me-1" type="checkbox" value="1"/>
+                <input className="ms-4 me-1" type="checkbox"/>
                 Partnership
-                <input className="ms-4 me-1" type="checkbox" value="1"/>
+                <input className="ms-4 me-1" type="checkbox"/>
                 Corporation
-                <input className="ms-4 me-1" type="checkbox" value="1"/>
+                <input className="ms-4 me-1" type="checkbox"/>
                 Other
             </div>
 

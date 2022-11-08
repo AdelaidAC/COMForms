@@ -1,24 +1,28 @@
-import React from "react";
+import React, { useEffect, useState} from 'react';
+import moment from 'moment/moment'
 import Badge from "../Badge.";
-import SBFDTrucking from "../TruckingInternals/pages/SBFDTrucking";
-import BFDisclosure from "./pages/BFDisclosure";
-import DiligentSearchReport from "./pages/DiligentSearchReport";
-import DiligentTwo from "./pages/DiligentTwo";
-import Disclosure from "./pages/Disclosure";
-import PromiseAgreement from "./pages/PromiseAgreement";
-import VerbalDisclosure from "./pages/VerbalDisclosure";
+import GarageLiability from './pages/GarageLiability';
+import SpecialEvent from './pages/SpecialEvent';
 
 
-export default function GeneralLiability({pages, name, initials, address, phone}) {
+export default function GeneralLiability({pages, name, address, phone, date}) {
 
-    let render
+    let garage, special, vD, pA, brokerFee, balanceDue, creditCard;
+    
+    let count = 0;
 
-    if (Object.values(pages).includes("spanishBF")) {
-        render = <SBFDTrucking name={name} initials={initials} address={address} phone={phone}/>;
-        console.log(Object.values(pages).includes("spanishBF"))
-    } else {
-        render = <BFDisclosure name={name} initials={initials} address={address} phone={phone}/>;
-        console.log(Object.values(pages).includes("spanishBF"))
+    const [dateVD, setDateVD] = useState('');
+
+    let date2 = moment(dateVD).format('MM/DD/YYYY');
+
+    if (Object.values(pages).includes("garage")) {
+        count++;
+        garage = <><Badge text={count}/><GarageLiability/></>;
+    }
+
+    if (Object.values(pages).includes("special")) {
+        count++;
+        special = <><Badge text={count}/><SpecialEvent/></>;
     }
 
     React.useEffect(() => {
@@ -27,36 +31,8 @@ export default function GeneralLiability({pages, name, initials, address, phone}
 
     return (
         <div>
-            
-            {/*<BFDisclosure/>*/}
-
-            <Badge text="1"/>
-
-            <DiligentSearchReport name={name} initials={initials} address={address} phone={phone}/>
-
-            <Badge text="2"/>
-
-
-            <DiligentTwo name={name} initials={initials} address={address} phone={phone}/>
-
-            <Badge text="3"/>
-
-            <Disclosure name={name} initials={initials} address={address} phone={phone}/>
-
-            <Badge text="4"/>
-
-            <PromiseAgreement name={name} initials={initials} address={address} phone={phone}/>
-
-            <Badge text="5"/>
-
-            <VerbalDisclosure name={name} initials={initials} address={address} phone={phone}/>
-
-            <Badge text="6"/>
-
-            {/*spn && <SBFDTrucking/>*/}
-
-            {render}
-            
+            {garage}
+            {special}
         </div>
     );
 
