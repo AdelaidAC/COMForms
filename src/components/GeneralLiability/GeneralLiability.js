@@ -7,6 +7,7 @@ import SBFGL from './pages/SBFGL';
 import BFGL from './pages/BFGL';
 import PNGL from './pages/PNGL';
 import CCGL from './pages/CCGL';
+import VDGL from './pages/VDGL';
 
 
 export default function GeneralLiability({pages, name, address, phone, date}) {
@@ -28,6 +29,9 @@ export default function GeneralLiability({pages, name, address, phone, date}) {
         count++;
         special = <><Badge text={count}/><SpecialEvent/></>;
     }
+
+    count++;
+    vD = <><Badge text={count}/><VDGL name={name} date={date} setDateVD={setDateVD} date2={date2}/></>;
 
     if (Object.values(pages).includes("spanishBF")) {
         count++;
