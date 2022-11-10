@@ -204,3 +204,9 @@ textarea {
 .y{
   background-color: yellow;
 }
+
+@media print {
+  .no-print {
+    visibility: hidden;
+  }
+}

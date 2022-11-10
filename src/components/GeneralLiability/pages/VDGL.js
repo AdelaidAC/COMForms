@@ -1,10 +1,63 @@
-import React from "react";
+import React, { useEffect, useState} from 'react';
 import Input from "../../Input";
 import Logo from "../../Logo";
 import Title from "../../Title";
 import CurrencyFormat from 'react-currency-format';
 
 export default function VDGL({name, date, setDateVD, date2}) {
+
+    const [restrictions, setRestrictions] = useState('');
+
+    const [restrictionsBlank, setRestrictionsBlank] = useState('');
+
+    const [descOP, setDescDOP] = useState("dOP1");
+
+    const [chkBlank, setChkBlank] = useState(false);
+
+    useEffect(() => {
+        if(descOP === "dOP1"){
+            setRestrictions(
+                "NO NEW CONSTRUCTION, NO STRUCTURAL WORK, NO WORK ON MEDICAL FACILITIES, NO FINANCIAL INSTITUTIONS, NO SCHOOLS, AIRPORTS, MUSEUMS OR HOUSES OF WORSHIP. No blasting operations, no hazardous materials, no mold or restoration removal."
+            );
+        }
+        else if(descOP === "dOP2"){
+            setRestrictions(
+                "NO NEW CONSTRUCTION, NO STRUCTURAL WORK, NO WORK ON MEDICAL FACILITIES, NO FINANCIAL INSTITUTIONS, NO SCHOOLS, AIRPORTS, MUSEUMS OR HOUSES OF WORSHIP. No blasting operations, no hazardous materials, no mold or restoration removal. No work on public roads or highways. Tree trimming from ground only. Incidental sprinkler repair or installation."
+            );
+        }
+        else if(descOP === "dOP3"){
+            setRestrictions(
+                "NO NEW CONSTRUCTION, NO STRUCTURAL WORK, NO WORK ON MEDICAL FACILITIES, NO FINANCIAL INSTITUTIONS, NO SCHOOLS, AIRPORTS, MUSEUMS OR HOUSES OF WORSHIP. No blasting operations, no hazardous materials, no mold or restoration removal. No work on public roads or highways. No tree trimming above 3 stories in high. Incidental sprinkler repair or installation."
+            );
+        }
+        else if(descOP === "dOP4"){
+            setRestrictions(
+                "NO NEW CONSTRUCTION, NO STRUCTURAL WORK, NO WORK ON MEDICAL FACILITIES, NO FINANCIAL INSTITUTIONS, NO SCHOOLS, AIRPORTS, MUSEUMS OR HOUSES OF WORSHIP. No mold or restoration removal. No water damage clean up.  No floor waxing, no pressure wash."
+            );
+        }
+        else if(descOP === "dOP5"){
+            setRestrictions(
+                "FINISHING AND REPAIRING OF FLOORS. NO NEW CONSTRUCTION, NO STRUCTURAL WORK, NO WORK ON MEDICAL FACILITIES, NO FINANCIAL INSTITUTIONS, NO SCHOOLS, AIRPORTS, MUSEUMS OR HOUSES OF WORSHIP. No mold or restoration removal. No water damage clean up.  No floor waxing, no pressure wash."
+            );
+        }
+        else if(descOP === "dOP6"){
+            setRestrictions(
+                "FINISHING AND REPAIRING OF FLOORS. NO NEW CONSTRUCTION, NO STRUCTURAL WORK, NO WORK ON MEDICAL FACILITIES, NO FINANCIAL INSTITUTIONS, NO SCHOOLS, AIRPORTS, MUSEUMS OR HOUSES OF WORSHIP. No mold or restoration removal. No roofing operations."
+            );
+        }
+        else if(descOP === "dOP7"){
+            setRestrictions(
+                "Flooring and countertops are acceptable. NO NEW CONSTRUCTION, NO STRUCTURAL WORK, NO WORK ON MEDICAL FACILITIES, NO FINANCIAL INSTITUTIONS, NO SCHOOLS, AIRPORTS, MUSEUMS OR HOUSES OF WORSHIP. No mold or restoration removal. No roofing operations. No electrical work."
+            );
+        }
+        else if(descOP === "dOP8"){
+            setRestrictions(
+                "NO ALCOHOLIC BEVERAGES, WITH TABLE SERVICE. No inhalation or oxygen gas from tanks or hookah smoking on premises. No past or pending bankruptcy. Functioning and operational smoke and or heat detectors in all public areas. No arm security. NO TERRORISM coverage. Two means of egress (exits) for every floor with public access."
+            );
+        }
+    }, [descOP])
+
+
     return (
         <div className="sheet font-11 text-justify">
             <Logo />
@@ -63,16 +116,12 @@ export default function VDGL({name, date, setDateVD, date2}) {
                         <td>
                             <b>$</b> <input list="dL1" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL1">
-                                <option>15,000/30,000</option>
-                                <option>25,000/50,000</option>
-                                <option>50,000/100,000</option>
-                                <option>100,000/300,000</option>
+                                <option>25,000</option>
+                                <option>50,000</option>
                                 <option>100,000</option>
                                 <option>300,000</option>
                                 <option>500,000</option>
-                                <option>750,000</option>
                                 <option>1,000,000</option>
-                                <option>Not Purchased</option>
                             </datalist>
                         </td>
                     </tr>
@@ -83,15 +132,13 @@ export default function VDGL({name, date, setDateVD, date2}) {
                         <td>
                             <b>$</b> <input list="dL3" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL3">
-                                <option>***CSL***</option>
-                                <option>5,000</option>
-                                <option>10,000</option>
-                                <option>15,000</option>
-                                <option>20,000</option>
                                 <option>25,000</option>
                                 <option>50,000</option>
                                 <option>100,000</option>
-                                <option>Not Purchased</option>
+                                <option>300,000</option>
+                                <option>500,000</option>
+                                <option>1,000,000</option>
+                                <option>2,000,000</option>
                             </datalist>
                         </td>
                     </tr>
@@ -102,12 +149,14 @@ export default function VDGL({name, date, setDateVD, date2}) {
                         <td>
                             <b>$</b> <input list="dL4" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL4">
+                                <option>25,000</option>
+                                <option>50,000</option>
+                                <option>100,000</option>
+                                <option>300,000</option>
+                                <option>500,000</option>
+                                <option>1,000,000</option>
+                                <option>Included</option>
                                 <option>Not Purchased</option>
-                                <option>500</option>
-                                <option>1,000</option>
-                                <option>2,000</option>
-                                <option>3,000</option>
-                                <option>5,000</option>
                             </datalist>
                         </td>
                     </tr>
@@ -118,14 +167,13 @@ export default function VDGL({name, date, setDateVD, date2}) {
                         <td>
                             <b>$</b> <input list="dL5" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL5">
-                                <option>Rejected</option>
-                                <option>15,000/30,000</option>
-                                <option>25,000/50,000</option>
-                                <option>30,000/60,000</option>
+                                <option>25,000</option>
+                                <option>50,000</option>
                                 <option>100,000</option>
                                 <option>300,000</option>
                                 <option>500,000</option>
                                 <option>1,000,000</option>
+                                <option>Not Purchased</option>
                             </datalist>
                         </td>
                     </tr>
@@ -136,11 +184,11 @@ export default function VDGL({name, date, setDateVD, date2}) {
                         <td>
                             <b>$</b> <input list="dL6" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL6">
-                                <option>Rejected</option>
-                                <option>3,500</option>
-                                <option>5,000</option>
-                                <option>CDW</option>
-                                <option>***CSL***</option>
+                                <option>25,000</option>
+                                <option>50,000</option>
+                                <option>100,000</option>
+                                <option>300,000</option>
+                                <option>Not Purchased</option>
                             </datalist>
                         </td>
                     </tr>
@@ -151,9 +199,10 @@ export default function VDGL({name, date, setDateVD, date2}) {
                         <td>
                             <b>$</b> <input list="dL7" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL7">
-                                <option>250,000</option>
-                                <option>500,000</option>
-                                <option>1,000,000</option>
+                                <option>1,000</option>
+                                <option>3,000</option>
+                                <option>5,000</option>
+                                <option>Not Purchased</option>
                             </datalist>
                         </td>
                     </tr>
@@ -164,13 +213,12 @@ export default function VDGL({name, date, setDateVD, date2}) {
                         <td>
                             <b>$</b> <input list="dL8" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL8">
-                                <option>Not Purchased</option>
-                                <option>250</option>
                                 <option>500</option>
-                                <option>1000</option>
-                                <option>1500</option>
-                                <option>2000</option>
-                                <option>2500</option>
+                                <option>1,000</option>
+                                <option>1,500</option>
+                                <option>2,000</option>
+                                <option>2,500</option>
+                                <option>None</option>
                             </datalist>
                         </td> 
                     </tr>
@@ -182,24 +230,18 @@ export default function VDGL({name, date, setDateVD, date2}) {
                             <b>$</b> <input list="dL9" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL9">
                                 <option>Not Purchased</option>
-                                <option>250</option>
-                                <option>500</option>
-                                <option>1000</option>
-                                <option>1500</option>
-                                <option>2000</option>
-                                <option>2500</option>
                             </datalist>
                         </td>
                         <td className="fw-bold">
                             <b><u>Deductible:</u> $</b> <input list="dL15" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL15">
-                                <option>Not Purchased</option>
-                                <option>250</option>
                                 <option>500</option>
                                 <option>1,000</option>
                                 <option>1,500</option>
                                 <option>2,000</option>
                                 <option>2,500</option>
+                                <option>None</option>
+                                <option>Not Purchased</option>
                             </datalist>
                         </td>
                     </tr>
@@ -211,12 +253,6 @@ export default function VDGL({name, date, setDateVD, date2}) {
                             <b>$</b> <input list="dL10" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL10">
                                 <option>Not Purchased</option>
-                                <option>250</option>
-                                <option>500</option>
-                                <option>1000</option>
-                                <option>1500</option>
-                                <option>2000</option>
-                                <option>2500</option>
                             </datalist>
                         </td>
                         <td className="fw-bold">
@@ -239,8 +275,7 @@ export default function VDGL({name, date, setDateVD, date2}) {
                         <td>
                             <b>$</b> <input list="dL11" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL11">
-                                <option>Excluded</option>
-                                <option>Included</option>
+                                <option>Not Purchased</option>
                             </datalist>
                         </td>
                     </tr>
@@ -252,12 +287,8 @@ export default function VDGL({name, date, setDateVD, date2}) {
                             <b>$</b> <input list="dL12" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL12">
                                 <option>Not Purchased</option>
-                                <option>30,000</option>
-                                <option>50,000</option>
-                                <option>100,000</option>
-                                <option>300,000</option>
-                                <option>500,000</option>
-                                <option>1,000,000</option>
+                                <option>Landlord</option>
+                                <option>Blanket</option>
                             </datalist>
                         </td>
                     </tr>
@@ -275,7 +306,7 @@ export default function VDGL({name, date, setDateVD, date2}) {
                     </tr>
                     <tr className="tr-h">
                         <td>
-                            Motor Truck Cargo:
+                            <Input className="text-center" width="220px"/>
                         </td>
                         <td>
                             <b>$</b> <input list="dL14" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
@@ -290,7 +321,7 @@ export default function VDGL({name, date, setDateVD, date2}) {
                     </tr>
                     <tr className="tr-h">
                         <td>
-                            Reefer Breakdown:
+                            <Input className="text-center" width="220px"/>
                         </td>
                         <td>
                             <b>$</b> <input list="dL16" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
@@ -305,7 +336,7 @@ export default function VDGL({name, date, setDateVD, date2}) {
                     </tr>
                     <tr className="tr-h">
                         <td>
-                            GL Coverage:
+                            <Input className="text-center" width="220px"/>
                         </td>
                         <td>
                             <b>$</b> <input list="dL18" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
@@ -317,27 +348,35 @@ export default function VDGL({name, date, setDateVD, date2}) {
                 </tbody>
             </table>
 
-            <div className="d-flex mt-3">
-                <label><b>Description of Operations:</b></label>
-                <b className="flex-fill">
-                    <Input className="w-100 ms-1 text-center" maxlength="70"/>
-                </b>
+            <div className="mt-3">
+                <b>Description of Operations:</b> <span className='no-print'><input 
+                    type="checkbox" 
+                    checked={chkBlank} 
+                    onChange={e => setChkBlank(e.target.checked)}
+                /> BLANK</span>
+                <br/>
+                <select value={descOP} onChange={e => setDescDOP(e.target.value)}>
+                    <option value="dOP1" default>HANDYMAN – unlicensed contractor, service, maintenance and repair.</option>
+                    <option value="dOP2">LANDSCAPER – Lawn care service and maintenance.</option>
+                    <option value="dOP3">LANDSCAPER/TREE TRIMMING – Lawn care service and maintenance, three trimming.</option>
+                    <option value="dOP4">JANITORIAL – Service and maintenance.</option>
+                    <option value="dOP5">FLOOR INSTALLATION – Carpet, tile, wood, vinyl, flooring installation.</option>
+                    <option value="dOP6">HVAC – installation or heating, ventilation, or air conditioning systems.</option>
+                    <option value="dOP7">TILE AND MARBLE INSTALLATION – installation of tile, marble, granite, travertine or other related materials.</option>
+                    <option value="dOP8">RESTAURANT.</option> 
+                </select>
             </div>
 
-            <div className="d-flex">
+            <div class="mb-3">
                 <b>Restrictions:</b>
-                <span className="flex-fill">
-                    <Input className="w-100 ms-1 text-center" maxlength="83"/>
-                </span>
-            </div>
-
-            <div>
-                <div className="flex-fill">
-                    <Input className="w-100 text-center" maxlength="93"/>
-                </div>
-                <div className="flex-fill">
-                    <Input className="w-100 text-center" maxlength="93"/>
-                </div>
+                <br/>
+                <textarea 
+                    class="form-control" 
+                    rows="3"
+                    onChange={e => setRestrictionsBlank(e.target.value)}
+                    {...(chkBlank ? {value: restrictionsBlank} : {value: restrictions})}
+                >
+                </textarea>
             </div>
 
             <p className='my-3 text-center font-10'>
