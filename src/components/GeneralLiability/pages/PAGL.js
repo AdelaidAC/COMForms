@@ -18,7 +18,7 @@ const agreementValues = [
     "Other"
 ]
 
-export default function PABond({name, date, date2}) {
+export default function PAGL({name, date, date2}) {
 
     React.useEffect(() => {
         window.scrollTo(0, 0);

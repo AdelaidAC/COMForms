@@ -9,6 +9,7 @@ export default function VDGL({name, date, setDateVD, date2}) {
     const [restrictions, setRestrictions] = useState('');
 
     const [restrictionsBlank, setRestrictionsBlank] = useState('');
+    const [descriptionBlank, setDescriptionBlank] = useState('');
 
     const [descOP, setDescDOP] = useState("dOP1");
 
@@ -306,7 +307,7 @@ export default function VDGL({name, date, setDateVD, date2}) {
                     </tr>
                     <tr className="tr-h">
                         <td>
-                            <Input className="text-center" width="220px"/>
+                            <Input className="text-center" width="220px" maxlength="34"/>
                         </td>
                         <td>
                             <b>$</b> <input list="dL14" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
@@ -321,7 +322,7 @@ export default function VDGL({name, date, setDateVD, date2}) {
                     </tr>
                     <tr className="tr-h">
                         <td>
-                            <Input className="text-center" width="220px"/>
+                            <Input className="text-center" width="220px" maxlength="34"/>
                         </td>
                         <td>
                             <b>$</b> <input list="dL16" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
@@ -336,7 +337,7 @@ export default function VDGL({name, date, setDateVD, date2}) {
                     </tr>
                     <tr className="tr-h">
                         <td>
-                            <Input className="text-center" width="220px"/>
+                            <Input className="text-center" width="220px" maxlength="34"/>
                         </td>
                         <td>
                             <b>$</b> <input list="dL18" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
@@ -355,24 +356,37 @@ export default function VDGL({name, date, setDateVD, date2}) {
                     onChange={e => setChkBlank(e.target.checked)}
                 /> BLANK</span>
                 <br/>
-                <select value={descOP} onChange={e => setDescDOP(e.target.value)}>
-                    <option value="dOP1" default>HANDYMAN – unlicensed contractor, service, maintenance and repair.</option>
-                    <option value="dOP2">LANDSCAPER – Lawn care service and maintenance.</option>
-                    <option value="dOP3">LANDSCAPER/TREE TRIMMING – Lawn care service and maintenance, three trimming.</option>
-                    <option value="dOP4">JANITORIAL – Service and maintenance.</option>
-                    <option value="dOP5">FLOOR INSTALLATION – Carpet, tile, wood, vinyl, flooring installation.</option>
-                    <option value="dOP6">HVAC – installation or heating, ventilation, or air conditioning systems.</option>
-                    <option value="dOP7">TILE AND MARBLE INSTALLATION – installation of tile, marble, granite, travertine or other related materials.</option>
-                    <option value="dOP8">RESTAURANT.</option> 
-                </select>
+
+                {chkBlank
+                    ? 
+                        <input 
+                            className="w-100 input-default" 
+                            maxlength="130"
+                            onChange={e => setDescriptionBlank(e.target.value)}
+                            value={descriptionBlank}    
+                        />
+                    : 
+                        <select className='w-100' value={descOP} onChange={e => setDescDOP(e.target.value)}>
+                            <option value="dOP1" default>HANDYMAN – unlicensed contractor, service, maintenance and repair.</option>
+                            <option value="dOP2">LANDSCAPER – Lawn care service and maintenance.</option>
+                            <option value="dOP3">LANDSCAPER/TREE TRIMMING – Lawn care service and maintenance, three trimming.</option>
+                            <option value="dOP4">JANITORIAL – Service and maintenance.</option>
+                            <option value="dOP5">FLOOR INSTALLATION – Carpet, tile, wood, vinyl, flooring installation.</option>
+                            <option value="dOP6">HVAC – installation or heating, ventilation, or air conditioning systems.</option>
+                            <option value="dOP7">TILE AND MARBLE INSTALLATION – installation of tile, marble, granite, travertine or other related materials.</option>
+                            <option value="dOP8">RESTAURANT.</option> 
+                        </select>
+                }
+                
             </div>
 
             <div class="mb-3">
                 <b>Restrictions:</b>
                 <br/>
                 <textarea 
-                    class="form-control" 
+                    class="form-control text-justify font-10 border border-dark" 
                     rows="3"
+                    maxlength="360"
                     onChange={e => setRestrictionsBlank(e.target.value)}
                     {...(chkBlank ? {value: restrictionsBlank} : {value: restrictions})}
                 >
@@ -385,9 +399,9 @@ export default function VDGL({name, date, setDateVD, date2}) {
                 </i>
             </p>
             
-            <div className='d-flex justify-content-between text-center'>
+            <div className='d-flex fw-bold justify-content-between text-center'>
                 <div>
-                    <p className='mb-0'><b>Gross Annual Sales:</b></p>
+                    <p className='mb-0'>Gross Annual Sales:</p>
                     <CurrencyFormat 
                         thousandSeparator={true} 
                         prefix={'$'}
@@ -397,7 +411,7 @@ export default function VDGL({name, date, setDateVD, date2}) {
                     />
                 </div>
                 <div>
-                    <p className='mb-0'><b>Employee Payroll:</b></p>
+                    <p className='mb-0'>Employee Payroll:</p>
                     <CurrencyFormat 
                         thousandSeparator={true} 
                         prefix={'$'}
@@ -407,16 +421,19 @@ export default function VDGL({name, date, setDateVD, date2}) {
                     />
                 </div>
                 <div>
-                    <p className='mb-0'><b>P.T. Employees:</b></p>
+                    <p className='mb-0'>P.T. Employees:</p>
                     <Input className="text-center fw-bold" width = "170px" maxlength="20"/>
                 </div>
                 <div>
-                    <p className='mb-0'><b>F.T. Employees:</b></p>
+                    <p className='mb-0'>F.T. Employees:</p>
                     <Input className="text-center fw-bold" width = "170px" maxlength="20"/>
                 </div>
                 <div>
-                    <p className='mb-0'><b>Square Feet:</b></p>
-                    <Input className="text-center fw-bold" width = "100px" maxlength="20"/>
+                    <p className='mb-0'>Square Feet:</p>
+                    <input list="sqrList" className="input-default text-center" style={{width: "100px"}} maxLength="10"/>
+                    <datalist id="sqrList">
+                        <option>N/A</option>
+                    </datalist>
                 </div>
             </div>
 

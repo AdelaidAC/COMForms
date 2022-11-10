@@ -8,11 +8,13 @@ import BFGL from './pages/BFGL';
 import PNGL from './pages/PNGL';
 import CCGL from './pages/CCGL';
 import VDGL from './pages/VDGL';
+import PAGL from './pages/PAGL';
+import D1 from './pages/D1';
 
 
 export default function GeneralLiability({pages, name, address, phone, date}) {
 
-    let garage, special, vD, pA, brokerFee, balanceDue, creditCard;
+    let garage, special, vD, pA, brokerFee, d1, balanceDue, creditCard;
     
     let count = 0;
 
@@ -33,6 +35,9 @@ export default function GeneralLiability({pages, name, address, phone, date}) {
     count++;
     vD = <><Badge text={count}/><VDGL name={name} date={date} setDateVD={setDateVD} date2={date2}/></>;
 
+    count++;
+    pA = <><Badge text={count}/><PAGL name={name} date={date} date2={date2}/></>;
+
     if (Object.values(pages).includes("spanishBF")) {
         count++;
         brokerFee = <><Badge text={count}/><SBFGL name={name} date={date}/></>;
@@ -51,6 +56,9 @@ export default function GeneralLiability({pages, name, address, phone, date}) {
         creditCard = <><Badge text={count}/><CCGL name={name} address={address}/></>;
     }
 
+    count++;
+    d1 = <><Badge text={count}/><D1 date={date}/></>;
+
     React.useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -62,6 +70,7 @@ export default function GeneralLiability({pages, name, address, phone, date}) {
             {vD}
             {pA}
             {brokerFee}
+            {d1}
             {balanceDue}
             {creditCard}
         </div>
