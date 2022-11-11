@@ -61,7 +61,7 @@ export default function GeneralLiability({pages, name, address, phone, date}) {
     d1 = <><Badge text={count}/><D1 date={date}/></>;
 
     count++;
-    diligent = <><Badge text={count}/><Diligent date={date}/></>;
+    diligent = <><Badge text={count}/><Diligent name={name} address={address} date={date}/></>;
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
