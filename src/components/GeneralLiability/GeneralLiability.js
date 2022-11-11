@@ -10,11 +10,12 @@ import CCGL from './pages/CCGL';
 import VDGL from './pages/VDGL';
 import PAGL from './pages/PAGL';
 import D1 from './pages/D1';
+import Diligent from './pages/Diligent';
 
 
 export default function GeneralLiability({pages, name, address, phone, date}) {
 
-    let garage, special, vD, pA, brokerFee, d1, balanceDue, creditCard;
+    let garage, special, vD, pA, brokerFee, d1, balanceDue, creditCard, diligent;
     
     let count = 0;
 
@@ -59,6 +60,9 @@ export default function GeneralLiability({pages, name, address, phone, date}) {
     count++;
     d1 = <><Badge text={count}/><D1 date={date}/></>;
 
+    count++;
+    diligent = <><Badge text={count}/><Diligent date={date}/></>;
+
     React.useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -73,6 +77,7 @@ export default function GeneralLiability({pages, name, address, phone, date}) {
             {d1}
             {balanceDue}
             {creditCard}
+            {diligent}
         </div>
     );
 
