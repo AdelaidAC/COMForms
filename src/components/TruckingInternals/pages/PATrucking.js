@@ -18,7 +18,7 @@ const agreementValues = [
     "OTHER"
 ]
 
-export default function PromiseAgreementTrucking({name, initials, address, phone}) {
+export default function PATrucking({name, initials, address, phone}) {
     return (
         
         <div className='sheet font-11'>

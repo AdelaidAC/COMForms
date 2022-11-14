@@ -4,7 +4,7 @@ import Input from "../../Input";
 import Logo from "../../Logo";
 import Title from "../../Title";
 
-export default function VDTruckingOne({name, initials, address, phone}) {
+export default function VDTrucking({name, initials, address, phone}) {
     return (
         <div className="sheet font-11">
             <Logo />

@@ -1,14 +1,53 @@
-import React from "react";
+import React, {useState} from 'react';
+import moment from 'moment/moment'
 import Badge from "../Badge.";
-import BFDTrucking from "./pages/BFDTrucking";
-import CCAFTrucking from "./pages/CCAFTrucking";
-import PNTrucking from "./pages/PNTrucking";
-import PromiseAgreementTrucking from "./pages/PromiseAgreementTrucking";
-import SBFDTrucking from "./pages/SBFDTrucking";
-import VDTruckingOne from "./pages/VDTruckingOne";
-import VDTruckingTwo from "./pages/VDTruckingTwo";
+import VDTrucking from './pages/VDTrucking';
+import AssignedRisk from './pages/AssignedRisk';
+import PATrucking from './pages/PATrucking';
+import SBFTrucking from './pages/SBFTrucking';
+import BFTrucking from './pages/BFTrucking';
+import PNTrucking from './pages/PNTrucking';
+import CCTrucking from './pages/CCTrucking';
 
-export default function Trucking({pages, name, initials, address, phone}) {
+export default function Trucking({pages, name, address, phone, date}) {
+
+    let vD, assignedRisk, pA, brokerFee, balanceDue, creditCard;
+    
+    let count = 0;
+
+    const [dateVD, setDateVD] = useState('');
+
+    let date2 = moment(dateVD).format('MM/DD/YYYY');
+
+    count++;
+    vD = <><Badge text={count}/><VDTrucking name={name} date={date} setDateVD={setDateVD} date2={date2}/></>;
+
+    if (Object.values(pages).includes("assignedRisk")) {
+        count++;
+        assignedRisk = <><Badge text={count}/><AssignedRisk name={name} address={address} phone={phone}/></>;
+    }
+
+    count++;
+    pA = <><Badge text={count}/><PATrucking name={name} date={date} date2={date2}/></>; 
+
+
+    if (Object.values(pages).includes("spanishBF")) {
+        count++;
+        brokerFee = <><Badge text={count}/><SBFTrucking name={name} date={date}/></>;
+    } else {
+        count++;
+        brokerFee = <><Badge text={count}/><BFTrucking name={name} date={date}/></>;
+    }
+
+    if (Object.values(pages).includes("balanceDue")) {
+        count++;
+        balanceDue = <><Badge text={count}/><PNTrucking name={name} address={address} phone={phone}/></>;
+    }
+
+    if (Object.values(pages).includes("creditCard")) {
+        count++;
+        creditCard = <><Badge text={count}/><CCTrucking name={name} address={address}/></>;
+    }
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -16,21 +55,12 @@ export default function Trucking({pages, name, initials, address, phone}) {
 
     return (
         <div>
-            <Badge text="1"/>
-            <BFDTrucking name={name} initials={initials} address={address} phone={phone}/>
-            <Badge text="2"/>
-            <CCAFTrucking name={name} initials={initials} address={address} phone={phone}/>
-            <Badge text="3"/>
-            <PNTrucking firstSignature="Signature" secondSignature="Witness" name={name} initials={initials} address={address} phone={phone}/>
-            <Badge text="4"/>
-            <PromiseAgreementTrucking name={name} initials={initials} address={address} phone={phone}/>
-            <Badge text="5"/>
-            <SBFDTrucking firstSignature="Firma del Asegurado" secondSignature="Firma del Agente" name={name} initials={initials} address={address} phone={phone}/>
-            <Badge text="6"/>
-            <VDTruckingOne name={name} initials={initials} address={address} phone={phone}/>
-            <Badge text="7"/>
-            <VDTruckingTwo name={name} initials={initials} address={address} phone={phone}/>
-
+            {vD}
+            {assignedRisk}
+            {pA}
+            {brokerFee}
+            {balanceDue}
+            {creditCard}
         </div>
     );
 }

@@ -4,7 +4,12 @@ import Input from "../../Input";
 import Logo from "../../Logo";
 import Title from "../../Title";
 
-export default function VDTruckingTwo({name, initials, address, phone}) {
+export default function AssignedRisk({name, initials, address, phone}) {
+
+    React.useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className="sheet font-11">
             <Logo />
