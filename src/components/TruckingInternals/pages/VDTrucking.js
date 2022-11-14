@@ -1,32 +1,42 @@
 import React from "react";
-import CDate from "../../CDate";
+import CurrencyFormat from 'react-currency-format';
 import Input from "../../Input";
 import Logo from "../../Logo";
 import Title from "../../Title";
 
-export default function VDTrucking({name, initials, address, phone}) {
+export default function VDTrucking({name, date, setDateVD, date2}) {
     return (
-        <div className="sheet font-11">
+        <div className="sheet font-10 text-justify">
             <Logo />
 
             <Title text="VERBAL DISCLOSURE" />
 
-            <div className='d-flex justify-content-between mt-3 text-center'>
-                <div>
-                    Name:
-                    <Input width="250px" name="VDTO_ApplicantName"/>
+            <div class="row">
+                <div class="col d-flex">
+                    <b>Name:</b>
+                    <span className="flex-fill">
+                        <Input className="w-100 ms-1 text-center" maxlength="40" value={name}/>
+                    </span>
                 </div>
-                <div>
-                    DBA:
-                    <Input width="350px" name="VDTO_ApplicantDBA"/>
+                <div class="col d-flex">
+                    <b>DBA:</b>
+                    <span className="flex-fill">
+                        <Input className="w-100 ms-1 text-center" maxlength="40"/>
+                    </span>
                 </div>
             </div>
 
-            <p>
-                I <Input width="400px" name="VDTO_ApplicantName2"/> hereby appoint Adriana's Insurance Services Inc. as my Broker / Attorney in fact
-                to sign papers, applications, documents that are necessary in order to secure the insurance coverage 
-                specified below. I have also been advised of the importance of the effective date of the policy and have 
-                chosen to have coverage start on: <CDate/>
+            <p className="mt-4">
+                I, <Input width="400px" className="text-center" value={name}/> hereby appoint Adriana’s Insurance Svcs, Inc. as my
+                Broker/Attorney in fact to sign papers, applications, documents that are
+                necessary in order to secure the insurance coverage specified below. I have also been advised of the importance of the effective date of the policy and have 
+                chosen to have coverage start on: 
+                <input 
+                    type="date" 
+                    style={{width: "100px"}} 
+                    onChange = {e => setDateVD(e.target.value)}
+                    {... date2 === "Invalid date" ? {className:"y text-center fw-bold"} : {className:"text-center fw-bold"}}
+                />
             </p>
 
             <table>
@@ -687,55 +697,76 @@ export default function VDTrucking({name, initials, address, phone}) {
                 </table>
 
             <div className="mx-5 mt-3">
-                <div className="border border-1 border-dark mt-1 mb-2"></div>
-                <div className='d-flex justify-content-between mx-5 text-center'>
+                <div className="border border-1 border-dark mt-4 mb-2"></div>
+                <div className='d-flex justify-content-between text-center'>
                     <div >
-                        <label><strong>TOTAL:</strong></label>
-                        <Input width = "250" name="VDTruckingOne_Total"/>
+                        <label><b>TOTAL:</b></label>
+                        <CurrencyFormat 
+                            thousandSeparator={true} 
+                            prefix={'$'}
+                            maxlength="13"
+                            style = {{width:"125px"}}
+                            className='fw-bold text-center input-default'
+                        />
                     </div>
                     <div>
-                        <label><strong>Down Payment:</strong></label>
-                        <Input width = "250" name="VDTruckingOne_Down"/>
+                        <label><b>Down Payment:</b></label>
+                        <CurrencyFormat 
+                            thousandSeparator={true} 
+                            prefix={'$'}
+                            maxlength="13"
+                            style = {{width:"125px"}}
+                            className='fw-bold text-center input-default'
+                        />
                     </div>
                     <div>
-                        <label><strong>Payments of:</strong></label>
-                        <Input width = "250" name="VDTruckingOne_Monthly"/>
+                        <label><b>Payments of:</b></label>
+                        <CurrencyFormat 
+                            thousandSeparator={true} 
+                            prefix={'$'}
+                            maxlength="13"
+                            style = {{width:"125px"}}
+                            className='fw-bold text-center input-default'
+                        />
                     </div>
                 </div>
-                <div className="border border-1 border-dark mt-2 mb-1"></div>
+                <div className="border border-1 border-dark mt-2 mb-4"></div>
             </div>
 
-            <div className="text-center">
-                <span>
-                    Business Type:
-                    <Input width = "450" name="VDTruckingOne_BusinessType"/>
-                    <br/>
-                    Filings Purchased: <strong>MCP</strong> 
-                    <input className="ms-1 me-2" type="checkbox" name="VDTruckingOne_MCP" value="MCP"/>
-                    <strong>ICC</strong> 
-                    <input className="ms-1 me-2" type="checkbox" name="VDTruckingOne_ICC" value="ICC"/>
-                    <strong>DOT</strong> 
-                    <input className="ms-1 me-2" type="checkbox" name="VDTruckingOne_DOT" value="DOT"/>
-                    <strong>PUC</strong> 
-                    <input className="ms-1 me-2" type="checkbox" name="VDTruckingOne_PUC" value="PUC"/>
-                    <strong>NONE</strong> 
-                    <input className="ms-1" type="checkbox" name="VDTruckingOne_NONE" value="NONE"/>
-                    <br/>
-                    Permit Numbers (If Purchased):
-                    <Input width = "450" name="VDTruckingOne_PermitNumbers"/>
-                    <br/>
-                    <strong>All the above described coverage and conditions have been reviewed and approved by the signer below.</strong>
-                </span>
-            </div>
+            <table className="mt-3">
+                <tr>
+                    <td colspan="2">
+                        Business Type: <Input width = "600px" className="text-center" maxlength="90"/>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td className="d-flex align-items-center">
+                        Filings Purchased:
+                        <b className="ms-3">MCP</b><input className="ms-2 me-3" type="checkbox"/>
+                        <b>ICC</b><input className="ms-2 me-3" type="checkbox"/>
+                        <b>DOT</b><input className="ms-2 me-3" type="checkbox"/>
+                        <b>PUC</b><input className="ms-2 me-3" type="checkbox"/>
+                        <b>NONE</b><input className="ms-2" type="checkbox"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Permit Numbers (If Purchased): <Input width = "500px" className="text-center" maxlength="70"/>
+                    </td>
+                </tr>
+            </table>
 
-            <div className="d-flex justify-content-between my-3">
+            <p className="fw-bold text-center my-4">
+                All the above described coverage and conditions have been reviewed and approved by the signer below.
+            </p>
+
+            <div className="d-flex justify-content-between fw-bold">
                 <div>
-                    Insured’s Signature:
-                    <Input width="400px" name="VDTruckingOne_ISignature"/>
+                    Insured’s Signature: <Input width="300px" disabled bColor="yellow"/>
                 </div>
                 <div>
-                    Date:
-                    <CDate/>
+                    Date: <Input value = {date} width = "80px" className = "text-center fw-bold"/>
                 </div>
             </div>
             

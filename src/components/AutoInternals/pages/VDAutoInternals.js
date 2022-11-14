@@ -1,5 +1,4 @@
 import React from "react";
-import CDate from "../../CDate";
 import Input from "../../Input";
 import Logo from "../../Logo";
 import Title from "../../Title";

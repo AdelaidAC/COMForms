@@ -1,24 +1,35 @@
-import React from 'react'
-import CDate from '../../CDate'
+import moment from 'moment/moment'
+import React, { useEffect, useState} from 'react';
 import Input from '../../Input'
 import Logo from '../../Logo'
-import Signature from '../../Signature'
+import Signature from '../../Signature';
 import Title from '../../Title'
 
-const agreementValues = [
-    "PROOF OF PRIOR FOR THE LAST", 
-    "PROOF OF NO LOSSES IN THE PAST 5 YEARS", 
-    "VALID IDENTIFICATION FOR APPLICANT", 
-    "INSPECTION OF PREMISES AND/OR OPERATIONS", 
-    "PROOF OF LIVING IN PROPERTY INSURED", 
-    "VERIFICATION OF LOCATION INFORMATION", 
-    "PROOF OF MARRIAGE", 
-    "MORTGAGEE, MORTGAGEE CLAUSE, AND LOAN NUMBER", 
-    "BALANCE DUE", 
-    "OTHER"
-]
+export default function PATrucking({name, date, date2}) {
 
-export default function PATrucking({name, initials, address, phone}) {
+    let endDate = moment(date2).add(7, 'days').format('MM/DD/YYYY');
+
+    const [iVP1, setVP1] = useState('');
+    const [iVG1, setVG1] = useState('');
+
+    console.log(iVG1);
+    console.log(iVP1);
+
+    const [iVP2, setVP2] = useState('');
+    const [iVG2, setVG2] = useState('');
+
+    const [iVP3, setVP3] = useState('');
+    const [iVG3, setVG3] = useState('');
+
+    const [iVP4, setVP4] = useState('');
+    const [iVG4, setVG4] = useState('');
+
+    const [iVP5, setVP5] = useState('');
+    const [iVG5, setVG5] = useState('');
+
+    const [iVP6, setVP6] = useState('');
+    const [iVG6, setVG6] = useState('');
+
     return (
         
         <div className='sheet font-11'>
@@ -27,154 +38,148 @@ export default function PATrucking({name, initials, address, phone}) {
 
             <Title text="PROMISE TO PROVIDE AGREEMENT" />
 
-            <div className="d-flex justify-content-between my-3">
-                <div>
-                    Client Name:
-                    <Input width="400px" name="PAT_ClientName"/>
+            <div className='d-flex justify-content-between my-4'>
+                <div className='d-flex col-8'>
+                    <b>Client Name:</b>
+                    <span className="flex-fill">
+                        <Input className="w-100 ms-1 text-center" maxlength="40" value={name}/>
+                    </span>
                 </div>
                 <div>
-                    Date:
-                    <CDate/>
+                    <b>Date: </b>
+                    <Input value = {date} width = "80px" className = "text-center fw-bold"/>
                 </div>
             </div>
+
+            <p className='mt-4 text-justify'>
+                It is my stated intention to obtain insurance coverage effective <Input value = {date2} width = "80px" className = "text-center fw-bold"/>, however I do not have copies of the following information with me:
+            </p>
             
-            <div className='px-2'>
+            <div className='font-10'>
                 
-                It is my stated intention to obtain insurance coverage effective <CDate/>, however I do not have copies of the following information with me:
+                <input className="me-1 mb-3" type="checkbox"/> 
+                Proof of prior insurance for the last
+                <input className="ms-3 me-1" type="checkbox"/> 6 Months
+                <input className="ms-3 me-1" type="checkbox"/> 1 Year
+                <input className="ms-3 me-1" type="checkbox"/> 2 Years
+                <input className="ms-3 me-1" type="checkbox"/> 3 Years
                 <br/>
-
-                <input className="me-1" type="checkbox" name="PAT_PendingOne" value="Pending_One"/> 
-                PROOF OF PRIOR INSURANCE FOR THE LAST
-                <input className="ms-3 me-1" type="checkbox" name="PAT_6M" value="6 Months"/> 6 Months
-                <input className="ms-3 me-1" type="checkbox" name="PAT_1Y" value="1 Year"/> 1 Year
-                <input className="ms-3 me-1" type="checkbox" name="PAT_2Y" value="2 Years"/> 2 Years
-                <input className="ms-3 me-1" type="checkbox" name="PAT_3Y" value="3 Years"/> 3 Years
+                <input className="me-1 mb-3" type="checkbox"/> 
+                Proof of non-fault or non-injury accident for the following date(s):
+                <Input className="ms-1 text-center" width="160px" maxlength="20"/>
                 <br/>
-
-                <input className="me-1" type="checkbox" name="PAT_PendingTwo" value="Pending_Two"/> 
-                PROOF OF NON-FAULT OR NON-INJURY ACCIDENT FOR THE FOLLOWING DATE(S):
-                <Input width="150px" name="PAT_AccidentDates"/>
+                <input className="me-1 mb-3" type="checkbox"/> 
+                Valid license for:
+                <input className="ms-3 me-1" type="checkbox"/> Driver 1
+                <input className="ms-3 me-1" type="checkbox"/> Driver 2
+                <input className="ms-3 me-1" type="checkbox"/> Driver 3
+                <input className="ms-3 me-1" type="checkbox"/> Driver 4
+                <input className="ms-3 me-1" type="checkbox"/> Driver 5
+                <input className="ms-3 me-1" type="checkbox"/> Driver 6
                 <br/>
-
-                <input className="me-1" type="checkbox" name="PAT_PendingThree" value="Pending_Three"/> 
-                VALID LICENSE FOR:
-                <input className="ms-3 me-1" type="checkbox" name="PAT_D1" value="Driver 1"/> Driver 1
-                <input className="ms-3 me-1" type="checkbox" name="PAT_D2" value="Driver 2"/> Driver 2
-                <input className="ms-3 me-1" type="checkbox" name="PAT_D3" value="Driver 3"/> Driver 3
-                <input className="ms-3 me-1" type="checkbox" name="PAT_D4" value="Driver 4"/> Driver 4
-                <input className="ms-3 me-1" type="checkbox" name="PAT_D5" value="Driver 5"/> Driver 5
-                <input className="ms-3 me-1" type="checkbox" name="PAT_D6" value="Driver 6"/> Driver 6
-                <br/>
-
-                <input className="me-1" type="checkbox" name="PAT_PendingFour" value="Pending_Four"/> 
-                VALID VEHICLE REGISTRATION FOR:
+                <input className="me-1 mb-3" type="checkbox"/> 
+                Valid vehicle registration for:
                 <div className='mx-3 d-flex justify-content-between'>
                     <div>
-                        <input className="me-3" type="checkbox" name="PAT_RegOne" value="Reg_One"/>
-                        <Input name="PAT_RYearOne"/>
-                        <Input width="100px" name="PAT_RMakeOne"/>
+                        <input className="me-3" type="checkbox"/>
+                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} onChange = {e => setVP1(e.target.value)}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} onChange = {e => setVG1(e.target.value)}/>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox" name="PAT_RegTwo" value="Reg_Two"/>
-                        <Input name="PAT_RYearTwo"/>
-                        <Input width="100px" name="PAT_RMakeTwo"/>
+                        <input className="me-3" type="checkbox"/>
+                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} onChange = {e => setVP2(e.target.value)}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} onChange = {e => setVG2(e.target.value)}/>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox" name="PAT_RegThree" value="Reg_Three"/>
-                        <Input name="PAT_RYearThree"/>
-                        <Input width="100px" name="PAT_RMakeThree"/>
+                        <input className="me-3" type="checkbox"/>
+                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} onChange = {e => setVP3(e.target.value)}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} onChange = {e => setVG3(e.target.value)}/>
                     </div>
                 </div>
                 <div className='mx-3 d-flex justify-content-between'>
                     <div>
-                        <input className="me-3" type="checkbox" name="PAT_RegFour" value="Reg_Four"/>
-                        <Input name="PAT_RYearFour"/>
-                        <Input width="100px" name="PAT_RMakeFour"/>
+                        <input className="me-3" type="checkbox"/>
+                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} onChange = {e => setVP4(e.target.value)}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} onChange = {e => setVG4(e.target.value)}/>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox" name="PAT_RegFive" value="Reg_Five"/>
-                        <Input name="PAT_RYearFive"/>
-                        <Input width="100px" name="PAT_RMakeFive"/>
+                        <input className="me-3" type="checkbox"/>
+                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} onChange = {e => setVP5(e.target.value)}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} onChange = {e => setVG5(e.target.value)}/>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox" name="PAT_RegSix" value="Reg_Six"/>
-                        <Input name="PAT_RYearSix"/>
-                        <Input width="100px" name="PAT_RMakeSix"/>
+                        <input className="me-3" type="checkbox"/>
+                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} onChange = {e => setVP6(e.target.value)}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} onChange = {e => setVG6(e.target.value)}/>
                     </div>
                 </div>
-
-                <input className="me-1" type="checkbox" name="PAT_PendingFive" value="Pending_Five"/> 
-                VEHICLE FOR INSPECTIONS AND PHOTOS OF ALL FOUR SIDES:
+                <br/>
+                <input className="me-1 mb-3" type="checkbox"/> 
+                Vehicle for inspections and photos of all four sides:
                 <div className='mx-3 d-flex justify-content-between'>
                     <div>
-                        <input className="me-3" type="checkbox" name="PAT_PhotosOne" value="Photos_One"/>
-                        <Input name="PAT_PYearOne"/>
-                        <Input width="100px" name="PAT_PMakeOne"/>
+                        <input className="me-3" type="checkbox"/>
+                        <input maxlength="6" className="text-center fw-bold input-default" value={iVP1} style={{width:"50px"}}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={iVG1}/>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox" name="PAT_PhotosTwo" value="Photos_Two"/>
-                        <Input name="PAT_PYearTwo"/>
-                        <Input width="100px" name="PAT_PMakeTwo"/>
+                        <input className="me-3" type="checkbox"/>
+                        <input maxlength="6" className="text-center fw-bold input-default" value={iVP2} style={{width:"50px"}}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={iVG2}/>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox" name="PAT_PhotosThree" value="Photos_Three"/>
-                        <Input name="PAT_PYearThree"/>
-                        <Input width="100px" name="PAT_PMakeThree"/>
+                        <input className="me-3" type="checkbox"/>
+                        <input maxlength="6" className="text-center fw-bold input-default" value={iVP3} style={{width:"50px"}}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={iVG3}/>
                     </div>
                 </div>
                 <div className='mx-3 d-flex justify-content-between'>
                     <div>
-                        <input className="me-3" type="checkbox" name="PAT_PhotosFour" value="Photos_Four"/>
-                        <Input name="PAT_PYearFour"/>
-                        <Input width="100px" name="PAT_PMakeFour"/>
+                        <input className="me-3" type="checkbox"/>
+                        <input maxlength="6" className="text-center fw-bold input-default" value={iVP4} style={{width:"50px"}}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={iVG4}/>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox" name="PAT_PhotosFive" value="Photos_Five"/>
-                        <Input name="PAT_PYearFive"/>
-                        <Input width="100px" name="PAT_PMakeFive"/>
+                        <input className="me-3" type="checkbox"/>
+                        <input maxlength="6" className="text-center fw-bold input-default" value={iVP5} style={{width:"50px"}}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={iVG5}/>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox" name="PAT_PhotosSix" value="Photos_Six"/>
-                        <Input name="PAT_PYearSix"/>
-                        <Input width="100px" name="PAT_PMakeSix"/>
+                        <input className="me-3" type="checkbox"/>
+                        <input maxlength="6" className="text-center fw-bold input-default" value={iVP6} style={{width:"50px"}}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={iVG6}/>
                     </div>
                 </div>
                 <br/>
-
-                <input className="me-1" type="checkbox" name="PAT_PendingSix" value="Pending_Six"/> 
-                PROOF OF GARAGING ADDRESS
+                <input className="me-1 mb-3" type="checkbox"/> 
+                Proof of garaging address
                 <br/>
-
-                <input className="me-1" type="checkbox" name="PAT_PendingSeven" value="Pending_Seven"/> 
-                PROOF OF MARRIAGE
+                <input className="me-1 mb-3" type="checkbox"/> 
+                Proof of marriage
                 <br/>
-
-                <input className="me-1" type="checkbox" name="PAT_PendingEight" value="Pending_Eight"/> 
-                SALES OR LEASE AGREEMENT
+                <input className="me-1 mb-3" type="checkbox"/> 
+                Sales or lease agreement
                 <br/>
-
-                <input className="me-1" type="checkbox" name="PAT_PendingNine" value="Balance"/> 
-                BALANCE DUE
+                <input className="me-1 mb-3" type="checkbox"/> 
+                Balance due
                 <br/>
-
-                <input className="me-1" type="checkbox" name="PAT_PendingTen" value="Other"/> 
-                OTHER
-                <Input width="90%" name="PAT_Other"/>
+                <input className="me-1" type="checkbox"/> 
+                Other
+                <Input className="ms-1" width="90%" maxlength="100"/>
             
             </div>
 
             <p className="text-center my-4">
-                I hereby promise to provide the above-indicated information by 
-                <CDate/> to Adriana's Insurance Services, Inc.
+                I hereby promise to provide the above-indicated information by <Input value = {endDate} width = "80px" className = "text-center fw-bold"/> to Adriana's Insurance Services, Inc.
             </p>
             
-            <p className="mx-3 mb-5 lh-2">
+            <p className="mb-5 text-justify">
                 In the event that the information is not provided by the above-mentioned date, I understand that some or all of my coverage may be subject to a premium increase, cancellation, or rejection, 
                 with no coverage in effect. I further understand that if a premium increase, cancellation or rejection occurs because I fail to provide the above indicated information, I may lose all or part 
                 of my down payment and fully-earned Broker’s Fee, and I may incur a financial loss.
             </p>
 
-            <Signature />
+            <Signature/>
 
         </div>
 
