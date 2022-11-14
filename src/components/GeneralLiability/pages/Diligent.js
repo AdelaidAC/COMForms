@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import moment from 'moment/moment'
 import Input from '../../Input'
 
 export default function Diligent({name, address, date}) {
@@ -16,6 +17,11 @@ export default function Diligent({name, address, date}) {
     const [newZipCode, setNewZipCode] = useState('');
 
     const [chkSame, setSame] = useState(false);
+
+    const [l1, setL1] = useState('THE RISK WAS SUBMITTED TO VARIOUS DIFFERENT ADMITTED COMPANIES,');
+    const [l2, setL2] = useState('HOWEVER THE RISK WAS DECLINED AND UNACCEPTABLE PER THEIR GUIDELINES.');
+
+    const tDate = moment(date).format('MM / YYYY');
 
     return (
         <div className='sheet font-11 text-justify'>
@@ -290,19 +296,217 @@ export default function Diligent({name, address, date}) {
             <table>
                 <tr>
                     <td class="d-flex align-items-start">
-                       6. 
+                        6.
+                    </td> 
+                    <td className='col-12'>
+                        (A) <b><u>Describe</u> the diligent efforts made to place this coverage with admitted insurers and describe how the search
+                        was performed (please add additional pages if necessary):</b>
+
+                        <br/>
+
+                        <input className="text-center fw-bold w-100 input-default" maxlength="80" onChange = {e => setL1(e.target.value)} value={l1}/>
+                        <br/>
+                        <input className="text-center fw-bold w-100 input-default" maxlength="80" onChange = {e => setL2(e.target.value)} value={l2}/>
+                        <br/>
+                        <Input className="text-center fw-bold w-100" maxlength="80"/>
+
+                        <br/>
+                        (B) If search was performed by someone <b><u>other</u></b> than the person named on line 1, please provide full name of
+                        that individual:
+                        <br/>
+                        <Input className="text-center fw-bold w-100" maxlength="80"/>
                     </td>
+                </tr>
+            </table>
+
+            <div className="border border-1 border-dark my-2"></div>
+
+            <table>
+                <tr>
+                    <td class="d-flex align-items-start">7.</td>
                     <td>
-                        If this insurance was placed pursuant to Section 125 <u>et seq.</u> of the California Insurance Code governing transactions with <b>risk purchasing groups</b> authorized by the Federal Liability Risk Retention Act of 1986, complete the following:
+                        (A) Was the risk described in Section 2 submitted by you or by someone under your supervision to at least
+                        (3) insurers that are admitted in California and who actually write the type of insurance described on
+                        lines 2(C) and 2(E)?
                         <br/>
                         <span className='ms-4 fw-bold'>(CHECK ONE)</span>
                         <b className='ms-5'>YES</b> <input type="checkbox"/>
                         <b className='ms-3'>NO</b> <input type="checkbox"/>
                     </td>
                 </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        (B) Was the risk described in Section 2 submitted by you or by someone under your supervision to at least
+                        (3) If <b>YES</b>, please complete <b><u>ALL</u></b> sections of the following table; if <b>NO</b>, skip to Section 8:
+                    </td>
+                </tr>
             </table>
 
+            <table className='table table-bordered border-dark mt-2'>
+                <tr className='fw-bold text-center'>
+                    <td className=''>
+                        Full Name of Admitted Company
+                    </td>
+                    <td>
+                        First & Last Name of Company Representative AND Telephone Number
+                    </td>
+                    <td>
+                        Check if Employee (E) or Agent (A)
+                    </td>
+                    <td>
+                        Month, Year of Declination
+                    </td>
+                    <td>
+                        Declination Code*
+                    </td>
+                </tr>
+                <tr className='text-center'>
+                    <td className='fw-bold'>
+                        1.
+                        <br/>
+                        Safeco Ins Co of Amer
+                        <br/>
+                        NAIC # 24740
+                    </td>
+                    <td>
+                        <b><u>Patty Nordhoff</u></b>
+                        <br/>
+                        <b>(888) 374 - 2970</b>
+                        <br/>
+                        or <b>Online Declination</b> Website
+                    </td>
+                    <td>
+                        <b>E</b> <input type="checkbox"/>
+                        <br/>
+                        <b>A</b> <input type="checkbox"/>
+                    </td>
+                    <td>
+                        <Input className="fw-bold text-center" value={tDate} width="70px"/>
+                    </td>
+                    <td>
+                        <b>2</b>
+                    </td>
+                </tr>
+                <tr className='text-center'>
+                    <td className='fw-bold'>
+                        2.
+                        <br/>
+                        Zurich Amer Ins Co
+                        <br/>
+                        NAIC # 16535
+                    </td>
+                    <td>
+                        <b><u>Jeanette Wilson</u></b>
+                        <br/>
+                        <b>(800) 291 - 4484</b>
+                        <br/>
+                        or <b>Online Declination</b> Website
+                    </td>
+                    <td>
+                        <b>E</b> <input type="checkbox"/>
+                        <br/>
+                        <b>A</b> <input type="checkbox"/>
+                    </td>
+                    <td>
+                        <Input className="fw-bold text-center" value={tDate} width="70px"/>
+                    </td>
+                    <td>
+                        <b>2</b>
+                    </td>
+                </tr>
+                <tr className='text-center'>
+                    <td className='fw-bold'>
+                        3.
+                        <br/>
+                        Hartford Cas Ins Co
+                        <br/>
+                        NAIC # 29424
+                    </td>
+                    <td>
+                        <b><u>Ruben Pacheco</u></b>
+                        <br/>
+                        <b>(800) 427 - 7777</b>
+                        <br/>
+                        or <b>Online Declination</b> Website
+                    </td>
+                    <td>
+                        <b>E</b> <input type="checkbox"/>
+                        <br/>
+                        <b>A</b> <input type="checkbox"/>
+                    </td>
+                    <td>
+                        <Input className="fw-bold text-center" value={tDate} width="70px"/>
+                    </td>
+                    <td>
+                        <b>2</b>
+                    </td>
+                </tr>
+            </table>
 
+            <p className='text-center'>
+                <b>*Declination Codes: 1 -</b> Company’s capacity reached <b>2 -</b>Underwriting reason <b>3 -</b> Refused to state <b>4 -</b> Other
+            </p>
+
+            <div className="border border-1 border-dark my-2"></div>
+
+            <table>
+                <tr>
+                    <td class="d-flex align-items-start">8.</td>
+                    <td>
+                        <b>If 7(A) was answered NO, complete the following:</b>
+                        <br/>
+                        (A) Did you determine that fewer than 3 admitted insurers actually write the type of insurance described on lines
+                        2(C) and 2(E)?
+                        <br/>
+                        <span className='ms-4 fw-bold'>(CHECK ONE)</span>
+                        <b className='ms-5'>YES</b> <input type="checkbox"/>
+                        <b className='ms-3'>NO</b> <input type="checkbox"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        (B) If <b>NO</b>, please explain in detail why the risk was submitted to <u>less than three</u> admitted insurers in California that
+                        write this type of insurance.
+                        <br/>
+                        <input className="text-center fw-bold w-100 input-default" maxlength="80"/>
+                        <br/>
+                        <input className="text-center fw-bold w-100 input-default" maxlength="80"/>
+                        <br/>
+                        <input className="text-center fw-bold w-100 input-default" maxlength="80"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        (C) If <b>YES</b>, please describe how you made this determination:
+                        <br/>
+                        <input className="text-center fw-bold w-100 input-default" maxlength="80"/>
+                        <br/>
+                        <input className="text-center fw-bold w-100 input-default" maxlength="80"/>
+                        <br/>
+                        <input className="text-center fw-bold w-100 input-default" maxlength="80"/>
+                    </td>
+                </tr>
+            </table>
+
+            <p className='my-4'>
+                The undersigned licensee hereby certifies that this report is true and correct, and that this risk is not being placed with a
+                non- admitted insurer for the sole purpose of securing a rate or premium lower than the lowest rate or premium available
+                from an admitted insurer.
+            </p>
+
+            <div className='d-flex justify-content-between mx-5 pt-3 text-center fw-bold'>
+                <div>
+                    <Input width="300px" className="text-center" disabled bColor="yellow"/>
+                    <p>(Signature of Licensee Named on Line 1)</p>
+                </div>
+                <div>
+                    <Input value = {date} width = "80px" className = "text-center fw-bold"/>
+                    <p>Date</p>
+                </div>
+            </div>
 
         </div>
     )
