@@ -24,7 +24,7 @@ export default function Trucking({pages, name, address, phone, date}) {
 
     if (Object.values(pages).includes("assignedRisk")) {
         count++;
-        assignedRisk = <><Badge text={count}/><AssignedRisk name={name} address={address} phone={phone}/></>;
+        assignedRisk = <><Badge text={count}/><AssignedRisk name={name} date={date} setDateVD={setDateVD} date2={date2}/></>;
     }
 
     count++;

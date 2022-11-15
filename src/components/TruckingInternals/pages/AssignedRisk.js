@@ -1,10 +1,10 @@
 import React from "react";
-import CDate from "../../CDate";
+import CurrencyFormat from 'react-currency-format';
 import Input from "../../Input";
 import Logo from "../../Logo";
 import Title from "../../Title";
 
-export default function AssignedRisk({name, initials, address, phone}) {
+export default function AssignedRisk({name, date, setDateVD, date2}) {
 
     React.useEffect(() => {
       window.scrollTo(0, 0);
@@ -16,22 +16,32 @@ export default function AssignedRisk({name, initials, address, phone}) {
 
             <Title text="VERBAL DISCLOSURE" />
 
-            <div className='d-flex justify-content-between mt-3 text-center'>
-                <div>
-                    Name:
-                    <Input width="250px" name="VDTT_ApplicantName"/>
+            <div class="row">
+                <div class="col d-flex">
+                    <b>Name:</b>
+                    <span className="flex-fill">
+                        <Input className="w-100 ms-1 text-center" maxlength="40" value={name}/>
+                    </span>
                 </div>
-                <div>
-                    DBA:
-                    <Input width="350px" name="VDTT_ApplicantDBA"/>
+                <div class="col d-flex">
+                    <b>DBA:</b>
+                    <span className="flex-fill">
+                        <Input className="w-100 ms-1 text-center" maxlength="40"/>
+                    </span>
                 </div>
             </div>
 
-            <p>
-                I <Input width="400px" name="VDTT_ApplicantName2"/> hereby appoint Adriana's Insurance Services Inc. as my Broker / Attorney in fact
-                to sign papers, applications, documents that are necessary in order to secure the insurance coverage 
-                specified below. I have also been advised of the importance of the effective date of the policy and have 
-                chosen to have coverage start on: <CDate/>
+            <p className="mt-4">
+                I, <Input width="400px" className="text-center" value={name}/> hereby appoint Adriana’s Insurance Svcs, Inc. as my
+                Broker/Attorney in fact to sign papers, applications, documents that are
+                necessary in order to secure the insurance coverage specified below. I have also been advised of the importance of the effective date of the policy and have 
+                chosen to have coverage start on: 
+                <input 
+                    type="date" 
+                    style={{width: "100px"}} 
+                    onChange = {e => setDateVD(e.target.value)}
+                    {... date2 === "Invalid date" ? {className:"y text-center fw-bold"} : {className:"text-center fw-bold"}}
+                />
             </p>
 
             <table>
@@ -44,35 +54,36 @@ export default function AssignedRisk({name, initials, address, phone}) {
                 </thead>
                 <tbody>
                     <tr>
-                        <td className="fw-bold text-decoration-underline" rowspan="5">
+                        <td className="fw-bold text-decoration-underline text-center" rowspan="5">
                             Liability Carrier
                             <br/>
-                            <select name="VDTT_LCarrier">
-                                <option value="CAARP">CAARP</option>
-                            </select>
+                            <input list="e7" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="e7">
+                            <option>CAARP</option>
+                            </datalist>
                         </td>
                         <td>
                             Liability Bodily Injury:
                         </td>
                         <td>
-                            $
-                            <select className="ms-1" name="VDTT_LBInjury">
-                                <option value="750,000">750,000</option>
-                                <option value="1,000,000">1,000,000</option>
-                                <option value="1,500,000">1,500,000</option>
-                            </select>
+                            <b>$</b> <input list="e1" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="e1">
+                            <option>750,000</option>
+                            <option>1,000,000</option>
+                            <option>1,500,000</option>
+                            </datalist>
                         </td>
                         <td className="fw-bold" rowspan="2">
-                            <span><u>Liability Deductible:</u> $</span>
-                            <select className="ms-1" name="VDTT_LDeductible">
-                                <option value="None">None</option>
-                                <option value="250">250</option>
-                                <option value="500">500</option>
-                                <option value="1,000">1,000</option>
-                                <option value="1,500">1,500</option>
-                                <option value="2,000">2,000</option>
-                                <option value="2,500">2,500</option>
-                            </select>
+                            <b><u>Liability Deductible:</u> $</b> <input list="e6" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="e6">
+                                <option>None</option>
+                                <option>250</option>
+                                <option>500</option>
+                                <option>1,000</option>
+                                <option>1,500</option>
+                                <option>2,000</option>
+                                <option>2,500</option>
+                            </datalist>
                         </td>
                     </tr>
                     <tr>
@@ -80,10 +91,10 @@ export default function AssignedRisk({name, initials, address, phone}) {
                             Liability Property Damage:
                         </td>
                         <td>
-                            $
-                            <select className="ms-1" name="VDTT_LPDamage">
-                                <option value="***CSL***">***CSL***</option>
-                            </select>
+                            <b>$</b> <input list="e2" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="e2">
+                            <option>***CSL***</option>
+                            </datalist>
                         </td>
                     </tr>
                     <tr>
@@ -91,15 +102,15 @@ export default function AssignedRisk({name, initials, address, phone}) {
                             Medical Payment:
                         </td>
                         <td>
-                            $
-                            <select className="ms-1" name="VDTT_MPayment">
-                                <option value="Not Purchased">Not Purchased</option>
-                                <option value="500">500</option>
-                                <option value="1,000">1,000</option>
-                                <option value="2,000">2,000</option>
-                                <option value="3,000">3,000</option>
-                                <option value="5,000">5,000</option>
-                            </select>
+                            <b>$</b> <input list="e3" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="e3">
+                                <option>Not Purchased</option>
+                                <option>500</option>
+                                <option>1,000</option>
+                                <option>2,000</option>
+                                <option>3,000</option>
+                                <option>5,000</option>
+                            </datalist>
                         </td>
                     </tr>
                     <tr>
@@ -107,17 +118,17 @@ export default function AssignedRisk({name, initials, address, phone}) {
                             Uninsured Motorist BI:
                         </td>
                         <td>
-                            $
-                            <select className="ms-1" name="VDTT_UMBi">
-                                <option value="Rejected">Rejected</option>
-                                <option value="15,000/30,000">15,000/30,000</option>
-                                <option value="25,000/50,000">25,000/50,000</option>
-                                <option value="30,000/60,000">30,000/60,000</option>
-                                <option value="100,000">100,000</option>
-                                <option value="300,000">300,000</option>
-                                <option value="500,000">500,000</option>
-                                <option value="1,000,000">1,000,000</option>
-                            </select>
+                            <b>$</b> <input list="e4" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="e4">
+                                <option>Rejected</option>
+                                <option>15,000/30,000</option>
+                                <option>25,000/50,000</option>
+                                <option>30,000/60,000</option>
+                                <option>100,000</option>
+                                <option>300,000</option>
+                                <option>500,000</option>
+                                <option>1,000,000</option>
+                            </datalist>
                         </td>
                     </tr>
                     <tr>
@@ -125,383 +136,333 @@ export default function AssignedRisk({name, initials, address, phone}) {
                             Uninsured Motorist PD:
                         </td>
                         <td>
-                            $
-                            <select className="ms-1" name="VDTT_UMPd">
-                                <option value="Rejected">Rejected</option>
-                                <option value="3,500">3,500</option>
-                                <option value="5,000">5,000</option>
-                                <option value="CDW">CDW</option>
-                                <option value="***CSL***">***CSL***</option>
-                            </select>
+                            <b>$</b> <input list="e5" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="e5">
+                                <option>Rejected</option>
+                                <option>3,500</option>
+                                <option>5,000</option>
+                                <option>CDW</option>
+                                <option>***CSL***</option>
+                            </datalist>
                         </td>
                     </tr>
                 </tbody>
             </table>
 
-            <table>
-                <thead>
-                    <tr className="text-decoration-underline text-center">
-                        <th>Year</th>
-                        <th>Make</th>
-                        <th>Model</th>
-                        <th>VIN #</th>
-                        <th>Stated Value</th>
-                    </tr>
-                </thead>
+            <table className="mt-3 font-10">
                 <tbody>
-                    <tr>
+                    <tr className="text-center tr-h fw-bold">
+                        <td>Year</td>
+                        <td>Make</td>
+                        <td>Model</td>
+                        <td>VIN #</td>
+                        <td>Stated Value</td>
+                        <td>Radius</td>
+                    </tr>
+                    <tr className="text-center tr-h">
                         <td className="fw-bold">
-                            #1
-                            <Input name="VDTT_Year_One"/>
+                            <span className="ms-2">#1 <Input className="text-center" maxlength="4"/></span>
                         </td>
                         <td>
-                            <Input width="70px" name="VDTT_Make_One"/> 
+                            <Input width="110px" className="text-center" maxlength="16"/> 
                         </td>
                         <td>
-                            <Input width="100px" name="VDTT_Model_One"/> 
+                            <Input width="180px" className="text-center" maxlength="25"/> 
                         </td>
                         <td>
-                            <Input width="90px" name="VDTT_VIN_One"/> 
+                            <Input width="135px" className="text-center" maxlength="17"/> 
                         </td>
                         <td>
-                            $
-                            <select className="mx-1" name="VDTT_Value_One">
-                                <option value="None">None</option>
-                            </select>
-                            States:
-                            <select className="mx-1" name="VDTT_State_One">
-                                <option value="CA Only">CA Only</option>
-                                <option value="11 Western">11 Western</option>
-                                <option value="11 West + TX">11 West + TX</option>
-                                <option value="48 States">48 States</option>
-                            </select>
-                            Radius:
-                            <Input width="50px" name="VDTT_Miles_Radius_One"/> 
+                            <b>$</b> <input list="dLSV1" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV1">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="text-center tr-h">
                         <td className="fw-bold">
-                            #2
-                            <Input name="VDTT_Year_Two"/>
+                            <span className="ms-2">#2 <Input className="text-center" maxlength="4"/></span>
                         </td>
                         <td>
-                            <Input width="70px" name="VDTT_Make_Two"/> 
+                            <Input width="110px" className="text-center" maxlength="16"/> 
                         </td>
                         <td>
-                            <Input width="100px" name="VDTT_Model_Two"/> 
+                            <Input width="180px" className="text-center" maxlength="25"/> 
                         </td>
                         <td>
-                            <Input width="90px" name="VDTT_VIN_Two"/> 
+                            <Input width="135px" className="text-center" maxlength="17"/> 
                         </td>
                         <td>
-                            $
-                            <select className="mx-1" name="VDTT_Value_Two">
-                                <option value="None">None</option>
-                            </select>
-                            States:
-                            <select className="mx-1" name="VDTT_State_Two">
-                                <option value="CA Only">CA Only</option>
-                                <option value="11 Western">11 Western</option>
-                                <option value="11 West + TX">11 West + TX</option>
-                                <option value="48 States">48 States</option>
-                            </select>
-                            Radius:
-                            <Input width="50px" name="VDTT_Miles_Radius_Two"/> 
+                            <b>$</b> <input list="dLSV2" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV2">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="text-center tr-h">
                         <td className="fw-bold">
-                            #3
-                            <Input name="VDTT_Year_Three"/>
+                            <span className="ms-2">#3 <Input className="text-center" maxlength="4"/></span>
                         </td>
                         <td>
-                            <Input width="70px" name="VDTT_Make_Three"/> 
+                            <Input width="110px" className="text-center" maxlength="16"/> 
                         </td>
                         <td>
-                            <Input width="100px" name="VDTT_Model_Three"/> 
+                            <Input width="180px" className="text-center" maxlength="25"/> 
                         </td>
                         <td>
-                            <Input width="90px" name="VDTT_VIN_Three"/> 
+                            <Input width="135px" className="text-center" maxlength="17"/> 
                         </td>
                         <td>
-                            $
-                            <select className="mx-1" name="VDTT_Value_Three">
-                                <option value="None">None</option>
-                            </select>
-                            States:
-                            <select className="mx-1" name="VDTT_State_Three">
-                                <option value="CA Only">CA Only</option>
-                                <option value="11 Western">11 Western</option>
-                                <option value="11 West + TX">11 West + TX</option>
-                                <option value="48 States">48 States</option>
-                            </select>
-                            Radius:
-                            <Input width="50px" name="VDTT_Miles_Radius_Three"/> 
+                            <b>$</b> <input list="dLSV3" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV3">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="text-center tr-h">
                         <td className="fw-bold">
-                            #4
-                            <Input name="VDTT_Year_Four"/>
+                            <span className="ms-2">#4 <Input className="text-center" maxlength="4"/></span>
                         </td>
                         <td>
-                            <Input width="70px" name="VDTT_Make_Four"/> 
+                            <Input width="110px" className="text-center" maxlength="16"/> 
                         </td>
                         <td>
-                            <Input width="100px" name="VDTT_Model_Four"/> 
+                            <Input width="180px" className="text-center" maxlength="25"/> 
                         </td>
                         <td>
-                            <Input width="90px" name="VDTT_VIN_Four"/> 
+                            <Input width="135px" className="text-center" maxlength="17"/> 
                         </td>
                         <td>
-                            $
-                            <select className="mx-1" name="VDTT_Value_Four">
-                                <option value="None">None</option>
-                            </select>
-                            States:
-                            <select className="mx-1" name="VDTT_State_Four">
-                                <option value="CA Only">CA Only</option>
-                                <option value="11 Western">11 Western</option>
-                                <option value="11 West + TX">11 West + TX</option>
-                                <option value="48 States">48 States</option>
-                            </select>
-                            Radius:
-                            <Input width="50px" name="VDTT_Miles_Radius_Four"/> 
+                            <b>$</b> <input list="dLSV4" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV4">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="text-center tr-h">
                         <td className="fw-bold">
-                            #5
-                            <Input name="VDTT_Year_Five"/>
+                            <span className="ms-2">#5 <Input className="text-center" maxlength="4"/></span>
                         </td>
                         <td>
-                            <Input width="70px" name="VDTT_Make_Five"/> 
+                            <Input width="110px" className="text-center" maxlength="16"/> 
                         </td>
                         <td>
-                            <Input width="100px" name="VDTT_Model_Five"/> 
+                            <Input width="180px" className="text-center" maxlength="25"/> 
                         </td>
                         <td>
-                            <Input width="90px" name="VDTT_VIN_Five"/> 
+                            <Input width="135px" className="text-center" maxlength="17"/> 
                         </td>
                         <td>
-                            $
-                            <select className="mx-1" name="VDTT_Value_Five">
-                                <option value="None">None</option>
-                            </select>
-                            States:
-                            <select className="mx-1" name="VDTT_State_Five">
-                                <option value="CA Only">CA Only</option>
-                                <option value="11 Western">11 Western</option>
-                                <option value="11 West + TX">11 West + TX</option>
-                                <option value="48 States">48 States</option>
-                            </select>
-                            Radius:
-                            <Input width="50px" name="VDTT_Miles_Radius_Five"/> 
+                            <b>$</b> <input list="dLSV5" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV5">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="text-center tr-h">
                         <td className="fw-bold">
-                            #6
-                            <Input name="VDTT_Year_Six"/>
+                            <span className="ms-2">#6 <Input className="text-center" maxlength="4"/></span>
                         </td>
                         <td>
-                            <Input width="70px" name="VDTT_Make_Six"/> 
+                            <Input width="110px" className="text-center" maxlength="16"/> 
                         </td>
                         <td>
-                            <Input width="100px" name="VDTT_Model_Six"/> 
+                            <Input width="180px" className="text-center" maxlength="25"/> 
                         </td>
                         <td>
-                            <Input width="90px" name="VDTT_VIN_Six"/> 
+                            <Input width="135px" className="text-center" maxlength="17"/> 
                         </td>
                         <td>
-                            $
-                            <select className="mx-1" name="VDTT_Value_Six">
-                                <option value="None">None</option>
-                            </select>
-                            States:
-                            <select className="mx-1" name="VDTT_State_Six">
-                                <option value="CA Only">CA Only</option>
-                                <option value="11 Western">11 Western</option>
-                                <option value="11 West + TX">11 West + TX</option>
-                                <option value="48 States">48 States</option>
-                            </select>
-                            Radius:
-                            <Input width="50px" name="VDTT_Miles_Radius_Six"/> 
+                            <b>$</b> <input list="dLSV6" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV6">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="text-center tr-h">
                         <td className="fw-bold">
-                            #7
-                            <Input name="VDTT_Year_Seven"/>
+                            <span className="ms-2">#7 <Input className="text-center" maxlength="4"/></span>
                         </td>
                         <td>
-                            <Input width="70px" name="VDTT_Make_Seven"/> 
+                            <Input width="110px" className="text-center" maxlength="16"/> 
                         </td>
                         <td>
-                            <Input width="100px" name="VDTT_Model_Seven"/> 
+                            <Input width="180px" className="text-center" maxlength="25"/> 
                         </td>
                         <td>
-                            <Input width="90px" name="VDTT_VIN_Seven"/> 
+                            <Input width="135px" className="text-center" maxlength="17"/> 
                         </td>
                         <td>
-                            $
-                            <select className="mx-1" name="VDTT_Value_Seven">
-                                <option value="None">None</option>
-                            </select>
-                            States:
-                            <select className="mx-1" name="VDTT_State_Seven">
-                                <option value="CA Only">CA Only</option>
-                                <option value="11 Western">11 Western</option>
-                                <option value="11 West + TX">11 West + TX</option>
-                                <option value="48 States">48 States</option>
-                            </select>
-                            Radius:
-                            <Input width="50px" name="VDTT_Miles_Radius_Seven"/> 
+                            <b>$</b> <input list="dLSV7" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV7">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="text-center tr-h">
                         <td className="fw-bold">
-                            #8
-                            <Input name="VDTT_Year_Eight"/>
+                            <span className="ms-2">#8 <Input className="text-center" maxlength="4"/></span>
                         </td>
                         <td>
-                            <Input width="70px" name="VDTT_Make_Eight"/> 
+                            <Input width="110px" className="text-center" maxlength="16"/> 
                         </td>
                         <td>
-                            <Input width="100px" name="VDTT_Model_Eight"/> 
+                            <Input width="180px" className="text-center" maxlength="25"/> 
                         </td>
                         <td>
-                            <Input width="90px" name="VDTT_VIN_Eight"/> 
+                            <Input width="135px" className="text-center" maxlength="17"/> 
                         </td>
                         <td>
-                            $
-                            <select className="mx-1" name="VDTT_Value_Eight">
-                                <option value="None">None</option>
-                            </select>
-                            States:
-                            <select className="mx-1" name="VDTT_State_Eight">
-                                <option value="CA Only">CA Only</option>
-                                <option value="11 Western">11 Western</option>
-                                <option value="11 West + TX">11 West + TX</option>
-                                <option value="48 States">48 States</option>
-                            </select>
-                            Radius:
-                            <Input width="50px" name="VDTT_Miles_Radius_Eight"/> 
+                            <b>$</b> <input list="dLSV8" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV8">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="text-center tr-h">
                         <td className="fw-bold">
-                            #9
-                            <Input name="VDTT_Year_Nine"/>
+                            <span className="ms-2">#9 <Input className="text-center" maxlength="4"/></span>
                         </td>
                         <td>
-                            <Input width="70px" name="VDTT_Make_Nine"/> 
+                            <Input width="110px" className="text-center" maxlength="16"/> 
                         </td>
                         <td>
-                            <Input width="100px" name="VDTT_Model_Nine"/> 
+                            <Input width="180px" className="text-center" maxlength="25"/> 
                         </td>
                         <td>
-                            <Input width="90px" name="VDTT_VIN_Nine"/> 
+                            <Input width="135px" className="text-center" maxlength="17"/> 
                         </td>
                         <td>
-                            $
-                            <select className="mx-1" name="VDTT_Value_Nine">
-                                <option value="None">None</option>
-                            </select>
-                            States:
-                            <select className="mx-1" name="VDTT_State_Nine">
-                                <option value="CA Only">CA Only</option>
-                                <option value="11 Western">11 Western</option>
-                                <option value="11 West + TX">11 West + TX</option>
-                                <option value="48 States">48 States</option>
-                            </select>
-                            Radius:
-                            <Input width="50px" name="VDTT_Miles_Radius_Nine"/> 
+                            <b>$</b> <input list="dLSV9" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV9">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
                     </tr>
-                    <tr>
+                    <tr className="text-center tr-h">
                         <td className="fw-bold">
-                            #10
-                            <Input name="VDTT_Year_Ten"/>
+                            <span className="ms-2">#10 <Input className="text-center" maxlength="4"/></span>
                         </td>
                         <td>
-                            <Input width="70px" name="VDTT_Make_Ten"/>        
+                            <Input width="110px" className="text-center" maxlength="16"/> 
                         </td>
                         <td>
-                            <Input width="100px" name="VDTT_Model_Ten"/> 
+                            <Input width="180px" className="text-center" maxlength="25"/> 
                         </td>
                         <td>
-                            <Input width="90px" name="VDTT_VIN_Ten"/> 
+                            <Input width="135px" className="text-center" maxlength="17"/> 
                         </td>
                         <td>
-                            $
-                            <select className="mx-1" name="VDTT_Value_Ten">
-                                <option value="None">None</option>
-                            </select>
-                            States:
-                            <select className="mx-1" name="VDTT_State_Ten">
-                                <option value="CA Only">CA Only</option>
-                                <option value="11 Western">11 Western</option>
-                                <option value="11 West + TX">11 West + TX</option>
-                                <option value="48 States">48 States</option>
-                            </select>
-                            Radius:
-                            <Input width="50px" name="VDTT_Miles_Radius_Ten"/> 
+                            <b>$</b> <input list="dLSV10" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV10">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
                         </td>
                     </tr>
                 </tbody>
-                </table>
+            </table>
 
             <div className="mx-5 mt-3">
-                <div className="border border-1 border-dark mt-1 mb-2"></div>
-                <div className='d-flex justify-content-between mx-5 text-center'>
+                <div className="border border-1 border-dark mt-4 mb-2"></div>
+                <div className='d-flex justify-content-between text-center'>
                     <div >
-                        <label><strong>TOTAL:</strong></label>
-                        <Input width = "250" name="VDTT_Total"/>
+                        <label><b>TOTAL:</b></label>
+                        <CurrencyFormat 
+                            thousandSeparator={true} 
+                            prefix={'$'}
+                            maxlength="13"
+                            style = {{width:"125px"}}
+                            className='fw-bold text-center input-default'
+                        />
                     </div>
                     <div>
-                        <label><strong>Down Payment:</strong></label>
-                        <Input width = "250" name="VDTT_Down"/>
+                        <label><b>Down Payment:</b></label>
+                        <CurrencyFormat 
+                            thousandSeparator={true} 
+                            prefix={'$'}
+                            maxlength="13"
+                            style = {{width:"125px"}}
+                            className='fw-bold text-center input-default'
+                        />
                     </div>
                     <div>
-                        <label><strong>Payments of:</strong></label>
-                        <Input width = "250" name="VDTT_Monthly"/>
+                        <label><b>Payments of:</b></label>
+                        <CurrencyFormat 
+                            thousandSeparator={true} 
+                            prefix={'$'}
+                            maxlength="13"
+                            style = {{width:"125px"}}
+                            className='fw-bold text-center input-default'
+                        />
                     </div>
                 </div>
-                <div className="border border-1 border-dark mt-2 mb-1"></div>
+                <div className="border border-1 border-dark mt-2 mb-4"></div>
             </div>
 
-            <div className="text-center">
-                <span>
-                    Business Type:
-                    <Input width = "450" name="VDTT_BusinessType"/>
-                    <br/>
-                    Filings Purchased: <strong>MCP</strong> 
-                    <input className="ms-1 me-2" type="checkbox" name="VDTT_MCP" value="MCP"/>
-                    <strong>ICC</strong> 
-                    <input className="ms-1 me-2" type="checkbox" name="VDTT_ICC" value="ICC"/>
-                    <strong>DOT</strong> 
-                    <input className="ms-1 me-2" type="checkbox" name="VDTT_DOT" value="DOT"/>
-                    <strong>PUC</strong> 
-                    <input className="ms-1 me-2" type="checkbox" name="VDTT_PUC" value="PUC"/>
-                    <strong>NONE</strong> 
-                    <input className="ms-1" type="checkbox" name="VDTT_NONE" value="NONE"/>
-                    <br/>
-                    Permit Numbers (If Purchased):
-                    <Input width = "450" name="VDTT_PermitNumbers"/>
-                    <br/>
-                    <strong>All the above described coverage and conditions have been reviewed and approved by the signer below.</strong>
-                </span>
-            </div>
+            <table className="mt-3">
+                <tr className="tr-h">
+                    <td colspan="2">
+                        Business Type: <Input width = "600px" className="text-center" maxlength="90"/>
+                        
+                    </td>
+                </tr>
+                <tr className="tr-h">
+                    <td className="d-flex align-items-center">
+                        Filings Purchased:
+                        <b className="ms-3">MCP</b><input className="ms-2 me-3" type="checkbox"/>
+                        <b>ICC</b><input className="ms-2 me-3" type="checkbox"/>
+                        <b>DOT</b><input className="ms-2 me-3" type="checkbox"/>
+                        <b>PUC</b><input className="ms-2 me-3" type="checkbox"/>
+                        <b>NONE</b><input className="ms-2" type="checkbox"/>
+                    </td>
+                </tr>
+                <tr className="tr-h">
+                    <td colspan="2">
+                        Permit Numbers (If Purchased): <Input width = "500px" className="text-center" maxlength="70"/>
+                    </td>
+                </tr>
+            </table>
 
-            <div className="d-flex justify-content-between my-3">
+            <p className="fw-bold text-center my-4">
+                All the above described coverage and conditions have been reviewed and approved by the signer below.
+            </p>
+
+            <div className="d-flex justify-content-between fw-bold">
                 <div>
-                    Insured’s Signature:
-                    <Input width="400px" name="VDTT_ISignature"/>
+                    Insured’s Signature: <Input width="300px" disabled bColor="yellow"/>
                 </div>
                 <div>
-                    Date:
-                    <CDate/>
+                    Date: <Input value = {date} width = "80px" className = "text-center fw-bold"/>
                 </div>
             </div>
             

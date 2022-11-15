@@ -26,7 +26,7 @@ export default function VDTrucking({name, date, setDateVD, date2}) {
                 </div>
             </div>
 
-            <p className="mt-4">
+            <p className="mt-3">
                 I, <Input width="400px" className="text-center" value={name}/> hereby appoint Adriana’s Insurance Svcs, Inc. as my
                 Broker/Attorney in fact to sign papers, applications, documents that are
                 necessary in order to secure the insurance coverage specified below. I have also been advised of the importance of the effective date of the policy and have 
@@ -40,349 +40,350 @@ export default function VDTrucking({name, date, setDateVD, date2}) {
             </p>
 
             <table>
-            <thead>
-            <tr>
-                <th className="text-decoration-underline text-center" colspan="5">
-                    Coverage Limits
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td className="fw-bold text-decoration-underline" colspan="2" rowspan="5">
-                    Liability Carrier
-                    <br/>
-                    <select name="myLiCarrier">
-                        <option value="Allied Premium RRG">Allied Premium RRG</option>
-                        <option value="Dongbu">Dongbu</option>
-                        <option value="Global Hawk RRG">Global Hawk RRG</option>
-                        <option value="National Indemnity">National Indemnity</option>
-                        <option value="Progressive">Progressive</option>
-                        <option value="Redwood">Redwood</option>
-                        <option value="Scottsdale">Scottsdale</option>
-                        <option value="Sutter">Sutter"</option>
-                    </select>
-                </td>
-                <td>
-                    Liability Bodily Injury:
-                </td>
-                <td>
-                    $
-                    <select className="ms-1" name="myLBInjury">
-                        <option value="15,000/30,000">15,000/30,000</option>
-                        <option value="25,000/50,000">25,000/50,000</option>
-                        <option value="50,000/100,000">50,000/100,000</option>
-                        <option value="100,000/300,000">100,000/300,000</option>
-                        <option value="100,000">100,000</option>
-                        <option value="300,000">300,000</option>
-                        <option value="500,000">500,000</option>
-                        <option value="750,000">750,000</option>
-                        <option value="1,000,000">1,000,000</option>
-                        <option value="Not Purchased">Not Purchased</option>
-                    </select>
-                </td>
-                <td className="fw-bold" rowspan="2">
-                    <span><u>Liability Deductible:</u> $</span>
-                    <select className="ms-1" name="myLiabilityDeductible">
-                        <option value="None">None</option>
-                        <option value="250">250</option>
-                        <option value="500">500</option>
-                        <option value="1,000">1,000</option>
-                        <option value="1,500">1,500</option>
-                        <option value="2,000">2,000</option>
-                        <option value="2,500">2,500</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Liability Property Damage:
-                </td>
-                <td>
-                    $
-                    <select className="ms-1" name="myLPDamage">
-                        <option value="***CSL***">***CSL***</option>
-                        <option value="5,000">5,000</option>
-                        <option value="10,000">10,000</option>
-                        <option value="15,000">15,000</option>
-                        <option value="20,000">20,000</option>
-                        <option value="25,000">25,000</option>
-                        <option value="50,000">50,000</option>
-                        <option value="100,000">100,000</option>
-                        <option value="Not Purchased">Not Purchased</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Medical Payment:
-                </td>
-                <td>
-                    $
-                    <select className="ms-1" name="myMPayment">
-                        <option value="Not Purchased">Not Purchased</option>
-                        <option value="500">500</option>
-                        <option value="1,000">1,000</option>
-                        <option value="2,000">2,000</option>
-                        <option value="3,000">3,000</option>
-                        <option value="5,000">5,000</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Uninsured Motorist BI:
-                </td>
-                <td>
-                    $
-                    <select className="ms-1" name="myUMBi">
-                        <option value="Rejected">Rejected</option>
-                        <option value="15,000/30,000">15,000/30,000</option>
-                        <option value="25,000/50,000">25,000/50,000</option>
-                        <option value="30,000/60,000">30,000/60,000</option>
-                        <option value="100,000">100,000</option>
-                        <option value="300,000">300,000</option>
-                        <option value="500,000">500,000</option>
-                        <option value="1,000,000">1,000,000</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Uninsured Motorist PD:
-                </td>
-                <td>
-                    $
-                    <select className="ms-1" name="myUMPd">
-                        <option value="Rejected">Rejected</option>
-                        <option value="3,500">3,500</option>
-                        <option value="5,000">5,000</option>
-                        <option value="CDW">CDW</option>
-                        <option value="***CSL***">***CSL***</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td className="fw-bold text-decoration-underline" colspan="2">
-                    Excess Liability Carrier
-                    <br/>
-                    <select name="myELCarrier">
-                        <option value="Golden Bear">Golden Bear</option>
-                    </select>
-                </td>
-                <td>
-                    Excess Liability Limits:
-                </td>
-                <td>
-                    $
-                    <select className="ms-1" name="myELLimits">
-                        <option value="250,000">250,000</option>
-                        <option value="500,000">500,000</option>
-                        <option value="1,000,000">1,000,000</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td className="fw-bold text-decoration-underline" colspan="2" rowspan="3">
-                    Phys. Damage Carrier
-                    <br/>
-                    <select name="myPDCarrier">
-                        <option value="Adriatic">Adriatic</option>
-                        <option value="Allied Premium RRG">Allied Premium RRG</option>
-                        <option value="Dongbu">Dongbu</option>
-                        <option value="Global Hawk RRG">Global Hawk RRG</option>
-                        <option value="Lloyds of London">Lloyds of London</option>
-                        <option value="National Interstate">National Interstate</option>
-                        <option value="PMA">PMA</option>
-                        <option value="Progressive">Progressive</option>
-                        <option value="Redwood">Redwood</option>
-                        <option value="Scottsdale">Scottsdale</option>
-                        <option value="Sutter">Sutter</option>
-                    </select>
-                </td>
-                <td>
-                    Comprehensive Deductible:
-                </td>
-                <td>
-                    $
-                    <select className="ms-1" name="myCDeductible">
-                        <option value="Not Purchased">Not Purchased</option>
-                        <option value="250">250</option>
-                        <option value="500">500</option>
-                        <option value="1000">1000</option>
-                        <option value="1500">1500</option>
-                        <option value="2000">2000</option>
-                        <option value="2500">2500</option>
-                    </select>
-                </td>
-                <td className="fw-bold">
-                    #1<input className="me-1" type="checkbox" name="CD1" value="1"/>
-                    2<input className="me-1" type="checkbox" name="CD2" value="2"/>
-                    3<input className="me-1" type="checkbox" name="CD3" value="3"/>
-                    4<input className="me-1" type="checkbox" name="CD4" value="4"/>
-                    5<input className="me-1" type="checkbox" name="CD5" value="5"/>
-                    6<input className="me-1" type="checkbox" name="CD6" value="6"/>
-                    7<input className="me-1" type="checkbox" name="CD7" value="7"/>
-                    8<input className="me-1" type="checkbox" name="CD8" value="8"/>
-                    9<input className="me-1" type="checkbox" name="CD9" value="9"/>
-                    10<input className="me-1" type="checkbox" name="CD10" value="10"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Collision Deductible:
-                </td>
-                <td>
-                    $
-                    <select className="ms-1" name="myCoDeductible">
-                        <option value="Not Purchased">Not Purchased</option>
-                        <option value="250">250</option>
-                        <option value="500">500</option>
-                        <option value="1000">1000</option>
-                        <option value="1500">1500</option>
-                        <option value="2000">2000</option>
-                        <option value="2500">2500</option>
-                    </select>
-                </td>
-                <td className="fw-bold">
-                    #1<input className="me-1" type="checkbox" name="COLL1" value="1"/>
-                    2<input className="me-1" type="checkbox" name="COLL2" value="2"/>
-                    3<input className="me-1" type="checkbox" name="COLL3" value="3"/>
-                    4<input className="me-1" type="checkbox" name="COLL4" value="4"/>
-                    5<input className="me-1" type="checkbox" name="COLL5" value="5"/>
-                    6<input className="me-1" type="checkbox" name="COLL6" value="6"/>
-                    7<input className="me-1" type="checkbox" name="COLL7" value="7"/>
-                    8<input className="me-1" type="checkbox" name="COLL8" value="8"/>
-                    9<input className="me-1" type="checkbox" name="COLL9" value="9"/>
-                    10<input className="me-1" type="checkbox" name="COLL10" value="10"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Theft and Fire Deductible:
-                </td>
-                <td>
-                    $
-                    <select className="ms-1" name="myTFDeductible">
-                        <option value="Not Purchased">Not Purchased</option>
-                        <option value="250">250</option>
-                        <option value="500">500</option>
-                        <option value="1000">1000</option>
-                        <option value="1500">1500</option>
-                        <option value="2000">2000</option>
-                        <option value="2500">2500</option>
-                    </select>
-                </td>
-                <td className="fw-bold">
-                    #1<input className="me-1" type="checkbox" name="TF1" value="1"/>
-                    2<input className="me-1" type="checkbox" name="TF2" value="2"/>
-                    3<input className="me-1" type="checkbox" name="TF3" value="3"/>
-                    4<input className="me-1" type="checkbox" name="TF4" value="4"/>
-                    5<input className="me-1" type="checkbox" name="TF5" value="5"/>
-                    6<input className="me-1" type="checkbox" name="TF6" value="6"/>
-                    7<input className="me-1" type="checkbox" name="TF7" value="7"/>
-                    8<input className="me-1" type="checkbox" name="TF8" value="8"/>
-                    9<input className="me-1" type="checkbox" name="TF9" value="9"/>
-                    10<input className="me-1" type="checkbox" name="TF10" value="10"/>
-                </td>
-            </tr>
-            <tr>
-                <td className="fw-bold text-decoration-underline" colspan="2" rowspan="3">
-                    Cargo Carrier
-                    <br/>
-                    <select name="myCCarrier">
-                        <option value="Adriatic">Adriatic</option>
-                        <option value="Allied Premium RRG">Allied Premium RRG</option>
-                        <option value="Dongbu">Dongbu</option>
-                        <option value="Global Hawk RRG">Global Hawk RRG</option>
-                        <option value="Lloyds of London">Lloyds of London</option>
-                        <option value="National Interstate">National Interstate</option>
-                        <option value="PMA">PMA</option>
-                        <option value="Progressive">Progressive</option>
-                        <option value="Redwood">Redwood</option>
-                        <option value="Scottsdale">Scottsdale</option>
-                        <option value="Sutter">Sutter</option>
-                    </select>
-                </td>
-                <td>
-                    Trailer Interchange:
-                </td>
-                <td>
-                    $
-                    <select className="ms-1" name="myTInterchange">
-                        <option value="Excluded">Excluded</option>
-                        <option value="Included">Included</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Motor Truck Cargo:
-                </td>
-                <td>
-                    $
-                    <select className="ms-1" name="myMTCargo">
-                        <option value="Not Purchased">Not Purchased</option>
-                        <option value="30,000">30,000</option>
-                        <option value="50,000">50,000</option>
-                        <option value="100,000">100,000</option>
-                        <option value="300,000">300,000</option>
-                        <option value="500,000">500,000</option>
-                        <option value="1,000,000">1,000,000</option>
-                    </select>
-                </td>
-                <td className="fw-bold">
-                    <span><u>Deductible:</u> $</span>
-                    <select className="ms-1" name="myMTCDeductible">
-                        <option value="Not Purchased">Not Purchased</option>
-                        <option value="250">250</option>
-                        <option value="500">500</option>
-                        <option value="1,000">1,000</option>
-                        <option value="1,500">1,500</option>
-                        <option value="2,000">2,000</option>
-                        <option value="2,500">2,500</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Reefer Breakdown:
-                </td>
-                <td>
-                    $
-                    <select className="ms-1" name="myRBreakdown">
-                        <option value="Excluded">Excluded</option>
-                        <option value="Included">Included</option>
-                    </select>
-                </td>
-                <td className="fw-bold">
-                    <span><u>Deductible:</u> $</span>
-                    <select className="ms-1" name="myRBDeductible">
-                        <option value="2,500">2,500</option>
-                        <option value="3,500">3,500</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2"/>
-                <td>
-                    Additional Insured:
-                </td>
-                <td>
-                    $
-                    <select className="ms-1" name="myAddInsured">
-                        <option value="Not Purchased">Not Purchased</option>
-                        <option value="1 Purchased">1 Purchased</option>
-                        <option value="2 Purchased">2 Purchased</option>
-                        <option value="3 Purchased">3 Purchased</option>
-                        <option value="4 Purchased">4 Purchased</option>
-                    </select>
-                </td>
-            </tr>
-            </tbody>
+                <thead>
+                    <tr>
+                        <td colspan="5" className="fw-bold text-center font-14">Coverage Limits</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr className="tr-h">
+                        <td className="fw-bold text-decoration-underline text-center" colspan="2" rowspan="5">
+                            Liability Carrier
+                            <br/>
+                            <select name="myLiCarrier" className="text-center">
+                                <option>Allied Premium RRG</option>
+                                <option>Dongbu</option>
+                                <option>Global Hawk RRG</option>
+                                <option>National Indemnity</option>
+                                <option>Progressive</option>
+                                <option>Redwood</option>
+                                <option>Scottsdale</option>
+                                <option>Sutter</option>
+                            </select>
+                        </td>
+                        <td>
+                            Liability Bodily Injury:
+                        </td>
+                        <td>
+                            <b>$</b> <input list="s1" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s1">
+                                <option>15,000/30,000</option>
+                                <option>25,000/50,000</option>
+                                <option>50,000/100,000</option>
+                                <option>100,000/300,000</option>
+                                <option>100,000</option>
+                                <option>300,000</option>
+                                <option>500,000</option>
+                                <option>750,000</option>
+                                <option>1,000,000</option>
+                                <option>Not Purchased</option>
+                            </datalist>
+                        </td>
+                        <td className="fw-bold" rowspan="2">
+                            <b><u>Liability Deductible:</u> $</b> <input list="s2" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s2">
+                                <option>None</option>
+                                <option>250</option>
+                                <option>500</option>
+                                <option>1,000</option>
+                                <option>1,500</option>
+                                <option>2,000</option>
+                                <option>2,500</option>
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr className="tr-h">
+                        <td>
+                            Liability Property Damage:
+                        </td>
+                        <td>
+                            <b>$</b> <input list="s3" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s3">
+                                <option>***CSL***</option>
+                                <option>5,000</option>
+                                <option>10,000</option>
+                                <option>15,000</option>
+                                <option>20,000</option>
+                                <option>25,000</option>
+                                <option>50,000</option>
+                                <option>100,000</option>
+                                <option>Not Purchased</option>
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr className="tr-h">
+                        <td>
+                            Medical Payment:
+                        </td>
+                        <td>
+                            <b>$</b> <input list="s4" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s4">
+                                <option>Not Purchased</option>
+                                <option>500</option>
+                                <option>1,000</option>
+                                <option>2,000</option>
+                                <option>3,000</option>
+                                <option>5,000</option>
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr className="tr-h">
+                        <td>
+                            Uninsured Motorist BI:
+                        </td>
+                        <td>
+                            <b>$</b> <input list="s5" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s5">
+                                <option>Rejected</option>
+                                <option>15,000/30,000</option>
+                                <option>25,000/50,000</option>
+                                <option>30,000/60,000</option>
+                                <option>100,000</option>
+                                <option>300,000</option>
+                                <option>500,000</option>
+                                <option>1,000,000</option>
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr className="tr-h">
+                        <td>
+                            Uninsured Motorist PD:
+                        </td>
+                        <td>
+                            <b>$</b> <input list="s6" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s6">
+                                <option>Rejected</option>
+                                <option>3,500</option>
+                                <option>5,000</option>
+                                <option>CDW</option>
+                                <option>***CSL***</option>
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr className="tr-h">
+                        <td className="fw-bold text-decoration-underline text-center" colspan="2">
+                            Excess Liability Carrier
+                            <br/>
+                            <select name="myELCarrier">
+                                <option value="Golden Bear">Golden Bear</option>
+                            </select>
+                        </td>
+                        <td>
+                            Excess Liability Limits:
+                        </td>
+                        <td>
+                            <b>$</b> <input list="s7" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s7">
+                                <option>250,000</option>
+                                <option>500,000</option>
+                                <option>1,000,000</option>
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr className="tr-h">
+                        <td className="fw-bold text-decoration-underline text-center" colspan="2" rowspan="3">
+                            Phys. Damage Carrier
+                            <br/>
+                            <select name="myPDCarrier" className="text-center">
+                                <option value="Adriatic">Adriatic</option>
+                                <option value="Allied Premium RRG">Allied Premium RRG</option>
+                                <option value="Dongbu">Dongbu</option>
+                                <option value="Global Hawk RRG">Global Hawk RRG</option>
+                                <option value="Lloyds of London">Lloyds of London</option>
+                                <option value="National Interstate">National Interstate</option>
+                                <option value="PMA">PMA</option>
+                                <option value="Progressive">Progressive</option>
+                                <option value="Redwood">Redwood</option>
+                                <option value="Scottsdale">Scottsdale</option>
+                                <option value="Sutter">Sutter</option>
+                            </select>
+                        </td>
+                        <td>
+                            Comprehensive Deductible:
+                        </td>
+                        <td>
+                            <b>$</b> <input list="s8" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s8">
+                                <option>Not Purchased</option>
+                                <option>250</option>
+                                <option>500</option>
+                                <option>1000</option>
+                                <option>1500</option>
+                                <option>2000</option>
+                                <option>2500</option>
+                            </datalist>
+                        </td>
+                        <td className="fw-bold d-flex align-items-center">
+                            #1 <input className="ms-1 me-2" type="checkbox"/>
+                            2 <input className="ms-1 me-2" type="checkbox"/>
+                            3 <input className="ms-1 me-2" type="checkbox"/>
+                            4 <input className="ms-1 me-2" type="checkbox"/>
+                            5 <input className="ms-1 me-2" type="checkbox"/>
+                            6 <input className="ms-1 me-2" type="checkbox"/>
+                            7 <input className="ms-1 me-2" type="checkbox"/>
+                            8 <input className="ms-1 me-2" type="checkbox"/>
+                            9 <input className="ms-1 me-2" type="checkbox"/>
+                            10 <input className="ms-1" type="checkbox"/>
+                        </td>
+                    </tr>
+                    <tr className="tr-h">
+                        <td>
+                            Collision Deductible:
+                        </td>
+                        <td>
+                            <b>$</b> <input list="s9" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s9">
+                                <option>Not Purchased</option>
+                                <option>250</option>
+                                <option>500</option>
+                                <option>1000</option>
+                                <option>1500</option>
+                                <option>2000</option>
+                                <option>2500</option>
+                            </datalist>
+                        </td>
+                        <td className="fw-bold d-flex align-items-center">
+                            #1 <input className="ms-1 me-2" type="checkbox"/>
+                            2 <input className="ms-1 me-2" type="checkbox"/>
+                            3 <input className="ms-1 me-2" type="checkbox"/>
+                            4 <input className="ms-1 me-2" type="checkbox"/>
+                            5 <input className="ms-1 me-2" type="checkbox"/>
+                            6 <input className="ms-1 me-2" type="checkbox"/>
+                            7 <input className="ms-1 me-2" type="checkbox"/>
+                            8 <input className="ms-1 me-2" type="checkbox"/>
+                            9 <input className="ms-1 me-2" type="checkbox"/>
+                            10 <input className="ms-1" type="checkbox"/>
+                        </td>
+                    </tr>
+                    <tr className="tr-h">
+                        <td>
+                            Theft and Fire Deductible:
+                        </td>
+                        <td>
+                            <b>$</b> <input list="s10" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s10">
+                                <option>Not Purchased</option>
+                                <option>250</option>
+                                <option>500</option>
+                                <option>1000</option>
+                                <option>1500</option>
+                                <option>2000</option>
+                                <option>2500</option>
+                            </datalist>
+                        </td>
+                        <td className="fw-bold d-flex align-items-center">
+                            #1 <input className="ms-1 me-2" type="checkbox"/>
+                            2 <input className="ms-1 me-2" type="checkbox"/>
+                            3 <input className="ms-1 me-2" type="checkbox"/>
+                            4 <input className="ms-1 me-2" type="checkbox"/>
+                            5 <input className="ms-1 me-2" type="checkbox"/>
+                            6 <input className="ms-1 me-2" type="checkbox"/>
+                            7 <input className="ms-1 me-2" type="checkbox"/>
+                            8 <input className="ms-1 me-2" type="checkbox"/>
+                            9 <input className="ms-1 me-2" type="checkbox"/>
+                            10 <input className="ms-1" type="checkbox"/>
+                        </td>
+                    </tr>
+                    <tr className="tr-h">
+                        <td className="fw-bold text-decoration-underline text-center" colspan="2" rowspan="3">
+                            Cargo Carrier
+                            <br/>
+                            <select name="myCCarrier" className="text-center">
+                                <option value="Adriatic">Adriatic</option>
+                                <option value="Allied Premium RRG">Allied Premium RRG</option>
+                                <option value="Dongbu">Dongbu</option>
+                                <option value="Global Hawk RRG">Global Hawk RRG</option>
+                                <option value="Lloyds of London">Lloyds of London</option>
+                                <option value="National Interstate">National Interstate</option>
+                                <option value="PMA">PMA</option>
+                                <option value="Progressive">Progressive</option>
+                                <option value="Redwood">Redwood</option>
+                                <option value="Scottsdale">Scottsdale</option>
+                                <option value="Sutter">Sutter</option>
+                            </select>
+                        </td>
+                        <td>
+                            Trailer Interchange:
+                        </td>
+                        <td>
+                            <b>$</b> <input list="s11" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s11">
+                                <option>Excluded</option>
+                                <option>Included</option>
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr className="tr-h">
+                        <td>
+                            Motor Truck Cargo:
+                        </td>
+                        <td>
+                            <b>$</b> <input list="s12" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s12">
+                                <option>Not Purchased</option>
+                                <option>30,000</option>
+                                <option>50,000</option>
+                                <option>100,000</option>
+                                <option>300,000</option>
+                                <option>500,000</option>
+                                <option>1,000,000</option>
+                            </datalist>
+                        </td>
+                        <td className="fw-bold">
+                            <b><u>Deductible:</u> $</b> <input list="s15" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s15">
+                                <option>Not Purchased</option>
+                                <option>250</option>
+                                <option>500</option>
+                                <option>1,000</option>
+                                <option>1,500</option>
+                                <option>2,000</option>
+                                <option>2,500</option>
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr className="tr-h">
+                        <td>
+                            Reefer Breakdown:
+                        </td>
+                        <td>
+                            <b>$</b> <input list="s13" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s13">
+                                <option>Excluded</option>
+                                <option>Included</option>
+                            </datalist>
+                        </td>
+                        <td className="fw-bold">
+                            <b><u>Deductible:</u> $</b> <input list="s16" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s16">
+                                <option>2,500</option>
+                                <option>3,500</option>
+                            </datalist>
+                        </td>
+                    </tr>
+                    <tr className="tr-h">
+                        <td colspan="2"/>
+                        <td>
+                            Additional Insured:
+                        </td>
+                        <td>
+                            <b>$</b> <input list="s14" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <datalist id="s14">
+                                <option>Not Purchased</option>
+                                <option>1 Purchased</option>
+                                <option>2 Purchased</option>
+                                <option>3 Purchased</option>
+                                <option>4 Purchased</option>
+                            </datalist>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
 
-            <table>
+            {
+                /*
+                
+                <table>
                 <thead>
                     <tr className="text-decoration-underline text-center">
                         <th>Year</th>
@@ -694,7 +695,253 @@ export default function VDTrucking({name, date, setDateVD, date2}) {
                         </td>
                     </tr>
                 </tbody>
-                </table>
+            </table>
+                
+                */
+            }
+
+            <table className="mt-3 font-10">
+                <tbody>
+                    <tr className="text-center tr-h fw-bold">
+                        <td>Year</td>
+                        <td>Make</td>
+                        <td>Model</td>
+                        <td>VIN #</td>
+                        <td>Stated Value</td>
+                        <td>Radius</td>
+                    </tr>
+                    <tr className="text-center tr-h">
+                        <td className="fw-bold">
+                            <span className="ms-2">#1 <Input className="text-center" maxlength="4"/></span>
+                        </td>
+                        <td>
+                            <Input width="110px" className="text-center" maxlength="16"/> 
+                        </td>
+                        <td>
+                            <Input width="180px" className="text-center" maxlength="25"/> 
+                        </td>
+                        <td>
+                            <Input width="135px" className="text-center" maxlength="17"/> 
+                        </td>
+                        <td>
+                            <b>$</b> <input list="dLSV1" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV1">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
+                        </td>
+                    </tr>
+                    <tr className="text-center tr-h">
+                        <td className="fw-bold">
+                            <span className="ms-2">#2 <Input className="text-center" maxlength="4"/></span>
+                        </td>
+                        <td>
+                            <Input width="110px" className="text-center" maxlength="16"/> 
+                        </td>
+                        <td>
+                            <Input width="180px" className="text-center" maxlength="25"/> 
+                        </td>
+                        <td>
+                            <Input width="135px" className="text-center" maxlength="17"/> 
+                        </td>
+                        <td>
+                            <b>$</b> <input list="dLSV2" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV2">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
+                        </td>
+                    </tr>
+                    <tr className="text-center tr-h">
+                        <td className="fw-bold">
+                            <span className="ms-2">#3 <Input className="text-center" maxlength="4"/></span>
+                        </td>
+                        <td>
+                            <Input width="110px" className="text-center" maxlength="16"/> 
+                        </td>
+                        <td>
+                            <Input width="180px" className="text-center" maxlength="25"/> 
+                        </td>
+                        <td>
+                            <Input width="135px" className="text-center" maxlength="17"/> 
+                        </td>
+                        <td>
+                            <b>$</b> <input list="dLSV3" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV3">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
+                        </td>
+                    </tr>
+                    <tr className="text-center tr-h">
+                        <td className="fw-bold">
+                            <span className="ms-2">#4 <Input className="text-center" maxlength="4"/></span>
+                        </td>
+                        <td>
+                            <Input width="110px" className="text-center" maxlength="16"/> 
+                        </td>
+                        <td>
+                            <Input width="180px" className="text-center" maxlength="25"/> 
+                        </td>
+                        <td>
+                            <Input width="135px" className="text-center" maxlength="17"/> 
+                        </td>
+                        <td>
+                            <b>$</b> <input list="dLSV4" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV4">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
+                        </td>
+                    </tr>
+                    <tr className="text-center tr-h">
+                        <td className="fw-bold">
+                            <span className="ms-2">#5 <Input className="text-center" maxlength="4"/></span>
+                        </td>
+                        <td>
+                            <Input width="110px" className="text-center" maxlength="16"/> 
+                        </td>
+                        <td>
+                            <Input width="180px" className="text-center" maxlength="25"/> 
+                        </td>
+                        <td>
+                            <Input width="135px" className="text-center" maxlength="17"/> 
+                        </td>
+                        <td>
+                            <b>$</b> <input list="dLSV5" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV5">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
+                        </td>
+                    </tr>
+                    <tr className="text-center tr-h">
+                        <td className="fw-bold">
+                            <span className="ms-2">#6 <Input className="text-center" maxlength="4"/></span>
+                        </td>
+                        <td>
+                            <Input width="110px" className="text-center" maxlength="16"/> 
+                        </td>
+                        <td>
+                            <Input width="180px" className="text-center" maxlength="25"/> 
+                        </td>
+                        <td>
+                            <Input width="135px" className="text-center" maxlength="17"/> 
+                        </td>
+                        <td>
+                            <b>$</b> <input list="dLSV6" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV6">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
+                        </td>
+                    </tr>
+                    <tr className="text-center tr-h">
+                        <td className="fw-bold">
+                            <span className="ms-2">#7 <Input className="text-center" maxlength="4"/></span>
+                        </td>
+                        <td>
+                            <Input width="110px" className="text-center" maxlength="16"/> 
+                        </td>
+                        <td>
+                            <Input width="180px" className="text-center" maxlength="25"/> 
+                        </td>
+                        <td>
+                            <Input width="135px" className="text-center" maxlength="17"/> 
+                        </td>
+                        <td>
+                            <b>$</b> <input list="dLSV7" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV7">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
+                        </td>
+                    </tr>
+                    <tr className="text-center tr-h">
+                        <td className="fw-bold">
+                            <span className="ms-2">#8 <Input className="text-center" maxlength="4"/></span>
+                        </td>
+                        <td>
+                            <Input width="110px" className="text-center" maxlength="16"/> 
+                        </td>
+                        <td>
+                            <Input width="180px" className="text-center" maxlength="25"/> 
+                        </td>
+                        <td>
+                            <Input width="135px" className="text-center" maxlength="17"/> 
+                        </td>
+                        <td>
+                            <b>$</b> <input list="dLSV8" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV8">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
+                        </td>
+                    </tr>
+                    <tr className="text-center tr-h">
+                        <td className="fw-bold">
+                            <span className="ms-2">#9 <Input className="text-center" maxlength="4"/></span>
+                        </td>
+                        <td>
+                            <Input width="110px" className="text-center" maxlength="16"/> 
+                        </td>
+                        <td>
+                            <Input width="180px" className="text-center" maxlength="25"/> 
+                        </td>
+                        <td>
+                            <Input width="135px" className="text-center" maxlength="17"/> 
+                        </td>
+                        <td>
+                            <b>$</b> <input list="dLSV9" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV9">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
+                        </td>
+                    </tr>
+                    <tr className="text-center tr-h">
+                        <td className="fw-bold">
+                            <span className="ms-2">#10 <Input className="text-center" maxlength="4"/></span>
+                        </td>
+                        <td>
+                            <Input width="110px" className="text-center" maxlength="16"/> 
+                        </td>
+                        <td>
+                            <Input width="180px" className="text-center" maxlength="25"/> 
+                        </td>
+                        <td>
+                            <Input width="135px" className="text-center" maxlength="17"/> 
+                        </td>
+                        <td>
+                            <b>$</b> <input list="dLSV10" style={{width: "105px"}} className="text-center fw-bold input-default" maxlength="12"/>
+                            <datalist id="dLSV10">
+                                <option>None</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <Input className="text-center" width="70px" maxlength="10"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
             <div className="mx-5 mt-3">
                 <div className="border border-1 border-dark mt-4 mb-2"></div>
@@ -734,13 +981,13 @@ export default function VDTrucking({name, date, setDateVD, date2}) {
             </div>
 
             <table className="mt-3">
-                <tr>
+                <tr className="tr-h">
                     <td colspan="2">
                         Business Type: <Input width = "600px" className="text-center" maxlength="90"/>
                         
                     </td>
                 </tr>
-                <tr>
+                <tr className="tr-h">
                     <td className="d-flex align-items-center">
                         Filings Purchased:
                         <b className="ms-3">MCP</b><input className="ms-2 me-3" type="checkbox"/>
@@ -750,14 +997,14 @@ export default function VDTrucking({name, date, setDateVD, date2}) {
                         <b>NONE</b><input className="ms-2" type="checkbox"/>
                     </td>
                 </tr>
-                <tr>
+                <tr className="tr-h">
                     <td colspan="2">
                         Permit Numbers (If Purchased): <Input width = "500px" className="text-center" maxlength="70"/>
                     </td>
                 </tr>
             </table>
 
-            <p className="fw-bold text-center my-4">
+            <p className="fw-bold text-center my-3">
                 All the above described coverage and conditions have been reviewed and approved by the signer below.
             </p>
 
