@@ -1,7 +1,9 @@
 {
   "files": {
-    "main.css": "/COMForms/static/css/main.9e99da3c.css",
-    "main.js": "/COMForms/static/js/main.618a8a7d.js",
+    "main.css": "/COMForms/static/css/main.4af2ccd3.css",
+    "main.js": "/COMForms/static/js/main.a00e7744.js",
+    "static/media/fc2.png": "/COMForms/static/media/fc2.b3b6ed56cc30ba856976.png",
+    "static/media/fc1.png": "/COMForms/static/media/fc1.cf882be3e9220b697e9f.png",
     "static/media/adrianaslogo.jpg": "/COMForms/static/media/adrianaslogo.987fbf771df7a56625f4.jpg",
     "static/media/v2.jpg": "/COMForms/static/media/v2.d9fefb98f16922a3f26c.jpg",
     "static/media/v3.jpg": "/COMForms/static/media/v3.38885ac9cb0e7b934b4b.jpg",
@@ -20,11 +22,11 @@
     "static/media/v12.jpg": "/COMForms/static/media/v12.9bbad4c31d730c48e338.jpg",
     "static/media/v13.jpg": "/COMForms/static/media/v13.5ea0cc822a5fb7426f62.jpg",
     "index.html": "/COMForms/index.html",
-    "main.9e99da3c.css.map": "/COMForms/static/css/main.9e99da3c.css.map",
-    "main.618a8a7d.js.map": "/COMForms/static/js/main.618a8a7d.js.map"
+    "main.4af2ccd3.css.map": "/COMForms/static/css/main.4af2ccd3.css.map",
+    "main.a00e7744.js.map": "/COMForms/static/js/main.a00e7744.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e99da3c.css",
-    "static/js/main.618a8a7d.js"
+    "static/css/main.4af2ccd3.css",
+    "static/js/main.a00e7744.js"
   ]
 }
