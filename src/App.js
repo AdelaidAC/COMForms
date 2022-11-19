@@ -12,6 +12,7 @@ import Trucking from './components/TruckingInternals/Trucking';
 import Workers from './components/WorkersComp/Workers';
 import CurrencyFormat from 'react-currency-format';
 import moment from 'moment';
+import PAuto from './components/PersonalAuto/PAuto';
 
 
 const Page = React.forwardRef((
@@ -23,6 +24,7 @@ const Page = React.forwardRef((
     home, 
     trucking, 
     workersComp,
+    personalAuto,
     pageGL, 
     pageT, 
     pageWC, 
@@ -30,6 +32,7 @@ const Page = React.forwardRef((
     pageA, 
     pageB, 
     pageF,
+    pagePA,
     nameI,
     addressI,
     phoneI,
@@ -47,6 +50,7 @@ const Page = React.forwardRef((
       {home && <Home pages={pageH} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
       {trucking && <Trucking pages={pageT} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
       {workersComp && <Workers pages={pageWC} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
+      {personalAuto && <PAuto pages={pagePA} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
       
     </div>
   )
@@ -73,6 +77,7 @@ function App() {
   const [homeVisible, setHomeVisible] = useState(false);
   const [truckingVisible, setTruckingVisible] = useState(false);
   const [workersCompVisible, setWorkersCompVisible] = useState(false);
+  const [personalAutoVisible, setPersonalAutoVisible] = useState(false);
 
   const handleRadioButton = (e) => {
     setDocument(e.target.value);
@@ -109,6 +114,10 @@ function App() {
     pagesF: []
   });
 
+  const [pagePAInfo, setPagePAInfo] = useState({
+    pagesPA: []
+  });
+
   const { pagesGL } = pageGLInfo;
   const { pagesT } = pageTInfo;
   const { pagesWC } = pageWCInfo;
@@ -116,6 +125,7 @@ function App() {
   const { pagesA } = pageAInfo;
   const { pagesB } = pageBInfo;
   const { pagesF } = pageFInfo;
+  const { pagesPA } = pagePAInfo;
 
   const [nameInsured, setNameI] = useState('');
   const [addressInsured, setAddressI] = useState('');
@@ -278,6 +288,28 @@ function App() {
     }
   };
 
+  const handlePA = (e) => {
+    
+    // Destructuring
+    const { value, checked } = e.target;
+      
+    console.log(`${value} is ${checked}`);
+     
+    // Case 1 : The user checks the box
+    if (checked) {
+      setPagePAInfo({
+        pagesPA: [...pagesPA, value]
+      });
+    }
+  
+    // Case 2  : The user unchecks the box
+    else {
+      setPagePAInfo({
+        pagesPA: pagesPA.filter((e) => e !== value)
+      });
+    }
+  };
+
   /* OTROS */
 
   useEffect(() => {
@@ -288,6 +320,7 @@ function App() {
     document === "home" ? setHomeVisible(true) : setHomeVisible(false);
     document === "trucking" ? setTruckingVisible(true) : setTruckingVisible(false);
     document === "workersComp" ? setWorkersCompVisible(true) : setWorkersCompVisible(false);
+    document === "personalAuto" ? setPersonalAutoVisible(true) : setPersonalAutoVisible(false);
   }, [document])
 
   const [visible, setVisible] = useState(true)
@@ -335,6 +368,7 @@ function App() {
                 <option value="flood">Flood</option>
                 <option value="generalLiability">General Liability</option>
                 <option value="home">Home</option>
+                <option value="personalAuto">Personal Auto</option>
                 <option value="trucking">Trucking</option>
                 <option value="workersComp">Workers' Comp</option>
             </select>
@@ -409,6 +443,16 @@ function App() {
               <input class="ms-2 me-1" type="checkbox" value="spanishBF" name="pagesF" onChange={handleF}/> Spanish BF
             </div>
           }
+
+          {personalAutoVisible &&
+            <div class="d-flex align-items-center">
+              <label className="ms-2 fw-bold" for="doc">Pages:</label>
+              <input class="ms-2 me-1" type="checkbox" value="english" name="pagesPA" onChange={handlePA}/> English
+              <input class="ms-2 me-1" type="checkbox" value="balanceDue" name="pagesPA" onChange={handlePA}/> Balance Due
+              <input class="ms-2 me-1" type="checkbox" value="creditCard" name="pagesPA" onChange={handlePA}/> Credit Card Form
+              <input class="ms-2 me-1" type="checkbox" value="fullCoverage" name="pagesPA" onChange={handlePA}/> Full Coverage or Pick Up/Van
+            </div>
+          }
       </div>
     </nav>
 
@@ -421,6 +465,7 @@ function App() {
         home = {homeVisible}
         trucking = {truckingVisible}
         workersComp = {workersCompVisible}
+        personalAuto = {personalAutoVisible}
         pageGL = {pagesGL}
         pageT = {pagesT}
         pageWC = {pagesWC}
@@ -428,6 +473,7 @@ function App() {
         pageA = {pagesA}
         pageB = {pagesB}
         pageF = {pagesF}
+        pagePA = {pagesPA}
         nameI = {nameInsured}
         addressI = {addressInsured}
         phoneI = {phoneInsured}
@@ -440,7 +486,6 @@ function App() {
             trigger={() => <div className='d-flex justify-content-center my-5'><Button className='btn'>Download PDF</Button></div>}
           />
         }
-      
 
     </main>
   );
