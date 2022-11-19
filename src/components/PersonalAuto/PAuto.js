@@ -11,6 +11,11 @@ import SPendingInfo from "./pages/SPendingInfo";
 import SFC1 from "./pages/SFC1";
 import SFC2 from "./pages/SFC2";
 import BFPA from "./pages/BFPA";
+import CCPA from "./pages/SCCPA";
+import PNPA from "./pages/PNPA";
+import SBFPA from "./pages/SBFPA";
+import SCCPA from "./pages/SCCPA";
+import SPNPA from "./pages/SPNPA";
 
 export default function PAuto({pages, name, address, phone, date}) {
 
@@ -61,6 +66,7 @@ export default function PAuto({pages, name, address, phone, date}) {
 
     }
 
+    else{
         count++;
         vehicle = <><Badge text={count}/><SVehicle name={name} date={date}/></>;
 
@@ -85,13 +91,14 @@ export default function PAuto({pages, name, address, phone, date}) {
 
         if (Object.values(pages).includes("balanceDue")) {
             count++;
-            balanceDue = <><Badge text={count}/><PNPA name={name} address={address} phone={phone}/></>;
+            balanceDue = <><Badge text={count}/><SPNPA name={name} address={address} phone={phone}/></>;
         }
 
         if (Object.values(pages).includes("creditCard")) {
             count++;
-            creditCard = <><Badge text={count}/><CCPA name={name} address={address}/></>;
+            creditCard = <><Badge text={count}/><SCCPA name={name} address={address}/></>;
         }
+    }
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
