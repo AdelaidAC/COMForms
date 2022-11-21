@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState} from 'react';
 import Input from "../../Input";
 import Logo from "../../Logo";
 
@@ -8,8 +8,28 @@ export default function Vehicle({name, date}) {
         window.scrollTo(0, 0);
       }, []);
 
+    const [l1, setL1] = useState('');
+    const [l2, setL2] = useState('');
+
+    const [vType, setVType] = useState("motorcycle");
+
+    const handleVType = (e) => {
+        setVType(e.target.value);
+    }
+
+    useEffect(() => {
+        if(vType === "motorcycle" || vType === "rv" || vType === "travelTrailer"){
+          setL1("Liability: Property Damage"); 
+          setL2("Liability: Bodily Injury");
+        }
+        else if(vType === "boat" || vType === "watercraft"){
+          setL1("Combined Single Limit Liability");
+          setL2("Watersports Liability");
+        }
+    }, [vType])
+
       return (
-        <div className="sheet font-10 text-justify lh-2">
+        <div className="sheet font-10 text-justify">
             
             <Logo />
 
@@ -67,18 +87,26 @@ export default function Vehicle({name, date}) {
 
             <table className='border border-dark w-100'>
                 <tr className='text-center fw-bold tr-h'>
-                   <td className='col-3'>VEHICLES</td> 
-                   <td><Input className="text-center fw-bold w-100" maxLength="15"/></td>
-                   <td><Input className="text-center fw-bold w-100" maxLength="15"/></td>
-                   <td><Input className="text-center fw-bold w-100" maxLength="15"/></td>
-                   <td><Input className="text-center fw-bold w-100" maxLength="15"/></td>
-                   <td><Input className="text-center fw-bold w-100" maxLength="15"/></td>
-                   <td>Initials</td>
+                    <td className='col-3'>
+                        <select className='fw-bold text-center w-100' value={vType} onChange={handleVType}>
+                            <option value="motorcycle" default>Motorcycle</option>
+                            <option value="rv">RV</option>
+                            <option value="travelTrailer">Travel Trailer</option>
+                            <option value="boat">Boat</option>
+                            <option value="watercraft">Watercraft</option>
+                        </select>
+                    </td> 
+                    <td><Input className="text-center fw-bold w-100" maxlength="15"/></td>
+                    <td><Input className="text-center fw-bold w-100" maxlength="15"/></td>
+                    <td><Input className="text-center fw-bold w-100" maxlength="15"/></td>
+                    <td><Input className="text-center fw-bold w-100" maxlength="15"/></td>
+                    <td><Input className="text-center fw-bold w-100" maxlength="15"/></td>
+                    <td>Initials</td>
                 </tr>
                 <tr className='tr-h'>
-                    <td>Liability: Property Damage</td> 
+                    <td>{l1}</td> 
                     <td>
-                        <input list="r1-1" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r1-1" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r1-1">
                             <option>5</option>
                             <option>10</option>
@@ -89,7 +117,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                        <input list="r1-2" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r1-2" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r1-2">
                             <option>5</option>
                             <option>10</option>
@@ -100,7 +128,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                        <input list="r1-3" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r1-3" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r1-3">
                             <option>5</option>
                             <option>10</option>
@@ -111,7 +139,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                    <input list="r1-4" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                    <input list="r1-4" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r1-4">
                             <option>5</option>
                             <option>10</option>
@@ -122,7 +150,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                    <input list="r1-5" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                    <input list="r1-5" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r1-5">
                             <option>5</option>
                             <option>10</option>
@@ -135,9 +163,9 @@ export default function Vehicle({name, date}) {
                     <td className='text-center'><Input bColor="yellow" disabled width="60px"/></td>
                 </tr>
                 <tr className='tr-h'>
-                    <td>Liability: Bodily Injury</td> 
+                    <td>{l2}</td> 
                     <td>
-                        <input list="r2-1" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r2-1" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r2-1">
                             <option>15/30</option>
                             <option>25/50</option>
@@ -147,7 +175,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                        <input list="r2-2" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r2-2" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r2-2">
                             <option>15/30</option>
                             <option>25/50</option>
@@ -157,7 +185,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                        <input list="r2-3" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r2-3" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r2-3">
                             <option>15/30</option>
                             <option>25/50</option>
@@ -167,7 +195,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                    <input list="r2-4" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                    <input list="r2-4" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r2-4">
                             <option>15/30</option>
                             <option>25/50</option>
@@ -177,7 +205,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                    <input list="r2-5" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                    <input list="r2-5" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r2-5">
                             <option>15/30</option>
                             <option>25/50</option>
@@ -191,7 +219,7 @@ export default function Vehicle({name, date}) {
                 <tr className='tr-h'>
                     <td>Medical Payment (per person)</td> 
                     <td>
-                        <input list="r3-1" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r3-1" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r3-1">
                             <option>None</option>
                             <option>.5</option>
@@ -202,7 +230,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                        <input list="r3-2" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r3-2" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r3-2">
                             <option>None</option>
                             <option>.5</option>
@@ -213,7 +241,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                        <input list="r3-3" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r3-3" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r3-3">
                             <option>None</option>
                             <option>.5</option>
@@ -224,7 +252,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                    <input list="r3-4" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                    <input list="r3-4" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r3-4">
                             <option>None</option>
                             <option>.5</option>
@@ -235,7 +263,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                    <input list="r3-5" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                    <input list="r3-5" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r3-5">
                             <option>None</option>
                             <option>.5</option>
@@ -250,7 +278,7 @@ export default function Vehicle({name, date}) {
                 <tr className='tr-h'>
                     <td>Uninsured Motorist: Bodily Injury</td> 
                     <td>
-                        <input list="r4-1" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r4-1" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r4-1">
                             <option>None</option>
                             <option>15/30</option>
@@ -261,7 +289,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                        <input list="r4-2" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r4-2" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r4-2">
                             <option>None</option>
                             <option>15/30</option>
@@ -272,7 +300,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                        <input list="r4-3" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r4-3" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r4-3">
                             <option>None</option>
                             <option>15/30</option>
@@ -283,7 +311,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                    <input list="r4-4" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                    <input list="r4-4" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r4-4">
                             <option>None</option>
                             <option>15/30</option>
@@ -294,7 +322,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                    <input list="r4-5" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                    <input list="r4-5" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r4-5">
                             <option>None</option>
                             <option>15/30</option>
@@ -309,7 +337,7 @@ export default function Vehicle({name, date}) {
                 <tr className='tr-h'>
                     <td>Uninsured Motorist: Property Damage / CDW</td> 
                     <td>
-                        <input list="r5-1" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r5-1" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r5-1">
                             <option>None</option>
                             <option>3.5</option>
@@ -318,7 +346,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                        <input list="r5-2" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r5-2" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r5-2">
                             <option>None</option>
                             <option>3.5</option>
@@ -327,7 +355,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                        <input list="r5-3" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r5-3" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r5-3">
                             <option>None</option>
                             <option>3.5</option>
@@ -336,7 +364,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                    <input list="r5-4" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                    <input list="r5-4" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r5-4">
                             <option>None</option>
                             <option>3.5</option>
@@ -345,7 +373,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                    <input list="r5-5" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                    <input list="r5-5" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r5-5">
                             <option>None</option>
                             <option>3.5</option>
@@ -358,7 +386,7 @@ export default function Vehicle({name, date}) {
                 <tr className='tr-h'>
                     <td>Comprehensive & Collision</td> 
                     <td>
-                        <input list="r6-1" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r6-1" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r6-1">
                             <option>None</option>
                             <option>250/250</option>
@@ -369,7 +397,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                        <input list="r6-2" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r6-2" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r6-2">
                             <option>None</option>
                             <option>250/250</option>
@@ -380,7 +408,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                        <input list="r6-3" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                        <input list="r6-3" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r6-3">
                             <option>None</option>
                             <option>250/250</option>
@@ -391,7 +419,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                    <input list="r6-4" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                    <input list="r6-4" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r6-4">
                             <option>None</option>
                             <option>250/250</option>
@@ -402,7 +430,7 @@ export default function Vehicle({name, date}) {
                         </datalist>
                     </td>
                     <td>
-                    <input list="r6-5" className="input-default text-center fw-bold w-100" maxLength="5"/>
+                    <input list="r6-5" className="input-default text-center fw-bold w-100" maxlength="15"/>
                         <datalist id="r6-5">
                             <option>None</option>
                             <option>250/250</option>
@@ -448,13 +476,14 @@ export default function Vehicle({name, date}) {
                 Initials: <Input disabled width="60px" bColor="yellow"/>
             </p>
 
-            <p className='fw-bold mt-0 mb-1'>
+            
+            {/*<p className='fw-bold mt-0 mb-1'>
                 Please have insured handwrite the words "I HAVE READ AND UNDERSTAND THIS EXCLUSION" on the line below.
             </p>
 
-            <Input className="w-100" disabled bColor="yellow"/>
+                <Input className="w-100" disabled bColor="yellow"/>*/}
 
-            <div className='d-flex justify-content-between mt-3 mx-5 pt-3 text-center fw-bold'>
+            <div className='d-flex justify-content-between mt-2 mx-5 pt-2 text-center fw-bold'>
                 <div>
                     <Input width="300px" className="text-center" disabled bColor="yellow"/>
                     <p>Insured's Signature</p>
