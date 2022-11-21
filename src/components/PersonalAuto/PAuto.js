@@ -11,7 +11,7 @@ import SPendingInfo from "./pages/SPendingInfo";
 import SFC1 from "./pages/SFC1";
 import SFC2 from "./pages/SFC2";
 import BFPA from "./pages/BFPA";
-import CCPA from "./pages/SCCPA";
+import CCPA from "./pages/CCPA";
 import PNPA from "./pages/PNPA";
 import SBFPA from "./pages/SBFPA";
 import SCCPA from "./pages/SCCPA";

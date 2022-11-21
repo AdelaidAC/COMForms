@@ -1,12 +1,15 @@
 import React from "react";
 import Input from "../../Input";
 import FC2Image from "../../../img/fc2.png";
+import Logo from "../../Logo";
 
 export default function SFC2({date}) {
       return (
         <div className="sheet font-11 text-justify lh-5">
             
-            <div class="row w-100">
+            <Logo/>
+
+            <div class="row w-100 mt-3">
                 <div class="col-6">
                     <table className="border border-dark">
                         <tr className="text-center">
@@ -123,7 +126,7 @@ export default function SFC2({date}) {
                 </div>
             </div>
 
-            <p className="text-center font-9 my-3 lh-1">
+            <p className="text-center my-3 lh-1">
                 Lo anterior es verdadero en todos loa vehiculos existentes, daños visibles, corrosión, y/o partes faltantes hasta la fecha de la Inspección.
                 El firmante certifica, bajo pena de perjurio, que este reporte de Inspección es verdadero y completo en lo major de su conocimiento.
             </p>
@@ -137,7 +140,7 @@ export default function SFC2({date}) {
                 </div>
             </div>
 
-            <p className="text-center font-9 my-3 lh-1">
+            <p className="text-center my-3 lh-1">
                 Yo certifico bajo pena de perjurio bajo las leyes del Estado de California que lo anterior es verdadero y correcto.
             </p>
 

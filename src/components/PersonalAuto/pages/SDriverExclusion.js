@@ -9,7 +9,7 @@ export default function SDriverExclusion({name}) {
       }, []);
 
       return (
-        <div className="sheet font-12 text-justify lh-5">
+        <div className="sheet font-12 text-justify">
             
             <Logo />
 

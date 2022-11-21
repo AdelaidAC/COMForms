@@ -1,14 +1,17 @@
 import React from "react";
 import Input from "../../Input";
 import FC1Image from "../../../img/fc1.png";
+import Logo from "../../Logo";
 
 export default function FC1({date}) {
 
       return (
 
         <div className="sheet font-11 text-justify lh-5">
+
+            <Logo/>
             
-            <div class="row w-100">
+            <div class="row w-100 mt-3">
                 <div class="col-6">
                     <table className="border border-dark">
                         <tr className="text-center">
@@ -125,7 +128,7 @@ export default function FC1({date}) {
                 </div>
             </div>
 
-            <p className="text-center font-9 my-3 lh-1">
+            <p className="text-center my-3 lh-1">
                 The above is a true statement recording any and all existing vehicles, visible damage, rust, and/or missing parts as of the date of this Inspection.
                 The undersigned certifies, under penalty of perjury, that this inspection report is true and complete to the best of his/her knowledge.
             </p>
@@ -139,7 +142,7 @@ export default function FC1({date}) {
                 </div>
             </div>
 
-            <p className="text-center font-9 my-3 lh-1">
+            <p className="text-center my-3 lh-1">
                 I certify under penalty of perjury under the laws of the state of California that the foregoing is true and correct
             </p>
 

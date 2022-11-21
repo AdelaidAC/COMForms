@@ -9,7 +9,7 @@ export default function PendingInfo({name, date}) {
       }, []);
 
       return (
-        <div className="sheet font-11 text-justify lh-5">
+        <div className="sheet font-11 text-justify">
             
             <Logo />
 
@@ -17,7 +17,7 @@ export default function PendingInfo({name, date}) {
                 PENDING INFORMATION SHEET
             </p>
 
-            <div className='d-flex justify-content-between mb-3'>
+            <div className='d-flex justify-content-between mb-4'>
                 <div className='d-flex col-8'>
                     <b>Client Name:</b>
                     <span className="flex-fill">
@@ -41,55 +41,55 @@ export default function PendingInfo({name, date}) {
                 <tr>
                     <td>A:</td>
                     <td className='col-3'>Copy of Ca Drivers License for Drivers:</td>
-                    <td>1 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>2 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>3 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>4 <Input className="text-center fw-bold" width="100px"/></td>
+                    <td>1 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>2 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>3 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>4 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
                 </tr>
                 <tr>
                     <td>B:</td>
                     <td>Copy of Valid Foreign Drivers License for:</td>
-                    <td>1 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>2 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>3 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>4 <Input className="text-center fw-bold" width="100px"/></td>
+                    <td>1 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>2 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>3 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>4 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
                 </tr>
                 <tr>
                     <td>C:</td>
                     <td>Proof of Valid Ca Driver's License (Renewed/Reinstated) for:</td>
-                    <td>1 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>2 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>3 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>4 <Input className="text-center fw-bold" width="100px"/></td>
+                    <td>1 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>2 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>3 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>4 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
                 </tr>
                 <tr>
                     <td>D:</td>
                     <td>Current Vehicle Registration Under Named Insured for:</td>
-                    <td>1 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>2 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>3 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>4 <Input className="text-center fw-bold" width="100px"/></td>
+                    <td>1 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>2 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>3 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>4 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
                 </tr>
                 <tr>
                     <td>E:</td>
                     <td>Vehicle for Physical Inspection or Photos for: (Bring Vehicles to Office)</td>
-                    <td>1 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>2 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>3 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>4 <Input className="text-center fw-bold" width="100px"/></td>
+                    <td>1 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>2 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>3 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>4 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
                 </tr>
                 <tr>
                     <td>F:</td>
                     <td>Current Lienholder Information for Vehicles:</td>
-                    <td>1 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>2 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>3 <Input className="text-center fw-bold" width="100px"/></td>
-                    <td>4 <Input className="text-center fw-bold" width="100px"/></td>
+                    <td>1 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>2 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>3 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
+                    <td>4 <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
                 </tr>
                 <tr>
                     <td>G:</td>
                     <td>Payment in the Amount of:</td>
-                    <td>$ <Input className="text-center fw-bold" width="100px"/></td>
+                    <td>$ <Input className="text-center fw-bold" width="100px" maxlength="12"/></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -157,7 +157,7 @@ export default function PendingInfo({name, date}) {
                 </div>
             </div>
 
-            <div className='d-flex justify-content-between mt-3 mx-5 pt-3 text-center fw-bold'>
+            <div className='d-flex justify-content-between mt-5 mx-5 pt-5 text-center fw-bold'>
                 <div>
                     <Input width="300px" className="text-center" disabled bColor="yellow"/>
                     <p>Insured's Signature</p>

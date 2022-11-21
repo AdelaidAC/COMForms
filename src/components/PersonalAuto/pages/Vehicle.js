@@ -28,7 +28,7 @@ export default function Vehicle({name, date}) {
         }
     }, [vType])
 
-      return (
+    return (
         <div className="sheet font-10 text-justify">
             
             <Logo />
