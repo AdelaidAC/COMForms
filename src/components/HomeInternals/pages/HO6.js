@@ -62,12 +62,10 @@ export default function HO6({name, date, setDateHO, date2}) {
         if(occupantType === "owner" || occupantType === "secondary" || occupantType === "seasonal" || occupantType === "vacant"){
           setD("Loss of Use"); 
           setE("Personal Liability");
-          console.log(d);
         }
         else if(occupantType === "tenant"){
           setD("Fair Rental Value");
           setE("OL & Tenant");
-          console.log(e);
         }
     }, [occupantType])
 

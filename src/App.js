@@ -138,9 +138,7 @@ function App() {
     
     // Destructuring
     const { value, checked } = e.target;
-      
-    console.log(`${value} is ${checked}`);
-     
+           
     // Case 1 : The user checks the box
     if (checked) {
       setPageGLInfo({
@@ -160,9 +158,7 @@ function App() {
     
     // Destructuring
     const { value, checked } = e.target;
-      
-    console.log(`${value} is ${checked}`);
-     
+           
     // Case 1 : The user checks the box
     if (checked) {
       setPageTInfo({
@@ -182,9 +178,7 @@ function App() {
     
     // Destructuring
     const { value, checked } = e.target;
-      
-    console.log(`${value} is ${checked}`);
-     
+           
     // Case 1 : The user checks the box
     if (checked) {
       setPageWCInfo({
@@ -204,9 +198,7 @@ function App() {
     
     // Destructuring
     const { value, checked } = e.target;
-      
-    console.log(`${value} is ${checked}`);
-     
+           
     // Case 1 : The user checks the box
     if (checked) {
       setPageHInfo({
@@ -226,9 +218,7 @@ function App() {
     
     // Destructuring
     const { value, checked } = e.target;
-      
-    console.log(`${value} is ${checked}`);
-     
+           
     // Case 1 : The user checks the box
     if (checked) {
       setPageAInfo({
@@ -248,9 +238,7 @@ function App() {
     
     // Destructuring
     const { value, checked } = e.target;
-      
-    console.log(`${value} is ${checked}`);
-     
+           
     // Case 1 : The user checks the box
     if (checked) {
       setPageBInfo({
@@ -270,9 +258,7 @@ function App() {
     
     // Destructuring
     const { value, checked } = e.target;
-      
-    console.log(`${value} is ${checked}`);
-     
+           
     // Case 1 : The user checks the box
     if (checked) {
       setPageFInfo({
@@ -292,9 +278,7 @@ function App() {
     
     // Destructuring
     const { value, checked } = e.target;
-      
-    console.log(`${value} is ${checked}`);
-     
+           
     // Case 1 : The user checks the box
     if (checked) {
       setPagePAInfo({
@@ -355,7 +339,7 @@ function App() {
         </div>
         <div>
           <label className="mx-1 fw-bold" for="dateI">Date:</label>
-          <input className="text-center" id="dateI" type="date" onChange={e => setDateI(e.target.value)}/> {console.log(dateInsured)}
+          <input className="text-center" id="dateI" type="date" onChange={e => setDateI(e.target.value)}/>
         </div>
       </div>
       <div className='d-flex justify-content-center py-2 bg-nav2'>

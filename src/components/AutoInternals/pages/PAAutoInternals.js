@@ -12,9 +12,6 @@ export default function PAAutoInternals({name, date, date2}) {
     const [iVP1, setVP1] = useState('');
     const [iVG1, setVG1] = useState('');
 
-    console.log(iVG1);
-    console.log(iVP1);
-
     const [iVP2, setVP2] = useState('');
     const [iVG2, setVG2] = useState('');
 

@@ -30,9 +30,6 @@ export default function Auto({pages, name, address, phone, date}) {
 
     let date2 = moment(dateVD).format('MM/DD/YYYY');
 
-    console.log(liability1);
-    console.log(liability2);
-
     count++;
     iS = <><Badge text={count}/><ISAutoInternals/></>;
 
