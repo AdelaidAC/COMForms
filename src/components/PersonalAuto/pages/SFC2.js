@@ -4,6 +4,11 @@ import FC2Image from "../../../img/fc2.png";
 import Logo from "../../Logo";
 
 export default function SFC2({date}) {
+
+    React.useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+      
       return (
         <div className="sheet font-11 text-justify lh-5">
             
