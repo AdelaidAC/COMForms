@@ -259,6 +259,7 @@ export default function VDWorkersComp({name, date, setDateVD, date2}) {
                         />
                     </div>
                     <div>
+                        <Input width="30px" className="text-center" maxlength="3"/>
                         <label><b>Payments of:</b></label>
                         <CurrencyFormat 
                             thousandSeparator={true} 
