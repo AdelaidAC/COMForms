@@ -41,6 +41,8 @@ export default function HO4({name, date, setDateHO, date2}) {
     const [checked1, setChecked1] = useState(false);
     const [checked2, setChecked2] = useState(false);
     const [checked3, setChecked3] = useState(false);
+    const [checked4, setChecked4] = useState(false);
+    const [checked5, setChecked5] = useState(false);
 
     useEffect(() => {
         checked1 === true ? setC6("Included") : setC6("");
@@ -55,6 +57,14 @@ export default function HO4({name, date, setDateHO, date2}) {
     }, [checked3])
 
     useEffect(() => {
+        checked4 === true ? setC1("Included") : setC1("");
+    }, [checked4])
+    
+    useEffect(() => {
+        checked5 === true ? setC5("Included") : setC5("");
+    }, [checked5])
+
+    {/*useEffect(() => {
         if (inputC.trim().length !== 0) {
             setC1("Included");
             setChkCYes(true);
@@ -64,7 +74,7 @@ export default function HO4({name, date, setDateHO, date2}) {
             setChkCYes(false);
             setChkCNo(true);
         }
-    }, [inputC])
+    }, [inputC])*/}
 
     useEffect(() => {
         if (inputD.trim().length !== 0) {
@@ -102,13 +112,13 @@ export default function HO4({name, date, setDateHO, date2}) {
         }
     }, [inputF])
 
-    useEffect(() => {
+    {/*useEffect(() => {
         if (deductible.trim().length !== 0) {
             setC5("Included");
         } else {
             setC5("");
         }
-    }, [deductible])
+    }, [deductible])*/}
 
     return (
         <div className="sheet font-11 lh-3 text-justify">
@@ -245,7 +255,13 @@ export default function HO4({name, date, setDateHO, date2}) {
     
             <table>
                 <tr>
-                    <td></td>
+                    <td>
+                        <input 
+                            type="checkbox" 
+                            checked={checked4} 
+                            onChange={e => setChecked4(e.target.checked)}
+                        />
+                    </td>
                     <td>
                         <b>1.</b>
                     </td>
@@ -329,7 +345,13 @@ export default function HO4({name, date, setDateHO, date2}) {
                     </td>
                 </tr>
                 <tr>
-                    <td></td>
+                    <td>
+                        <input 
+                            type="checkbox" 
+                            checked={checked5} 
+                            onChange={e => setChecked5(e.target.checked)}
+                        />
+                    </td>
                     <td>
                         <b>5.</b>
                     </td>

@@ -13,19 +13,52 @@ import MotorCarrier from './pages/MotorCarrier';
 
 export default function Auto({pages, name, address, phone, date}) {
 
-    let brokerFee, balanceDue, creditCard, iS, vD, pA, infinity, mC;
+    let brokerFee, balanceDue, creditCard, iS, vD, pA, infinity, mC; 
 
     let count = 0;
 
     const [dateVD, setDateVD] = useState('')
 
+    const [mcp, setMCP] = useState(false)
+    const [icc, setICC] = useState(false)
+    const [dot, setDOT] = useState(false)
+    const [puc, setPUC] = useState(false)
+    const [none, setNONE] = useState(false)
+    const [pNumbers, setPNumbers] = useState('')
+    const [liability1, setLiability1] = useState('')
+    const [liability2, setLiability2] = useState('')
+
     let date2 = moment(dateVD).format('MM/DD/YYYY');
+
+    console.log(liability1);
+    console.log(liability2);
 
     count++;
     iS = <><Badge text={count}/><ISAutoInternals/></>;
 
     count++;
-    vD = <><Badge text={count}/><VDAutoInternals name={name} date={date} setDateVD={setDateVD} date2={date2}/></>;
+    vD = <><Badge text={count}/><VDAutoInternals 
+        name={name} 
+        date={date} 
+        setDateVD={setDateVD} 
+        date2={date2}
+        setMCP={setMCP}
+        setICC={setICC}
+        setDOT={setDOT}
+        setPUC={setPUC}
+        setNONE={setNONE}
+        setPNumbers={setPNumbers}
+        setLiability1={setLiability1}
+        setLiability2={setLiability2}
+        mcp={mcp}
+        icc={icc}
+        dot={dot}
+        puc={puc}
+        none={none}
+        pNumbers={pNumbers}
+        liability1={liability1}
+        liability2={liability2}
+        /></>;
 
     count++;
     pA = <><Badge text={count}/><PAAutoInternals name={name} date={date} date2={date2}/></>;
@@ -53,7 +86,18 @@ export default function Auto({pages, name, address, phone, date}) {
     }
 
     count++;
-    mC = <><Badge text={count}/><MotorCarrier name={name}/></>;
+    mC = <><Badge text={count}/><MotorCarrier 
+        name={name}
+        date={date}
+        mcp={mcp}
+        icc={icc}
+        dot={dot}
+        puc={puc}
+        none={none}
+        pNumbers={pNumbers}
+        liability1={liability1}
+        liability2={liability2}
+        /></>;
 
     React.useEffect(() => {
         window.scrollTo(0, 0);

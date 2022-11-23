@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useEffect, useState} from 'react';
 import Input from "../../Input";
 import Logo from "../../Logo";
 import Title from "../../Title";
 
-export default function VDAutoInternals({name, date, setDateVD, date2}) {
+export default function VDAutoInternals({
+    name, 
+    date, 
+    setDateVD, 
+    date2,
+    setMCP,
+    setICC,
+    setDOT,
+    setPUC,
+    setNONE,
+    setPNumbers,
+    setLiability1,
+    setLiability2,
+    mcp,
+    icc,
+    dot,
+    puc,
+    none,
+    pNumbers,
+    liability1,
+    liability2
+}) {
+
     return (
         <div className="sheet font-11 text-justify">
             <Logo />
@@ -50,7 +72,7 @@ export default function VDAutoInternals({name, date, setDateVD, date2}) {
                             Liability Bodily Injury:
                         </td>
                         <td>
-                            <b>$</b> <input list="dL1" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <b>$</b> <input list="dL1" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15" onChange={e => setLiability1(e.target.value)} value={liability1}/>
                             <datalist id="dL1">
                                 <option>15,000/30,000</option>
                                 <option>25,000/50,000</option>
@@ -82,7 +104,7 @@ export default function VDAutoInternals({name, date, setDateVD, date2}) {
                             Liability Property Damage:
                         </td>
                         <td>
-                            <b>$</b> <input list="dL3" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
+                            <b>$</b> <input list="dL3" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15" onChange={e => setLiability2(e.target.value)} value={liability2}/>
                             <datalist id="dL3">
                                 <option>***CSL***</option>
                                 <option>5,000</option>
@@ -676,16 +698,22 @@ export default function VDAutoInternals({name, date, setDateVD, date2}) {
                 <tr>
                     <td className="d-flex align-items-center">
                         Filings Purchased:
-                        <b className="ms-3">MCP</b><input className="ms-2 me-3" type="checkbox"/>
-                        <b>ICC</b><input className="ms-2 me-3" type="checkbox"/>
-                        <b>DOT</b><input className="ms-2 me-3" type="checkbox"/>
-                        <b>PUC</b><input className="ms-2 me-3" type="checkbox"/>
-                        <b>NONE</b><input className="ms-2" type="checkbox"/>
+                        <b className="ms-3">MCP</b><input className="ms-2 me-3" type="checkbox" checked={mcp} onChange={e => setMCP(e.target.checked)}/>
+                        <b>ICC</b><input className="ms-2 me-3" type="checkbox" checked={icc} onChange={e => setICC(e.target.checked)}/>
+                        <b>DOT</b><input className="ms-2 me-3" type="checkbox" checked={dot} onChange={e => setDOT(e.target.checked)}/>
+                        <b>PUC</b><input className="ms-2 me-3" type="checkbox" checked={puc} onChange={e => setPUC(e.target.checked)}/>
+                        <b>NONE</b><input className="ms-2" type="checkbox" checked={none} onChange={e => setNONE(e.target.checked)}/>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        Permit Numbers (If Purchased): <Input width = "500px" className="text-center" maxlength="70"/>
+                        Permit Numbers (If Purchased): <input 
+                            style={{width: "500px"}} 
+                            className="text-center input-default" 
+                            maxlength="20" 
+                            onChange={e => setPNumbers(e.target.value)}
+                            {... none === true ? {value:"None"} : {value: pNumbers}}
+                        />
                     </td>
                 </tr>
             </table>

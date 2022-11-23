@@ -3,7 +3,18 @@ import Input from '../../Input'
 import Title from '../../Title'
 import Logo from '../../Logo'
 
-export default function MotorCarrier({name}) {
+export default function MotorCarrier({
+    name,
+    date,
+    mcp,
+    icc,
+    dot,
+    puc,
+    none,
+    pNumbers,
+    liability1,
+    liability2
+}) {
 
     return (
         
@@ -85,7 +96,7 @@ export default function MotorCarrier({name}) {
             <p>
                 <b>The undersigned acknowledges that required coverage's by law have been offered, that a
                 premium, or rate, has been quoted for the required coverage and that not withstanding the
-                coverages recommended by my agent, the liability limits are as follows:</b><Input width="150px" disabled/>/<Input width="100px" disabled/>
+                coverages recommended by my agent, the liability limits are as follows:</b><Input width="150px" className="text-center" value={liability1}/>/<Input width="100px" className="text-center" value={liability2}/>
             </p>
 
             <div className="border border-2 border-dark my-2"></div>
@@ -94,13 +105,18 @@ export default function MotorCarrier({name}) {
                 <b>I acknowledge that the filing system has been explained in detail and I selected the folowing:</b>
                 <br/>
                 Filings Purchased:
-                <b className="ms-2">MCP</b><input className="ms-2 me-2" type="checkbox"/>
-                <b>ICC</b><input className="ms-2 me-2" type="checkbox"/>
-                <b>DOT</b><input className="ms-2 me-2" type="checkbox"/>
-                <b>PUC</b><input className="ms-2 me-2" type="checkbox"/>
-                <b>NONE</b><input className="ms-2 me-3" type="checkbox"/>
+                <b className="ms-2">MCP</b><input className="ms-2 me-2" type="checkbox" checked={mcp}/>
+                <b>ICC</b><input className="ms-2 me-2" type="checkbox" checked={icc}/>
+                <b>DOT</b><input className="ms-2 me-2" type="checkbox" checked={dot}/>
+                <b>PUC</b><input className="ms-2 me-2" type="checkbox" checked={puc}/>
+                <b>NONE</b><input className="ms-2 me-3" type="checkbox" checked={none}/>
                 Permit Numbers <span className='font-10'>(If Purchased)</span>:
-                <Input className="text-center" width="170px" maxlength="15"/>
+                <input 
+                    className="text-center input-default" 
+                    style={{width:"170px"}} 
+                    maxlength="20" 
+                    {... none === true ? {value:"None"} : {value: pNumbers}}
+                />
 
             </p>
             
@@ -116,7 +132,7 @@ export default function MotorCarrier({name}) {
                     <p className='mb-0 fw-bold'>Insured’s Signature</p>
                 </div>
                 <div>
-                    <input className='text-center' type="date"/>
+                    <Input value = {date} width = "80px" className = "text-center fw-bold"/>
                     <p className='mb-0 fw-bold'>Date</p>
                 </div>
             </div>
