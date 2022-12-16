@@ -48,7 +48,7 @@ export default function PAHomeInternals({name, date, date2}) {
             </div>
 
             <p className='font-11 my-4'>
-                It is my stated intention to obtain insurance coverage effective <Input value = {date2} width = "80px" className = "text-center fw-bold"/>, however I do not have copies of the following information with me:
+                It is my stated intention to obtain insurance coverage effective <Input {... date2 === "Invalid date" ? {bColor:"yellow"} : {value:date2}} width = "80px" className = "text-center fw-bold"/>, however I do not have copies of the following information with me:
             </p>
             
             
@@ -96,7 +96,7 @@ export default function PAHomeInternals({name, date, date2}) {
             </p>
 
             <p className="text-center my-4 font-11">
-                I hereby promise to provide the above-indicated information by <Input value = {endDate} width = "80px" className = "text-center fw-bold"/> to Adriana's Insurance Services, Inc.
+                I hereby promise to provide the above-indicated information by <Input {... endDate === "Invalid date" ? {bColor:"yellow"} : {value:endDate}} width = "80px" className = "text-center fw-bold"/> to Adriana's Insurance Services, Inc.
             </p>
             
             <p className="mb-5 lh-2 font-11">

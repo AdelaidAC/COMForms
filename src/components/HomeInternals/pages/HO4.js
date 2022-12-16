@@ -11,11 +11,9 @@ export default function HO4({name, date, setDateHO, date2}) {
         window.scrollTo(0, 0);
     }, []);
 
-    const [c1, setC1] = useState('');
     const [c2, setC2] = useState('');
     const [c3, setC3] = useState('');
     const [c4, setC4] = useState('');
-    const [c5, setC5] = useState('');
     const [c6, setC6] = useState('');
     const [c7, setC7] = useState('');
     const [c8, setC8] = useState('');
@@ -41,8 +39,6 @@ export default function HO4({name, date, setDateHO, date2}) {
     const [checked1, setChecked1] = useState(false);
     const [checked2, setChecked2] = useState(false);
     const [checked3, setChecked3] = useState(false);
-    const [checked4, setChecked4] = useState(false);
-    const [checked5, setChecked5] = useState(false);
 
     useEffect(() => {
         checked1 === true ? setC6("Included") : setC6("");
@@ -57,24 +53,14 @@ export default function HO4({name, date, setDateHO, date2}) {
     }, [checked3])
 
     useEffect(() => {
-        checked4 === true ? setC1("Included") : setC1("");
-    }, [checked4])
-    
-    useEffect(() => {
-        checked5 === true ? setC5("Included") : setC5("");
-    }, [checked5])
-
-    {/*useEffect(() => {
         if (inputC.trim().length !== 0) {
-            setC1("Included");
             setChkCYes(true);
             setChkCNo(false);
         } else {
-            setC1("");
             setChkCYes(false);
             setChkCNo(true);
         }
-    }, [inputC])*/}
+    }, [inputC])
 
     useEffect(() => {
         if (inputD.trim().length !== 0) {
@@ -111,14 +97,6 @@ export default function HO4({name, date, setDateHO, date2}) {
             setChkFNo(true);
         }
     }, [inputF])
-
-    {/*useEffect(() => {
-        if (deductible.trim().length !== 0) {
-            setC5("Included");
-        } else {
-            setC5("");
-        }
-    }, [deductible])*/}
 
     return (
         <div className="sheet font-11 lh-3 text-justify">
@@ -256,11 +234,6 @@ export default function HO4({name, date, setDateHO, date2}) {
             <table>
                 <tr>
                     <td>
-                        <input 
-                            type="checkbox" 
-                            checked={checked4} 
-                            onChange={e => setChecked4(e.target.checked)}
-                        />
                     </td>
                     <td>
                         <b>1.</b>
@@ -274,8 +247,8 @@ export default function HO4({name, date, setDateHO, date2}) {
                             <Input 
                                 className="text-center fw-bold"
                                 width="90px" 
-                                value={c1}
-                                {...(c1 === "" ? {bColor:"yellow"} : {})}
+                                bColor="yellow"
+                                disabled
                             />
                         </span>
                     </td>
@@ -346,11 +319,6 @@ export default function HO4({name, date, setDateHO, date2}) {
                 </tr>
                 <tr>
                     <td>
-                        <input 
-                            type="checkbox" 
-                            checked={checked5} 
-                            onChange={e => setChecked5(e.target.checked)}
-                        />
                     </td>
                     <td>
                         <b>5.</b>
@@ -365,8 +333,8 @@ export default function HO4({name, date, setDateHO, date2}) {
                             <Input 
                                 className="text-center fw-bold"
                                 width="90px" 
-                                value={c5}
-                                {...(c5 === "" ? {bColor:"yellow"} : {})}
+                                bColor="yellow"
+                                disabled
                             />
                         </span>
                     </td>
