@@ -19,6 +19,27 @@ export default function Auto({pages, name, address, phone, date}) {
 
     const [dateVD, setDateVD] = useState('')
 
+    const [vYear1, setVYear1] = useState('')
+    const [vMake1, setVMake1] = useState('')
+    const [vYear2, setVYear2] = useState('')
+    const [vMake2, setVMake2] = useState('')
+    const [vYear3, setVYear3] = useState('')
+    const [vMake3, setVMake3] = useState('')
+    const [vYear4, setVYear4] = useState('')
+    const [vMake4, setVMake4] = useState('')
+    const [vYear5, setVYear5] = useState('')
+    const [vMake5, setVMake5] = useState('')
+    const [vYear6, setVYear6] = useState('')
+    const [vMake6, setVMake6] = useState('')
+
+    const [vc, setVC] = useState(false) // Valid license for / Valid Vehicle Registration for / Vehicle for inspections and photos of all four sides (Checkbox)
+    const [vc1, setVC1] = useState(false) // Vehicle 1
+    const [vc2, setVC2] = useState(false) // Vehicle 2
+    const [vc3, setVC3] = useState(false) // Vehicle 3
+    const [vc4, setVC4] = useState(false) // Vehicle 4
+    const [vc5, setVC5] = useState(false) // Vehicle 5
+    const [vc6, setVC6] = useState(false) // Vehicle 6
+
     const [mcp, setMCP] = useState(false)
     const [icc, setICC] = useState(false)
     const [dot, setDOT] = useState(false)
@@ -39,6 +60,41 @@ export default function Auto({pages, name, address, phone, date}) {
         date={date} 
         setDateVD={setDateVD} 
         date2={date2}
+
+        setVYear1={setVYear1}
+        setVMake1={setVMake1}
+        setVYear2={setVYear2}
+        setVMake2={setVMake2}
+        setVYear3={setVYear3}
+        setVMake3={setVMake3}
+        setVYear4={setVYear4}
+        setVMake4={setVMake4}
+        setVYear5={setVYear5}
+        setVMake5={setVMake5}
+        setVYear6={setVYear6}
+        setVMake6={setVMake6}
+
+        vYear1={vYear1} 
+        vMake1={vMake1}
+        vYear2={vYear2} 
+        vMake2={vMake2}
+        vYear3={vYear3} 
+        vMake3={vMake3}
+        vYear4={vYear4} 
+        vMake4={vMake4}
+        vYear5={vYear5} 
+        vMake5={vMake5}
+        vYear6={vYear6} 
+        vMake6={vMake6}
+
+        setVC={setVC}
+        setVC1={setVC1}
+        setVC2={setVC2}
+        setVC3={setVC3}
+        setVC4={setVC4}
+        setVC5={setVC5}
+        setVC6={setVC6}
+
         setMCP={setMCP}
         setICC={setICC}
         setDOT={setDOT}
@@ -58,7 +114,35 @@ export default function Auto({pages, name, address, phone, date}) {
         /></>;
 
     count++;
-    pA = <><Badge text={count}/><PAAutoInternals name={name} date={date} date2={date2}/></>;
+    pA = <><Badge text={count}/>
+            <PAAutoInternals 
+                name={name} 
+                date={date} 
+                date2={date2} 
+
+                vYear1={vYear1} 
+                vMake1={vMake1}
+                vYear2={vYear2} 
+                vMake2={vMake2}
+                vYear3={vYear3} 
+                vMake3={vMake3}
+                vYear4={vYear4} 
+                vMake4={vMake4}
+                vYear5={vYear5} 
+                vMake5={vMake5}
+                vYear6={vYear6} 
+                vMake6={vMake6}
+
+                vc={vc}
+                vc1={vc1}
+                vc2={vc2}
+                vc3={vc3}
+                vc4={vc4}
+                vc5={vc5}
+                vc6={vc6}
+
+            />
+        </>;
 
     if (Object.values(pages).includes("spanishBF")) {
         count++;

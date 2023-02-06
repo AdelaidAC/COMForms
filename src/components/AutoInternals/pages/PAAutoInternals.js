@@ -5,7 +5,31 @@ import Logo from '../../Logo'
 import Signature from '../../Signature';
 import Title from '../../Title'
 
-export default function PAAutoInternals({name, date, date2}) {
+export default function PAAutoInternals(
+    {
+        name, 
+        date, 
+        date2,
+        vYear1, 
+        vMake1,
+        vYear2, 
+        vMake2,
+        vYear3, 
+        vMake3,
+        vYear4, 
+        vMake4,
+        vYear5, 
+        vMake5,
+        vYear6, 
+        vMake6,
+        vc,
+        vc1,
+        vc2,
+        vc3,
+        vc4,
+        vc5,
+        vc6,
+    }) {
 
     let endDate = moment(date2).add(7, 'days').format('MM/DD/YYYY');
 
@@ -65,86 +89,86 @@ export default function PAAutoInternals({name, date, date2}) {
                 Proof of non-fault or non-injury accident for the following date(s):
                 <Input className="ms-1 text-center" width="160px" maxlength="20"/>
                 <br/>
-                <input className="me-1 mb-3" type="checkbox"/> 
+                <input className="me-1 mb-3" type="checkbox" checked={vc}/> 
                 Valid license for:
-                <input className="ms-3 me-1" type="checkbox"/> Driver 1
-                <input className="ms-3 me-1" type="checkbox"/> Driver 2
-                <input className="ms-3 me-1" type="checkbox"/> Driver 3
-                <input className="ms-3 me-1" type="checkbox"/> Driver 4
-                <input className="ms-3 me-1" type="checkbox"/> Driver 5
-                <input className="ms-3 me-1" type="checkbox"/> Driver 6
+                <input className="ms-3 me-1" type="checkbox" checked={vc1}/> Driver 1
+                <input className="ms-3 me-1" type="checkbox" checked={vc2}/> Driver 2
+                <input className="ms-3 me-1" type="checkbox" checked={vc3}/> Driver 3
+                <input className="ms-3 me-1" type="checkbox" checked={vc4}/> Driver 4
+                <input className="ms-3 me-1" type="checkbox" checked={vc5}/> Driver 5
+                <input className="ms-3 me-1" type="checkbox" checked={vc6}/> Driver 6
                 <br/>
-                <input className="me-1 mb-3" type="checkbox"/> 
+                <input className="me-1 mb-3" type="checkbox" checked={vc}/> 
                 Valid vehicle registration for:
                 <div className='mx-3 d-flex justify-content-between'>
                     <div>
-                        <input className="me-3" type="checkbox"/>
-                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} onChange = {e => setVP1(e.target.value)}/>
-                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} onChange = {e => setVG1(e.target.value)}/>
+                        <input className="me-3" type="checkbox" checked={vc1}/>
+                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} value={vYear1} /*onChange = {e => setVP1(e.target.value)}*//>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={vMake1} /*onChange = {e => setVG1(e.target.value)}*//>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox"/>
-                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} onChange = {e => setVP2(e.target.value)}/>
-                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} onChange = {e => setVG2(e.target.value)}/>
+                        <input className="me-3" type="checkbox" checked={vc2}/>
+                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} value={vYear2} /*onChange = {e => setVP2(e.target.value)}*//>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={vMake2} /*onChange = {e => setVG2(e.target.value)}*//>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox"/>
-                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} onChange = {e => setVP3(e.target.value)}/>
-                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} onChange = {e => setVG3(e.target.value)}/>
+                        <input className="me-3" type="checkbox" checked={vc3}/>
+                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} value={vYear3} /*onChange = {e => setVP3(e.target.value)}*//>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={vMake3} /*onChange = {e => setVG3(e.target.value)}*//>
                     </div>
                 </div>
                 <div className='mx-3 d-flex justify-content-between'>
                     <div>
-                        <input className="me-3" type="checkbox"/>
-                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} onChange = {e => setVP4(e.target.value)}/>
-                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} onChange = {e => setVG4(e.target.value)}/>
+                        <input className="me-3" type="checkbox" checked={vc4}/>
+                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} value={vYear4} /*onChange = {e => setVP4(e.target.value)}*//>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={vMake4} /*onChange = {e => setVG4(e.target.value)}*//>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox"/>
-                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} onChange = {e => setVP5(e.target.value)}/>
-                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} onChange = {e => setVG5(e.target.value)}/>
+                        <input className="me-3" type="checkbox" checked={vc5}/>
+                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} value={vYear5} /*onChange = {e => setVP5(e.target.value)}*//>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={vMake5} /*onChange = {e => setVG5(e.target.value)}*//>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox"/>
-                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} onChange = {e => setVP6(e.target.value)}/>
-                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} onChange = {e => setVG6(e.target.value)}/>
+                        <input className="me-3" type="checkbox" checked={vc6}/>
+                        <input maxlength="6" className="text-center fw-bold input-default" style={{width:"50px"}} value={vYear6} /*onChange = {e => setVP6(e.target.value)}*//>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={vMake6} /*onChange = {e => setVG6(e.target.value)}*//>
                     </div>
                 </div>
                 <br/>
-                <input className="me-1 mb-3" type="checkbox"/> 
+                <input className="me-1 mb-3" type="checkbox" checked={vc}/> 
                 Vehicle for inspections and photos of all four sides:
                 <div className='mx-3 d-flex justify-content-between'>
                     <div>
-                        <input className="me-3" type="checkbox"/>
-                        <input maxlength="6" className="text-center fw-bold input-default" value={iVP1} style={{width:"50px"}}/>
-                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={iVG1}/>
+                        <input className="me-3" type="checkbox" checked={vc1}/>
+                        <input maxlength="6" className="text-center fw-bold input-default" /*value={iVP1}*/ value={vYear1} style={{width:"50px"}}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" value={vMake1} style={{width:"110px"}} /*value={iVG1}*//>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox"/>
-                        <input maxlength="6" className="text-center fw-bold input-default" value={iVP2} style={{width:"50px"}}/>
-                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={iVG2}/>
+                        <input className="me-3" type="checkbox" checked={vc2}/>
+                        <input maxlength="6" className="text-center fw-bold input-default" /*value={iVP2}*/ value={vYear2} style={{width:"50px"}}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" value={vMake2} style={{width:"110px"}} /*value={iVG2}*//>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox"/>
-                        <input maxlength="6" className="text-center fw-bold input-default" value={iVP3} style={{width:"50px"}}/>
-                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={iVG3}/>
+                        <input className="me-3" type="checkbox" checked={vc3}/>
+                        <input maxlength="6" className="text-center fw-bold input-default" /*value={iVP3}*/ value={vYear3} style={{width:"50px"}}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" value={vMake3} style={{width:"110px"}} /*value={iVG3}*//>
                     </div>
                 </div>
                 <div className='mx-3 d-flex justify-content-between'>
                     <div>
-                        <input className="me-3" type="checkbox"/>
-                        <input maxlength="6" className="text-center fw-bold input-default" value={iVP4} style={{width:"50px"}}/>
-                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={iVG4}/>
+                        <input className="me-3" type="checkbox" checked={vc4}/>
+                        <input maxlength="6" className="text-center fw-bold input-default" /*value={iVP4}*/ value={vYear4} style={{width:"50px"}}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" value={vMake4} style={{width:"110px"}} /*value={iVG4}*//>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox"/>
-                        <input maxlength="6" className="text-center fw-bold input-default" value={iVP5} style={{width:"50px"}}/>
-                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={iVG5}/>
+                        <input className="me-3" type="checkbox" checked={vc5}/>
+                        <input maxlength="6" className="text-center fw-bold input-default" /*value={iVP5}*/ value={vYear5} style={{width:"50px"}}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" value={vMake5} style={{width:"110px"}} /*value={iVG5}*//>
                     </div>
                     <div>
-                        <input className="me-3" type="checkbox"/>
-                        <input maxlength="6" className="text-center fw-bold input-default" value={iVP6} style={{width:"50px"}}/>
-                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" style={{width:"110px"}} value={iVG6}/>
+                        <input className="me-3" type="checkbox" checked={vc6}/>
+                        <input maxlength="6" className="text-center fw-bold input-default" /*value={iVP6}*/ value={vYear6} style={{width:"50px"}}/>
+                        <input maxlength="15" className="ms-1 text-center fw-bold input-default" value={vMake6} style={{width:"110px"}} /*value={iVG6}*//>
                     </div>
                 </div>
                 <br/>

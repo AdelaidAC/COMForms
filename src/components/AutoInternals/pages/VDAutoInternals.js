@@ -8,6 +8,37 @@ export default function VDAutoInternals({
     date, 
     setDateVD, 
     date2,
+    setVYear1,
+    setVMake1,
+    setVYear2,
+    setVMake2,
+    setVYear3,
+    setVMake3,
+    setVYear4,
+    setVMake4,
+    setVYear5,
+    setVMake5,
+    setVYear6,
+    setVMake6,
+    vYear1, 
+    vMake1,
+    vYear2, 
+    vMake2,
+    vYear3, 
+    vMake3,
+    vYear4, 
+    vMake4,
+    vYear5, 
+    vMake5,
+    vYear6, 
+    vMake6,
+    setVC,
+    setVC1,
+    setVC2,
+    setVC3,
+    setVC4,
+    setVC5,
+    setVC6,
     setMCP,
     setICC,
     setDOT,
@@ -25,6 +56,45 @@ export default function VDAutoInternals({
     liability1,
     liability2
 }) {
+
+    if(vYear1.trim().length !== 0 && vMake1.trim().length !== 0){
+        setVC(true);
+        setVC1(true);
+    }else{
+        setVC(false);
+        setVC1(false);
+    }
+
+    if(vYear2.trim().length !== 0 && vMake2.trim().length !== 0){
+        setVC2(true);
+    }else{
+        setVC2(false);
+    }
+
+    if(vYear3.trim().length !== 0 && vMake3.trim().length !== 0){
+        setVC3(true);
+    }else{
+        setVC3(false);
+    }
+
+    if(vYear4.trim().length !== 0 && vMake4.trim().length !== 0){
+        setVC4(true);
+    }else{
+        setVC4(false);
+    }
+
+    if(vYear5.trim().length !== 0 && vMake5.trim().length !== 0){
+        setVC5(true);
+    }else{
+        setVC5(false);
+    }
+
+    if(vYear6.trim().length !== 0 && vMake6.trim().length !== 0){
+        setVC6(true);
+    }else{
+        setVC6(false);
+    }
+
 
     return (
         <div className="sheet font-11 text-justify">
@@ -139,8 +209,8 @@ export default function VDAutoInternals({
                             Uninsured Motorist BI:
                         </td>
                         <td>
-                            <b>$</b> <input list="dL5" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
-                            <datalist id="dL5">
+                            <b>$</b>
+                            <select name="dl5" className="ms-1 input-default text-center fw-bold" style={{width: "125px"}} maxLength="15">
                                 <option>Rejected</option>
                                 <option>15,000/30,000</option>
                                 <option>25,000/50,000</option>
@@ -149,7 +219,7 @@ export default function VDAutoInternals({
                                 <option>300,000</option>
                                 <option>500,000</option>
                                 <option>1,000,000</option>
-                            </datalist>
+                            </select>
                         </td>
                     </tr>
                     <tr className="tr-h">
@@ -157,14 +227,14 @@ export default function VDAutoInternals({
                             Uninsured Motorist PD:
                         </td>
                         <td>
-                            <b>$</b> <input list="dL6" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
-                            <datalist id="dL6">
+                            <b>$</b>
+                            <select name="dL6" className="ms-1 input-default text-center fw-bold" style={{width: "125px"}} maxLength="15">
                                 <option>Rejected</option>
                                 <option>3,500</option>
                                 <option>5,000</option>
                                 <option>CDW</option>
                                 <option>***CSL***</option>
-                            </datalist>
+                            </select>
                         </td>
                     </tr>
                     <tr className="tr-h">
@@ -174,6 +244,7 @@ export default function VDAutoInternals({
                         <td>
                             <b>$</b> <input list="dL7" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL7">
+                                <option>Not Purchased</option>
                                 <option>250,000</option>
                                 <option>500,000</option>
                                 <option>1,000,000</option>
@@ -262,6 +333,7 @@ export default function VDAutoInternals({
                         <td>
                             <b>$</b> <input list="dL11" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL11">
+                                <option>Not Purchased</option>
                                 <option>Excluded</option>
                                 <option>Included</option>
                             </datalist>
@@ -291,6 +363,7 @@ export default function VDAutoInternals({
                         <td>
                             <b>$</b> <input list="dL13" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL13">
+                                <option>Not Purchased</option>
                                 <option>Excluded</option>
                                 <option>Included</option>
                             </datalist>
@@ -385,10 +458,10 @@ export default function VDAutoInternals({
                         <input type="checkbox"/>
                     </td>
                     <td className="fw-bold">
-                        <span className="ms-2">#1 <Input className="text-center" maxlength="4"/></span>
+                        <span className="ms-2">#1 <input style={{width:"40px"}} className="text-center input-default" maxlength="4" onChange={e => setVYear1(e.target.value)}/></span>
                     </td>
                     <td>
-                        <Input width="110px" className="text-center" maxlength="16"/> 
+                        <input style={{width:"110px"}} className="text-center input-default" maxlength="16" onChange={e => setVMake1(e.target.value)}/> 
                     </td>
                     <td>
                         <Input width="180px" className="text-center" maxlength="25"/> 
@@ -411,10 +484,10 @@ export default function VDAutoInternals({
                         <input type="checkbox"/>
                     </td>
                     <td className="fw-bold">
-                        <span className="ms-2">#2 <Input className="text-center" maxlength="4"/></span>
+                        <span className="ms-2">#2 <input style={{width:"40px"}} className="text-center input-default" maxlength="4" onChange={e => setVYear2(e.target.value)}/></span>
                     </td>
                     <td>
-                        <Input width="110px" className="text-center" maxlength="16"/> 
+                        <input style={{width:"110px"}} className="text-center input-default" maxlength="16" onChange={e => setVMake2(e.target.value)}/> 
                     </td>
                     <td>
                         <Input width="180px" className="text-center" maxlength="25"/> 
@@ -437,10 +510,10 @@ export default function VDAutoInternals({
                         <input type="checkbox"/>
                     </td>
                     <td className="fw-bold">
-                        <span className="ms-2">#3 <Input className="text-center" maxlength="4"/></span>
+                        <span className="ms-2">#3 <input style={{width:"40px"}} className="text-center input-default" maxlength="4" onChange={e => setVYear3(e.target.value)}/></span>
                     </td>
                     <td>
-                        <Input width="110px" className="text-center" maxlength="16"/> 
+                        <input style={{width:"110px"}} className="text-center input-default" maxlength="16" onChange={e => setVMake3(e.target.value)}/> 
                     </td>
                     <td>
                         <Input width="180px" className="text-center" maxlength="25"/> 
@@ -463,10 +536,10 @@ export default function VDAutoInternals({
                         <input type="checkbox"/>
                     </td>
                     <td className="fw-bold">
-                        <span className="ms-2">#4 <Input className="text-center" maxlength="4"/></span>
+                        <span className="ms-2">#4 <input style={{width:"40px"}} className="text-center input-default" maxlength="4" onChange={e => setVYear4(e.target.value)}/></span>
                     </td>
                     <td>
-                        <Input width="110px" className="text-center" maxlength="16"/> 
+                        <input style={{width:"110px"}} className="text-center input-default" maxlength="16" onChange={e => setVMake4(e.target.value)}/> 
                     </td>
                     <td>
                         <Input width="180px" className="text-center" maxlength="25"/> 
@@ -489,10 +562,10 @@ export default function VDAutoInternals({
                         <input type="checkbox"/>
                     </td>
                     <td className="fw-bold">
-                        <span className="ms-2">#5 <Input className="text-center" maxlength="4"/></span>
+                        <span className="ms-2">#5 <input style={{width:"40px"}} className="text-center input-default" maxlength="4" onChange={e => setVYear5(e.target.value)}/></span>
                     </td>
                     <td>
-                        <Input width="110px" className="text-center" maxlength="16"/> 
+                        <input style={{width:"110px"}} className="text-center input-default" maxlength="16" onChange={e => setVMake5(e.target.value)}/> 
                     </td>
                     <td>
                         <Input width="180px" className="text-center" maxlength="25"/> 
@@ -515,10 +588,10 @@ export default function VDAutoInternals({
                         <input type="checkbox"/>
                     </td>
                     <td className="fw-bold">
-                        <span className="ms-2">#6 <Input className="text-center" maxlength="4"/></span>
+                        <span className="ms-2">#6 <input style={{width:"40px"}} className="text-center input-default" maxlength="4" onChange={e => setVYear6(e.target.value)}/></span>
                     </td>
                     <td>
-                        <Input width="110px" className="text-center" maxlength="16"/> 
+                        <input style={{width:"110px"}} className="text-center input-default" maxlength="16" onChange={e => setVMake6(e.target.value)}/> 
                     </td>
                     <td>
                         <Input width="180px" className="text-center" maxlength="25"/> 
@@ -538,11 +611,12 @@ export default function VDAutoInternals({
 
             <table className="d-flex justify-content-center mt-3 font-10">
                 <tbody>
-                    <tr className="text-center fw-bold font-14">
+                    {/* <tr className="text-center fw-bold font-14">
                         <td colspan="8" >Vehicles in Use</td>
-                    </tr>
+                    </tr> */}
                     <tr className="text-center fw-bold font-11">
-                        <td className="border border-dark">#</td>
+                        <td className="border border-dark">Vehicles in Use</td>
+                        <td className="border border-dark">States:</td>
                         <td className="border border-dark">Stops per day:</td>
                         <td className="border border-dark">Miles Radius:</td>
                         <td className="border border-dark">Telematics</td>
@@ -554,6 +628,16 @@ export default function VDAutoInternals({
                                 <option>Commercial</option>
                                 <option>Personal</option>
                                 <option>Commercial & Personal</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <input list="states1" style={{width: "140px"}} className="text-center input-default"/>
+                            <datalist id="states1">
+                                <option>California Only</option>
+                                <option>11 Western States</option>
+                                <option>27 Western States</option>
+                                <option>27 Western + Texas</option>
+                                <option>48 Continental States</option>
                             </datalist>
                         </td>
                         <td className="text-center">
@@ -579,6 +663,16 @@ export default function VDAutoInternals({
                                 <option>Commercial & Personal</option>
                             </datalist>
                         </td>
+                        <td>
+                            <input list="states2" style={{width: "140px"}} className="text-center input-default"/>
+                            <datalist id="states2">
+                                <option>California Only</option>
+                                <option>11 Western States</option>
+                                <option>27 Western States</option>
+                                <option>27 Western + Texas</option>
+                                <option>48 Continental States</option>
+                            </datalist>
+                        </td>
                         <td className="text-center">
                             <input list="dLV6" style={{width: "60px"}} className="text-center input-default"/>
                             <datalist id="dLV6">
@@ -600,6 +694,16 @@ export default function VDAutoInternals({
                                 <option>Commercial</option>
                                 <option>Personal</option>
                                 <option>Commercial & Personal</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <input list="states3" style={{width: "140px"}} className="text-center input-default"/>
+                            <datalist id="states3">
+                                <option>California Only</option>
+                                <option>11 Western States</option>
+                                <option>27 Western States</option>
+                                <option>27 Western + Texas</option>
+                                <option>48 Continental States</option>
                             </datalist>
                         </td>
                         <td className="text-center">
@@ -625,6 +729,16 @@ export default function VDAutoInternals({
                                 <option>Commercial & Personal</option>
                             </datalist>
                         </td>
+                        <td>
+                            <input list="states4" style={{width: "140px"}} className="text-center input-default"/>
+                            <datalist id="states4">
+                                <option>California Only</option>
+                                <option>11 Western States</option>
+                                <option>27 Western States</option>
+                                <option>27 Western + Texas</option>
+                                <option>48 Continental States</option>
+                            </datalist>
+                        </td>
                         <td className="text-center">
                             <input list="dLV12" style={{width: "60px"}} className="text-center input-default"/>
                             <datalist id="dLV12">
@@ -648,6 +762,16 @@ export default function VDAutoInternals({
                                 <option>Commercial & Personal</option>
                             </datalist>
                         </td>
+                        <td>
+                            <input list="states5" style={{width: "140px"}} className="text-center input-default"/>
+                            <datalist id="states5">
+                                <option>California Only</option>
+                                <option>11 Western States</option>
+                                <option>27 Western States</option>
+                                <option>27 Western + Texas</option>
+                                <option>48 Continental States</option>
+                            </datalist>
+                        </td>
                         <td className="text-center">
                             <input list="dLV15" style={{width: "60px"}} className="text-center input-default"/>
                             <datalist id="dLV15">
@@ -669,6 +793,16 @@ export default function VDAutoInternals({
                                 <option>Commercial</option>
                                 <option>Personal</option>
                                 <option>Commercial & Personal</option>
+                            </datalist>
+                        </td>
+                        <td>
+                            <input list="states6" style={{width: "140px"}} className="text-center input-default"/>
+                            <datalist id="states6">
+                                <option>California Only</option>
+                                <option>11 Western States</option>
+                                <option>27 Western States</option>
+                                <option>27 Western + Texas</option>
+                                <option>48 Continental States</option>
                             </datalist>
                         </td>
                         <td className="text-center">
