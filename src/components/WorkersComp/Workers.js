@@ -2,14 +2,15 @@ import React, { useEffect, useState} from 'react';
 import moment from 'moment/moment'
 import Badge from "../Badge.";
 import BFWorkersComp from "./pages/BFWorkersComp";
-import CCWorkersComp from "./pages/CCWorkersComp";
 import ISWorkersComp from "./pages/ISWorkersComp";
 import PAWorkersComp from "./pages/PAWorkersComp";
-import PNWorkersComp from "./pages/PNWorkersComp";
 import SBFWorkersComp from "./pages/SBFWorkersComp";
 import VDWorkersComp from "./pages/VDWorkersComp";
 
-export default function Workers({pages, name, address, phone, date}) {
+import PN from '../Common/PN';
+import CC from '../Common/CC';
+
+export default function Workers({pages, name, sn, city, state, zipcode/*address*/, phone, date}) {
 
     let iS, vD, pA, brokerFee, balanceDue, creditCard;
     
@@ -38,12 +39,12 @@ export default function Workers({pages, name, address, phone, date}) {
 
     if (Object.values(pages).includes("balanceDue")) {
         count++;
-        balanceDue = <><Badge text={count}/><PNWorkersComp name={name} address={address} phone={phone}/></>;
+        balanceDue = <><Badge text={count}/><PN name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*/ phone={phone}/></>;
     }
 
     if (Object.values(pages).includes("creditCard")) {
         count++;
-        creditCard = <><Badge text={count}/><CCWorkersComp name={name} address={address}/></>;
+        creditCard = <><Badge text={count}/><CC name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*//></>;
     }
 
     React.useEffect(() => {

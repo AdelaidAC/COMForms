@@ -5,7 +5,7 @@ import Title from "../../Title";
 import CurrencyFormat from 'react-currency-format';
 
 
-export default function VDBond1({name, address, date, setDateVD, date2}) {
+export default function VDBond1({name, sn, city, state, zipcode/*address*/, date, setDateVD, date2}) {
     return (
         <div className="sheet font-10 text-justify">
             
@@ -77,7 +77,7 @@ export default function VDBond1({name, address, date, setDateVD, date2}) {
                             Address:
                         </td>
                         <td colspan="3">
-                            <Input className="min-w text-center fw-bold" value={address}/>
+                            <Input className="min-w text-center fw-bold" /*value={address}*/ value={sn + ", " + city + ", " + state + ", " + zipcode}/>
                         </td>
                     </tr>
                     <tr>

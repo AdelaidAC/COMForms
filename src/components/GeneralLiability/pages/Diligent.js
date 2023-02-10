@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import moment from 'moment/moment'
 import Input from '../../Input'
 
-export default function Diligent({name, address, date}) {
+export default function Diligent({name, sn, city, state, zipcode/*address*/, date}) {
 
     const [organization, setOrganization] = useState("Adriana's Insurance Svcs, Inc.");
 
-    const [city, setCity] = useState('');
-    const [state, setState] = useState('');
-    const [zipCode, setZipCode] = useState('');
+    // const [city, setCity] = useState('');
+    // const [state, setState] = useState('');
+    // const [zipCode, setZipCode] = useState('');
 
     const [newAddress, setNewAddress] = useState('');
 
@@ -33,7 +33,7 @@ export default function Diligent({name, address, date}) {
                 (Please Refer to the Instructions on Page 3 of This Form)
             </p>
 
-            <table className='mt-5'>
+            <table className='mt-4'>
                 <tr>
                     <td>1.</td>
                     <td>
@@ -67,7 +67,7 @@ export default function Diligent({name, address, date}) {
 
                 <tr>
                     <td>
-                        California Department of Insurance license number <Input className="text-center fw-bold" width="200px" maxlength="15"/>;
+                        California Department of Insurance license number <input value="0D36821" className="input-default text-center fw-bold" style={{width:"200px"}} maxlength="15"/>;
                     </td>
                 </tr>
 
@@ -102,7 +102,7 @@ export default function Diligent({name, address, date}) {
                         (A) <b>Name of Insured</b>
                     </td>
                     <td className='col-9'>
-                        <Input className="text-center fw-bold w-100" width="200px" value={name}/>
+                        <Input className="text-center fw-bold w-100" width="200px" /*value={name}*//>
                     </td>
                 </tr>
                 <tr className="tr-h">
@@ -111,7 +111,7 @@ export default function Diligent({name, address, date}) {
                         (B) <b>Address of Insured</b>
                     </td>
                     <td className='col-9'>
-                        <Input className='text-center w-100' value={address}/>
+                        <Input className='text-center w-100' /*value={address}*/ value={sn}/>
                         <p className='text-center fw-bold m-0'>(Street and Number)</p>
                     </td>
                 </tr>
@@ -126,15 +126,15 @@ export default function Diligent({name, address, date}) {
                     <td className='col-9'>
                         <div className='d-flex justify-content-between text-center'>
                             <div className='col-5 pe-3'>
-                                <input className='text-center w-100 input-default' maxlength="30" onChange = {e => setCity(e.target.value)}/>
+                                <input className='text-center w-100 input-default' maxlength="30" value={city} /*onChange = {e => setCity(e.target.value)}*//>
                                 <p className='fw-bold m-0'>City</p>
                             </div>
                             <div className='col-5 pe-3'>
-                                <input className='text-center w-100 input-default' maxlength="30" onChange = {e => setState(e.target.value)}/>
+                                <input className='text-center w-100 input-default' maxlength="30" value={state} /*onChange = {e => setState(e.target.value)}*//>
                                 <p className='fw-bold m-0'>State</p>
                             </div>
                             <div className='col-2'>
-                                <input className='text-center w-100 input-default'maxlength="12" onChange = {e => setZipCode(e.target.value)}/>
+                                <input className='text-center w-100 input-default'maxlength="12" value={zipcode} /*onChange = {e => setZipCode(e.target.value)}*//>
                                 <p className='fw-bold m-0'>Zip Code</p>
                             </div>
                         </div>
@@ -160,7 +160,8 @@ export default function Diligent({name, address, date}) {
                             className='text-center w-100 input-default' 
                             maxlength="70"
                             onChange={e => setNewAddress(e.target.value)}
-                            {...(chkSame ? {value: address} : {value: newAddress})}
+                            //{...(chkSame ? {value: address} : {value: newAddress})}
+                            {...(chkSame ? {value: sn} : {value: newAddress})}
                         />
                         <p className='text-center fw-bold m-0'>(Street and Number)</p>
                         <br/>
@@ -170,6 +171,7 @@ export default function Diligent({name, address, date}) {
                                     className='text-center w-100 input-default' 
                                     maxlength="30"
                                     onChange={e => setNewCity(e.target.value)}
+                                    //{...(chkSame ? {value: city} : {value: newCity})}
                                     {...(chkSame ? {value: city} : {value: newCity})}
                                 />
                                 <p className='fw-bold m-0'>City</p>
@@ -179,6 +181,7 @@ export default function Diligent({name, address, date}) {
                                     className='text-center w-100 input-default' 
                                     maxlength="30"
                                     onChange={e => setNewState(e.target.value)}
+                                    //{...(chkSame ? {value: state} : {value: newState})}
                                     {...(chkSame ? {value: state} : {value: newState})}
                                 />
                                 <p className='fw-bold m-0'>State</p>
@@ -188,7 +191,8 @@ export default function Diligent({name, address, date}) {
                                     className='text-center w-100 input-default'
                                     maxlength="12"
                                     onChange={e => setNewZipCode(e.target.value)}
-                                    {...(chkSame ? {value: zipCode} : {value: newZipCode})}    
+                                    //{...(chkSame ? {value: zipCode} : {value: newZipCode})}    
+                                    {...(chkSame ? {value: zipcode} : {value: newZipCode})}
                                 />
                                 <p className='fw-bold m-0'>Zip Code</p>
                             </div>
@@ -201,7 +205,7 @@ export default function Diligent({name, address, date}) {
                         (E) <b>Type of Insurance coverage</b>
                     </td>
                     <td className='col-9'>
-                        <Input className='text-center w-100' maxlength="70"/>
+                        <input className='text-center input-default w-100 fw-bold' maxlength="70" defaultValue="500"/>
                         <p className='text-center m-0'>(Enter Appropriate Code Number from Pg. 3)</p>
                     </td>
                 </tr>
@@ -330,7 +334,7 @@ export default function Diligent({name, address, date}) {
                         lines 2(C) and 2(E)?
                         <br/>
                         <span className='ms-4 fw-bold'>(CHECK ONE)</span>
-                        <b className='ms-5'>YES</b> <input type="checkbox"/>
+                        <b className='ms-5'>YES</b> <input type="checkbox" defaultChecked={true}/>
                         <b className='ms-3'>NO</b> <input type="checkbox"/>
                     </td>
                 </tr>
@@ -377,7 +381,7 @@ export default function Diligent({name, address, date}) {
                         or <b>Online Declination</b> Website
                     </td>
                     <td>
-                        <b>E</b> <input type="checkbox"/>
+                        <b>E</b> <input type="checkbox" defaultChecked={true}/>
                         <br/>
                         <b>A</b> <input type="checkbox"/>
                     </td>
@@ -404,7 +408,7 @@ export default function Diligent({name, address, date}) {
                         or <b>Online Declination</b> Website
                     </td>
                     <td>
-                        <b>E</b> <input type="checkbox"/>
+                        <b>E</b> <input type="checkbox" defaultChecked={true}/>
                         <br/>
                         <b>A</b> <input type="checkbox"/>
                     </td>
@@ -431,7 +435,7 @@ export default function Diligent({name, address, date}) {
                         or <b>Online Declination</b> Website
                     </td>
                     <td>
-                        <b>E</b> <input type="checkbox"/>
+                        <b>E</b> <input type="checkbox" defaultChecked={true}/>
                         <br/>
                         <b>A</b> <input type="checkbox"/>
                     </td>

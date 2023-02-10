@@ -6,10 +6,11 @@ import AssignedRisk from './pages/AssignedRisk';
 import PATrucking from './pages/PATrucking';
 import SBFTrucking from './pages/SBFTrucking';
 import BFTrucking from './pages/BFTrucking';
-import PNTrucking from './pages/PNTrucking';
-import CCTrucking from './pages/CCTrucking';
 
-export default function Trucking({pages, name, address, phone, date}) {
+import PN from '../Common/PN';
+import CC from '../Common/CC';
+
+export default function Trucking({pages, name, sn, city, state, zipcode/*address*/, phone, date}) {
 
     let vD, assignedRisk, pA, brokerFee, balanceDue, creditCard;
     
@@ -41,12 +42,12 @@ export default function Trucking({pages, name, address, phone, date}) {
 
     if (Object.values(pages).includes("balanceDue")) {
         count++;
-        balanceDue = <><Badge text={count}/><PNTrucking name={name} address={address} phone={phone}/></>;
+        balanceDue = <><Badge text={count}/><PN name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*/ phone={phone}/></>;
     }
 
     if (Object.values(pages).includes("creditCard")) {
         count++;
-        creditCard = <><Badge text={count}/><CCTrucking name={name} address={address}/></>;
+        creditCard = <><Badge text={count}/><CC name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*//></>;
     }
 
     React.useEffect(() => {

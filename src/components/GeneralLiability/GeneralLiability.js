@@ -5,15 +5,16 @@ import GarageLiability from './pages/GarageLiability';
 import SpecialEvent from './pages/SpecialEvent';
 import SBFGL from './pages/SBFGL';
 import BFGL from './pages/BFGL';
-import PNGL from './pages/PNGL';
-import CCGL from './pages/CCGL';
 import VDGL from './pages/VDGL';
 import PAGL from './pages/PAGL';
 import D1 from './pages/D1';
 import Diligent from './pages/Diligent';
 
+import PN from '../Common/PN';
+import CC from '../Common/CC';
 
-export default function GeneralLiability({pages, name, address, phone, date}) {
+
+export default function GeneralLiability({pages, name, sn, city, state, zipcode/*address*/, phone, date}) {
 
     let garage, special, vD, pA, brokerFee, d1, balanceDue, creditCard, diligent;
     
@@ -49,19 +50,19 @@ export default function GeneralLiability({pages, name, address, phone, date}) {
 
     if (Object.values(pages).includes("balanceDue")) {
         count++;
-        balanceDue = <><Badge text={count}/><PNGL name={name} address={address} phone={phone}/></>;
+        balanceDue = <><Badge text={count}/><PN name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*/ phone={phone}/></>;
     }
 
     if (Object.values(pages).includes("creditCard")) {
         count++;
-        creditCard = <><Badge text={count}/><CCGL name={name} address={address}/></>;
+        creditCard = <><Badge text={count}/><CC name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*/ /></>;
     }
 
     count++;
     d1 = <><Badge text={count}/><D1 date={date}/></>;
 
     count++;
-    diligent = <><Badge text={count}/><Diligent name={name} address={address} date={date}/></>;
+    diligent = <><Badge text={count}/><Diligent name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*/ date={date}/></>;
 
     React.useEffect(() => {
         window.scrollTo(0, 0);

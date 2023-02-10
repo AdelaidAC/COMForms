@@ -34,7 +34,11 @@ const Page = React.forwardRef((
     pageF,
     pagePA,
     nameI,
-    addressI,
+    snI,
+    cityI,
+    stateI,
+    zipcodeI,
+    //addressI,
     phoneI,
     dateI
   }, ref) => {
@@ -43,14 +47,14 @@ const Page = React.forwardRef((
       
       <style>{getPageMargins()}</style>
 
-      {bond && <Bond pages={pageB} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
-      {commercialAuto && <Auto pages={pageA} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
-      {flood && <Flood pages={pageF} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
-      {generalLiability && <GeneralLiability pages={pageGL} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
-      {home && <Home pages={pageH} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
-      {trucking && <Trucking pages={pageT} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
-      {workersComp && <Workers pages={pageWC} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
-      {personalAuto && <PAuto pages={pagePA} name={nameI} address={addressI} phone={phoneI} date={dateI}/>}
+      {bond && <Bond pages={pageB} name={nameI} sn={snI} city={cityI} state={stateI} zipcode={zipcodeI} /*address={addressI}*/ phone={phoneI} date={dateI}/>}
+      {commercialAuto && <Auto pages={pageA} name={nameI} sn={snI} city={cityI} state={stateI} zipcode={zipcodeI} /*address={addressI}*/ phone={phoneI} date={dateI}/>}
+      {flood && <Flood pages={pageF} name={nameI} sn={snI} city={cityI} state={stateI} zipcode={zipcodeI} /*address={addressI}*/ phone={phoneI} date={dateI}/>}
+      {generalLiability && <GeneralLiability pages={pageGL} name={nameI} sn={snI} city={cityI} state={stateI} zipcode={zipcodeI} /*address={addressI}*/ phone={phoneI} date={dateI}/>}
+      {home && <Home pages={pageH} name={nameI} sn={snI} city={cityI} state={stateI} zipcode={zipcodeI} /*address={addressI}*/ phone={phoneI} date={dateI}/>}
+      {trucking && <Trucking pages={pageT} name={nameI} sn={snI} city={cityI} state={stateI} zipcode={zipcodeI} /*address={addressI}*/ phone={phoneI} date={dateI}/>}
+      {workersComp && <Workers pages={pageWC} name={nameI} sn={snI} city={cityI} state={stateI} zipcode={zipcodeI} /*address={addressI}*/ phone={phoneI} date={dateI}/>}
+      {personalAuto && <PAuto pages={pagePA} name={nameI} sn={snI} city={cityI} state={stateI} zipcode={zipcodeI} /*address={addressI}*/ phone={phoneI} date={dateI}/>}
       
     </div>
   )
@@ -128,7 +132,11 @@ function App() {
   const { pagesPA } = pagePAInfo;
 
   const [nameInsured, setNameI] = useState('');
-  const [addressInsured, setAddressI] = useState('');
+  const [sn, setSN] = useState(''); // Street & Number
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [zipcode, setZipCode] = useState('');
+  //const [addressInsured, setAddressI] = useState('');
   const [phoneInsured, setPhoneI] = useState('');
   const [dateInsured, setDateI] = useState('');
 
@@ -327,12 +335,28 @@ function App() {
       <div class="d-flex justify-content-between text-center bg-nav p-3">
         <div>
           <label className="mx-1 fw-bold" for="nameI">Insured’s Name:</label>
-          <input className="text-center input-default" style={{width: "300px"}} id="nameI" type="text" autocomplete="off" maxlength="40" onChange={e => setNameI(e.target.value)}/>
+          <input className="text-center input-default" style={{width: "250px"}} id="nameI" type="text" autocomplete="off" maxlength="40" onChange={e => setNameI(e.target.value)}/>
         </div>
         <div>
+          <label className="mx-1 fw-bold" for="snI">Street & Number:</label>
+          <input className="text-center input-default" style={{width: "160px"}} id="snI" type="text" autocomplete="off" maxlength="30" onChange={e => setSN(e.target.value)}/>
+        </div>
+        <div>
+          <label className="mx-1 fw-bold" for="cI">City:</label>
+          <input className="text-center input-default" style={{width: "120px"}} id="cI" type="text" autocomplete="off" maxlength="30" onChange={e => setCity(e.target.value)}/>
+        </div>
+        <div>
+          <label className="mx-1 fw-bold" for="sI">State:</label>
+          <input className="text-center input-default" style={{width: "120px"}} id="sI" type="text" autocomplete="off" maxlength="30" onChange={e => setState(e.target.value)}/>
+        </div>
+        <div>
+          <label className="mx-1 fw-bold" for="zI">Zip Code:</label>
+          <input className="text-center input-default" style={{width: "80px"}} id="zI" type="text" autocomplete="off" maxlength="9" onChange={e => setZipCode(e.target.value)}/>
+        </div>
+        {/* <div>
           <label className="mx-1 fw-bold" for="addressI">Address:</label>
           <input className="text-center input-default" style={{width: "550px"}} id="addressI" type="text" autocomplete="off" maxlength="80" onChange={e => setAddressI(e.target.value)}/>
-        </div>
+        </div> */}
         <div>
           <label className="mx-1 fw-bold" for="phoneI">Cell:</label>
           <CurrencyFormat format="(###) ###-####" mask="_" className="text-center input-default" placeholder='(###) ###-####' style={{width: "130px"}} id="phoneI" onChange={e => setPhoneI(e.target.value)}/>
@@ -459,7 +483,11 @@ function App() {
         pageF = {pagesF}
         pagePA = {pagesPA}
         nameI = {nameInsured}
-        addressI = {addressInsured}
+        snI = {sn}
+        cityI = {city}
+        stateI = {state}
+        zipcodeI = {zipcode}
+        //addressI = {addressInsured}
         phoneI = {phoneInsured}
         dateI = {dateFormat}
         />

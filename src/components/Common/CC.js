@@ -1,10 +1,10 @@
 import React, { useEffect, useState} from 'react';
 import { ToWords } from 'to-words';
 import CurrencyFormat from 'react-currency-format';
-import Input from '../../Input'
-import Logo from '../../Logo'
+import Input from '../Input'
+import Logo from '../Logo'
 
-export default function CCAutoInternals({name, address}) {
+export default function CCGL({name, sn, city, state, zipcode/*address*/}) {
     
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -31,7 +31,10 @@ export default function CCAutoInternals({name, address}) {
       }
     });
 
-    const [address2, setAddress2] = useState('');
+    const [sn2, setSN2] = useState('');
+    const [city2, setCity2] = useState('');
+    const [state2, setState2] = useState('');
+    const [zipcode2, setZipCode2] = useState('');
     
     const [chkDC, setChkDC] = useState(false);
     const [chkDA, setChkDA] = useState(false);
@@ -100,21 +103,63 @@ export default function CCAutoInternals({name, address}) {
                     </div>
                 </div>
                 
-                <div className="row pt-2 fw-bold" style={{borderTop: '2px solid black'}}>
+                <div className="row py-2 fw-bold" style={{borderTop: '2px solid black'}}>
                     <div className="col-12">
                         Physical Business Street Address (No. P.O. Boxes)
                     </div>
                 </div>
-                <div className="row text-center pb-2">
+
+                <div className='d-flex justify-content-between text-center pb-2'>
+                    <div className='col-4 pe-3'>
+                        <input 
+                            className='text-center w-100 input-default' 
+                            maxlength="30" 
+                            {...(chkDC ? {value: sn2} : {value: sn})}
+                            onChange={e => setSN2(e.target.value)}
+                        />
+                        <p className='fw-bold m-0'>Street and Number</p>
+                    </div>
+                    <div className='col-3 pe-3'>
+                        <input 
+                            className='text-center w-100 input-default' 
+                            maxlength="30" 
+                            {...(chkDC ? {value: city2} : {value: city})}
+                            onChange={e => setCity2(e.target.value)}
+                        />
+                        <p className='fw-bold m-0'>City</p>
+                    </div>
+                    <div className='col-3 pe-3'>
+                        <input 
+                            className='text-center w-100 input-default' 
+                            maxlength="30" 
+                            {...(chkDC ? {value: state2} : {value: state})}
+                            onChange={e => setState2(e.target.value)}
+                        />
+                        <p className='fw-bold m-0'>State</p>
+                    </div>
+                    <div className='col-2'>
+                        <input 
+                            className='text-center w-100 input-default'
+                            maxlength="12" 
+                            {...(chkDC ? {value: zipcode2} : {value: zipcode})}
+                            onChange={e => setZipCode2(e.target.value)}
+                        />
+                        <p className='fw-bold m-0'>Zip Code</p>
+                    </div>
+                </div>
+
+
+                {/* <div className="row text-center pb-2">
                     <div className="col-12">
                         <input
                             style={{width:"80%"}} 
                             className="text-center input-default" 
                             maxlength="80" 
-                            {...(chkDC ? {} : {value: address})}
+                            //{...(chkDC ? {} : {value: address})}
+                            {...(chkDC ? {value: address2} : {value: sn})}
                             onChange={e => setAddress2(e.target.value)}/>
                     </div>
-                </div>
+                </div> */}
                 
                 <div className="row fw-bold" style={{borderTop: '2px solid black'}}>
                     <div className="col-6" style={{borderRight: '2px solid black'}}>
@@ -233,7 +278,7 @@ export default function CCAutoInternals({name, address}) {
                 </div>
                 
                 
-                <div className="row text-center pt-2 fw-bold">
+                {/* <div className="row text-center pt-2 fw-bold">
                     <div className="col">
                         <Input 
                             width="90%" 
@@ -242,9 +287,44 @@ export default function CCAutoInternals({name, address}) {
                             {...(chkDA ? {value: address2} : {})}
                         />
                     </div>
+                </div> */}
+
+                <div className='d-flex justify-content-between text-center pb-2'>
+                    <div className='col-4 pe-3'>
+                        <input 
+                            className='text-center w-100 input-default' 
+                            maxlength="30" 
+                            {...(chkDA ? {value: sn2} : {})}
+                        />
+                        <p className='fw-bold m-0'>Street and Number</p>
+                    </div>
+                    <div className='col-3 pe-3'>
+                        <input 
+                            className='text-center w-100 input-default' 
+                            maxlength="30" 
+                            {...(chkDA ? {value: city2} : {})}
+                        />
+                        <p className='fw-bold m-0'>City</p>
+                    </div>
+                    <div className='col-3 pe-3'>
+                        <input 
+                            className='text-center w-100 input-default' 
+                            maxlength="30" 
+                            {...(chkDA ? {value: state2} : {})}
+                        />
+                        <p className='fw-bold m-0'>State</p>
+                    </div>
+                    <div className='col-2'>
+                        <input 
+                            className='text-center w-100 input-default'
+                            maxlength="12" 
+                            {...(chkDA ? {value: zipcode2} : {})}
+                        />
+                        <p className='fw-bold m-0'>Zip Code</p>
+                    </div>
                 </div>
 
-                <div className="row justify-content-center text-center fw-bold pb-2">
+                {/* <div className="row justify-content-center text-center fw-bold pb-2">
                     <div className="col-2">
                         <p className='mb-0'>Street</p>
                     </div>
@@ -257,7 +337,7 @@ export default function CCAutoInternals({name, address}) {
                     <div className="col-2">
                         <p className='mb-0'>Zip Code</p>
                     </div>
-                </div>
+                </div> */}
                 
             </div>
             

@@ -386,7 +386,7 @@ export default function VDGL({name, date, setDateVD, date2}) {
                 <textarea 
                     class="form-control text-justify font-10 border border-dark" 
                     rows="3"
-                    maxlength="360"
+                    maxlength="460"
                     onChange={e => setRestrictionsBlank(e.target.value)}
                     {...(chkBlank ? {value: restrictionsBlank} : {value: restrictions})}
                 >

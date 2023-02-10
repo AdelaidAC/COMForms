@@ -6,10 +6,11 @@ import VDBond2 from './pages/VDBond2';
 import PABond from './pages/PABond';
 import BFBond from './pages/BFHomeInternals';
 import SBFBond from './pages/SBFHomeInternals';
-import PNBond from './pages/PNHomeInternals';
-import CCBond from './pages/CCHomeInternals';
 
-export default function Workers({pages, name, address, phone, date}) {
+import PN from '../Common/PN';
+import CC from '../Common/CC';
+
+export default function Workers({pages, name, sn, city, state, zipcode/*address*/, phone, date}) {
 
     let vD1, vD2, pA, brokerFee, balanceDue, creditCard;
     
@@ -20,10 +21,10 @@ export default function Workers({pages, name, address, phone, date}) {
     let date2 = moment(dateVD).format('MM/DD/YYYY');
 
     count++;
-    vD1 = <><Badge text={count}/><VDBond1 name={name} address={address} date={date} setDateVD={setDateVD} date2={date2}/></>;
+    vD1 = <><Badge text={count}/><VDBond1 name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*/ date={date} setDateVD={setDateVD} date2={date2}/></>;
 
     count++;
-    vD2 = <><Badge text={count}/><VDBond2 name={name} address={address} date={date} setDateVD={setDateVD} date2={date2}/></>;
+    vD2 = <><Badge text={count}/><VDBond2 name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*/ date={date} setDateVD={setDateVD} date2={date2}/></>;
 
     count++;
     pA = <><Badge text={count}/><PABond name={name} date={date} date2={date2}/></>;
@@ -38,12 +39,12 @@ export default function Workers({pages, name, address, phone, date}) {
 
     if (Object.values(pages).includes("balanceDue")) {
         count++;
-        balanceDue = <><Badge text={count}/><PNBond name={name} address={address} phone={phone}/></>;
+        balanceDue = <><Badge text={count}/><PN name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*/ phone={phone}/></>;
     }
 
     if (Object.values(pages).includes("creditCard")) {
         count++;
-        creditCard = <><Badge text={count}/><CCBond name={name} address={address}/></>;
+        creditCard = <><Badge text={count}/><CC name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*//></>;
     }
 
     React.useEffect(() => {

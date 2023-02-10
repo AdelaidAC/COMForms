@@ -6,11 +6,12 @@ import TwoFlood from './pages/TwoFlood';
 import PAFlood from './pages/PAFlood';
 import BFFlood from './pages/BFFlood';
 import SBFFlood from './pages/SBFFlood';
-import PNFlood from './pages/PNFlood';
 import MCLFlood from './pages/MCLFlood';
 import BAGCFlood from './pages/BAGCFlood';
 
-export default function Flood({pages, name, address, phone, date}) {
+import PN from '../Common/PN';
+
+export default function Flood({pages, name, sn, city, state, zipcode/*address*/, phone, date}) {
 
     let vD, vD2, pA, brokerFee, bAGC, balanceDue, mCheckList;
     
@@ -53,7 +54,10 @@ export default function Flood({pages, name, address, phone, date}) {
                 <Badge text={count}/>
                 <TwoFlood 
                     name={name} 
-                    address={address} 
+                    sn={sn} 
+                    city={city} 
+                    state={state} 
+                    zipcode={zipcode} /*address={address}*/
                     date={date}
                     limitA={limitA}
                     limitB={limitB}
@@ -81,7 +85,7 @@ export default function Flood({pages, name, address, phone, date}) {
 
     if (Object.values(pages).includes("balanceDue")) {
         count++;
-        balanceDue = <><Badge text={count}/><PNFlood name={name} address={address} phone={phone}/></>;
+        balanceDue = <><Badge text={count}/><PN name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*/ phone={phone}/></>;
     }
 
     count++;

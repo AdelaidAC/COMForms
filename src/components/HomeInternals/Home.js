@@ -2,17 +2,18 @@ import React, {useState} from 'react';
 import moment from 'moment/moment'
 import Badge from "../Badge.";
 import BFHomeInternals from "./pages/BFHomeInternals";
-import CCHomeInternals from "./pages/CCHomeInternals";
 import DP3HO3Mobile from "./pages/DP3HO3Mobile";
 import HO4 from "./pages/HO4";
 import HO6 from "./pages/HO6";
 import ISHome from "./pages/ISHome";
 import PAHomeInternals from "./pages/PAHomeInternals";
-import PNHomeInternals from "./pages/PNHomeInternals";
 import RentersIS from "./pages/RentersIS";
 import SBFHomeInternals from "./pages/SBFHomeInternals";
 
-export default function Home({pages, name, address, phone, date}) {
+import PN from '../Common/PN';
+import CC from '../Common/CC';
+
+export default function Home({pages, name, sn, city, state, zipcode/*address*/, phone, date}) {
 
     let brokerFee, balanceDue, creditCard, dP3, hO4, hO6, renters, promiseA;
     let count = 0;
@@ -57,12 +58,12 @@ export default function Home({pages, name, address, phone, date}) {
 
     if (Object.values(pages).includes("balanceDue")) {
         count++;
-        balanceDue = <><Badge text={count}/><PNHomeInternals name={name} address={address} phone={phone}/></>;
+        balanceDue = <><Badge text={count}/><PN name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*/ phone={phone}/></>;
     }
 
     if (Object.values(pages).includes("creditCard")) {
         count++;
-        creditCard = <><Badge text={count}/><CCHomeInternals name={name} address={address}/></>;
+        creditCard = <><Badge text={count}/><CC name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*//></>;
     }
 
     React.useEffect(() => {

@@ -1,11 +1,11 @@
 import React, { useEffect, useState} from 'react';
-import Input from '../../Input'
-import Logo from '../../Logo'
-import Subtitle from '../../Subtitle'
+import Input from '../Input'
+import Logo from '../Logo'
+import Subtitle from '../Subtitle'
 import { ToWords } from 'to-words';
 import CurrencyFormat from 'react-currency-format';
 
-export default function PNGL({name, address, phone}) {
+export default function PNGL({name, sn, city, state, zipcode/*address*/, phone}) {
 
     React.useEffect(() => {
         window.scrollTo(0, 0);
@@ -67,7 +67,7 @@ export default function PNGL({name, address, phone}) {
             </div>
 
             <div className='d-flex w-100 p-0'>
-                <span className='me-1'>Presently residing at</span> <span className="flex-fill"><Input className="w-100 text-center" value={address}/></span>,
+                <span className='me-1'>Presently residing at</span> <span className="flex-fill"><Input className="w-100 text-center" value={sn + ", " + city + ", " + state + ", " + zipcode}/></span>,
             </div>
 
             <div>

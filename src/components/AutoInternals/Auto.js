@@ -2,16 +2,17 @@ import React, { useEffect, useState} from 'react';
 import moment from 'moment/moment'
 import Badge from "../Badge.";
 import BFAutoInternals from "./pages/BFAutoInternals";
-import CCAutoInternals from "./pages/CCAutoInternals";
 import IAutoInternals from "./pages/IAutoInternals";
 import ISAutoInternals from "./pages/ISAutoInternals";
 import PAAutoInternals from "./pages/PAAutoInternals";
-import PNAutoInternals from "./pages/PNAutoInternals";
 import SBFAutoInternals from "./pages/SBFAutoInternals";
 import VDAutoInternals from "./pages/VDAutoInternals";
 import MotorCarrier from './pages/MotorCarrier';
 
-export default function Auto({pages, name, address, phone, date}) {
+import PN from '../Common/PN';
+import CC from '../Common/CC';
+
+export default function Auto({pages, name, sn, city, state, zipcode/*address*/, phone, date}) {
 
     let brokerFee, balanceDue, creditCard, iS, vD, pA, infinity, mC; 
 
@@ -154,12 +155,12 @@ export default function Auto({pages, name, address, phone, date}) {
 
     if (Object.values(pages).includes("balanceDue")) {
         count++;
-        balanceDue = <><Badge text={count}/><PNAutoInternals name={name} address={address} phone={phone}/></>;
+        balanceDue = <><Badge text={count}/><PN name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*/ phone={phone}/></>;
     }
 
     if (Object.values(pages).includes("creditCard")) {
         count++;
-        creditCard = <><Badge text={count}/><CCAutoInternals name={name} address={address}/></>;
+        creditCard = <><Badge text={count}/><CC name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*//></>;
     }
 
     if (!Object.values(pages).includes("infinity")) {

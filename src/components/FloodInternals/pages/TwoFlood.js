@@ -6,7 +6,10 @@ import Logo from "../../Logo";
 export default function TwoFlood(
     {
         name, 
-        address, 
+        sn, 
+        city, 
+        state, 
+        zipcode/*address*/,
         date,
         limitA,
         limitB,
@@ -38,7 +41,7 @@ export default function TwoFlood(
                 <div className='d-flex col-12'>
                     <b>Address:</b>
                     <span className="flex-fill">
-                        <Input className="w-100 ms-1 text-center fw-bold" value={address}/>
+                        <Input className="w-100 ms-1 text-center fw-bold" /*value={address}*/ value={sn + ", " + city + ", " + state + ", " + zipcode}/>
                     </span>
                 </div>
             </div>
