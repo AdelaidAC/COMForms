@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/COMForms/static/css/main.72026d4e.css",
-    "main.js": "/COMForms/static/js/main.856e6fb6.js",
+    "main.js": "/COMForms/static/js/main.30223717.js",
     "static/media/fc2.png": "/COMForms/static/media/fc2.b3b6ed56cc30ba856976.png",
     "static/media/fc1.png": "/COMForms/static/media/fc1.cf882be3e9220b697e9f.png",
     "static/media/adrianaslogo.jpg": "/COMForms/static/media/adrianaslogo.987fbf771df7a56625f4.jpg",
@@ -23,10 +23,10 @@
     "static/media/v13.jpg": "/COMForms/static/media/v13.5ea0cc822a5fb7426f62.jpg",
     "index.html": "/COMForms/index.html",
     "main.72026d4e.css.map": "/COMForms/static/css/main.72026d4e.css.map",
-    "main.856e6fb6.js.map": "/COMForms/static/js/main.856e6fb6.js.map"
+    "main.30223717.js.map": "/COMForms/static/js/main.30223717.js.map"
   },
   "entrypoints": [
     "static/css/main.72026d4e.css",
-    "static/js/main.856e6fb6.js"
+    "static/js/main.30223717.js"
   ]
 }
