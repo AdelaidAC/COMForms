@@ -18,7 +18,7 @@ export default function HO6({name, date, setDateHO, date2}) {
     const [c3, setC3] = useState('');
     const [c4, setC4] = useState('');
     const [c5, setC5] = useState('');
-    const [c6, setC6] = useState('');
+    // const [c6, setC6] = useState('');
     const [c7, setC7] = useState('');
     const [c8, setC8] = useState('');
     const [c9, setC9] = useState('');
@@ -145,13 +145,13 @@ export default function HO6({name, date, setDateHO, date2}) {
         }
     }, [inputF])
 
-    useEffect(() => {
-        if (deductible.trim().length !== 0) {
-            setC6("Included");
-        } else {
-            setC6("");
-        }
-    }, [deductible])
+    // useEffect(() => {
+    //     if (deductible.trim().length !== 0) {
+    //         setC6("Included");
+    //     } else {
+    //         setC6("");
+    //     }
+    // }, [deductible])
 
     return (
         <div className="sheet font-11 lh-3 text-justify">
@@ -195,7 +195,7 @@ export default function HO6({name, date, setDateHO, date2}) {
                             name = "inputC"
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange = {e => setInputC(e.target.value)}
                         />
@@ -214,7 +214,7 @@ export default function HO6({name, date, setDateHO, date2}) {
                             name = "inputA"
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange = {e => setInputA(e.target.value)}
                         />
@@ -233,7 +233,7 @@ export default function HO6({name, date, setDateHO, date2}) {
                             name = "inputD"
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange = {e => setInputD(e.target.value)}
                         />
@@ -263,7 +263,7 @@ export default function HO6({name, date, setDateHO, date2}) {
                             name = "inputE"
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange = {e => setInputE(e.target.value)}
                         />
@@ -275,7 +275,7 @@ export default function HO6({name, date, setDateHO, date2}) {
                 <tr>
                     <td>F. Medical Payments</td>
                     <td>
-                        <CurrencyFormat 
+                        {/* <CurrencyFormat 
                             thousandSeparator={true} 
                             prefix={'$'} 
                             id = "inputF"
@@ -284,6 +284,14 @@ export default function HO6({name, date, setDateHO, date2}) {
                             maxlength="10"
                             style = {{width:"80px"}}
                             className='fw-bold text-center input-default'
+                            onChange = {e => setInputF(e.target.value)}
+                        /> */}
+                        <input 
+                            id = "inputF"
+                            name = "inputF"
+                            className='fw-bold text-center input-default'
+                            maxlength="15" 
+                            style = {{width:"110px"}}
                             onChange = {e => setInputF(e.target.value)}
                         />
                     </td>
@@ -299,7 +307,7 @@ export default function HO6({name, date, setDateHO, date2}) {
                             prefix={'$'}
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange={e => setDeductible(e.target.value)}
                         />
@@ -430,8 +438,10 @@ export default function HO6({name, date, setDateHO, date2}) {
                             <Input 
                                 className="text-center fw-bold"
                                 width="90px" 
-                                value={c6}
-                                {...(c6 === "" ? {bColor:"yellow"} : {})}
+                                disabled
+                                bColor="yellow"
+                                //value={c6}
+                                //{...(c6 === "" ? {bColor:"yellow"} : {})}
                             />
                         </span>
                     </td>

@@ -413,6 +413,7 @@ export default function VDAutoInternals({
                         <td className="fw-bold">
                             <b><u>Deductible:</u> $</b> <input list="dL17" className="input-default text-center fw-bold" style={{width: "125px"}} maxLength="15"/>
                             <datalist id="dL17">
+                                <option>Not Purchased</option>
                                 <option>2,500</option>
                                 <option>3,500</option>
                             </datalist>

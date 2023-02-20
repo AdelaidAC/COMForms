@@ -19,7 +19,7 @@ export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
     const [c4, setC4] = useState('');
     const [c5, setC5] = useState('');
     const [c6, setC6] = useState('');
-    const [c7, setC7] = useState('');
+    //const [c7, setC7] = useState('');
     const [c8, setC8] = useState('');
     const [c9, setC9] = useState('');
     const [c10, setC10] = useState('');
@@ -162,13 +162,13 @@ export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
         }
     }, [inputF])
 
-    useEffect(() => {
-        if (deductible.trim().length !== 0) {
-            setC7("Included");
-        } else {
-            setC7("");
-        }
-    }, [deductible])
+    // useEffect(() => {
+    //     if (deductible.trim().length !== 0) {
+    //         setC7("Included");
+    //     } else {
+    //         setC7("");
+    //     }
+    // }, [deductible])
 
     return (
         <div className="sheet font-11 lh-1 text-justify">
@@ -493,8 +493,10 @@ export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
                             <Input 
                                 className="text-center fw-bold"
                                 width="90px" 
-                                value={c7}
-                                {...(c7 === "" ? {bColor:"yellow"} : {})}
+                                disabled
+                                bColor="yellow"
+                                //value={c7}
+                                //{...(c7 === "" ? {bColor:"yellow"} : {})}
                             />
                         </span>
                     </td>
