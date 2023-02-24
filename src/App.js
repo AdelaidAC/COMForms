@@ -385,7 +385,7 @@ function App() {
           {generalLiabilityVisible &&
             <div class="d-flex align-items-center">
               <label className="ms-2 fw-bold" for="doc">Pages:</label>
-              <input class="ms-2 me-1" type="checkbox" value="garage" name="pagesGL" onChange={handleGL}/> Garage Liability
+              {/* <input class="ms-2 me-1" type="checkbox" value="garage" name="pagesGL" onChange={handleGL}/> Garage Liability */}
               <input class="ms-2 me-1" type="checkbox" value="special" name="pagesGL" onChange={handleGL}/> Special Event
               <input class="ms-2 me-1" type="checkbox" value="balanceDue" name="pagesGL" onChange={handleGL}/> Balance Due
               <input class="ms-2 me-1" type="checkbox" value="creditCard" name="pagesGL" onChange={handleGL}/> Credit Card

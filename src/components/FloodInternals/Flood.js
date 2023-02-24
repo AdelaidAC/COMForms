@@ -10,10 +10,11 @@ import MCLFlood from './pages/MCLFlood';
 import BAGCFlood from './pages/BAGCFlood';
 
 import PN from '../Common/PN';
+import ISFlood from './pages/ISFlood';
 
 export default function Flood({pages, name, sn, city, state, zipcode/*address*/, phone, date}) {
 
-    let vD, vD2, pA, brokerFee, bAGC, balanceDue, mCheckList;
+    let iS, vD, vD2, pA, brokerFee, bAGC, balanceDue, mCheckList;
     
     let count = 0;
 
@@ -30,6 +31,9 @@ export default function Flood({pages, name, sn, city, state, zipcode/*address*/,
 
 
     let date2 = moment(dateVD).format('MM/DD/YYYY');
+
+    count++;
+    iS = <><Badge text={count}/><ISFlood/></>;
 
     count++;
     vD = <>
@@ -97,6 +101,7 @@ export default function Flood({pages, name, sn, city, state, zipcode/*address*/,
 
     return (
         <div>
+            {iS}
             {vD}
             {vD2}
             {pA}

@@ -24,10 +24,13 @@ export default function GeneralLiability({pages, name, sn, city, state, zipcode/
 
     let date2 = moment(dateVD).format('MM/DD/YYYY');
 
-    if (Object.values(pages).includes("garage")) {
-        count++;
-        garage = <><Badge text={count}/><GarageLiability/></>;
-    }
+    // if (Object.values(pages).includes("garage")) {
+    //     count++;
+    //     garage = <><Badge text={count}/><GarageLiability/></>;
+    // }
+
+    count++;
+    garage = <><Badge text={count}/><GarageLiability/></>;
 
     if (Object.values(pages).includes("special")) {
         count++;
