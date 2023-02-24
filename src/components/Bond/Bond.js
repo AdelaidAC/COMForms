@@ -9,16 +9,20 @@ import SBFBond from './pages/SBFHomeInternals';
 
 import PN from '../Common/PN';
 import CC from '../Common/CC';
+import ISBond from './pages/ISBond';
 
 export default function Workers({pages, name, sn, city, state, zipcode/*address*/, phone, date}) {
 
-    let vD1, vD2, pA, brokerFee, balanceDue, creditCard;
+    let iS, vD1, vD2, pA, brokerFee, balanceDue, creditCard;
     
     let count = 0;
 
     const [dateVD, setDateVD] = useState('')
 
     let date2 = moment(dateVD).format('MM/DD/YYYY');
+
+    count++;
+    iS = <><Badge text={count}/><ISBond/></>;
 
     count++;
     vD1 = <><Badge text={count}/><VDBond1 name={name} sn={sn} city={city} state={state} zipcode={zipcode} /*address={address}*/ date={date} setDateVD={setDateVD} date2={date2}/></>;
@@ -54,6 +58,7 @@ export default function Workers({pages, name, sn, city, state, zipcode/*address*
     return ( 
 
         <div>
+            {iS}
             {vD1}
             {vD2}
             {pA} 
