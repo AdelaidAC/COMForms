@@ -105,7 +105,7 @@ export default function BFGL({name, date}) {
                             <b>Endorsment:</b>
                         </td>
                         <td>
-                            Up to $300 
+                            Up to $200 
                             <br/>
                             per transaction
                         </td>

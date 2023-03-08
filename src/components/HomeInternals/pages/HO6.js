@@ -13,7 +13,6 @@ export default function HO6({name, date, setDateHO, date2}) {
     const [d, setD] = useState('');
     const [e, setE] = useState('');
 
-    const [c1, setC1] = useState('');
     const [c2, setC2] = useState('');
     const [c3, setC3] = useState('');
     const [c4, setC4] = useState('');
@@ -87,11 +86,9 @@ export default function HO6({name, date, setDateHO, date2}) {
 
     useEffect(() => {
         if (inputC.trim().length !== 0) {
-            setC1("Included");
             setChkCYes(true);
             setChkCNo(false);
         } else {
-            setC1("");
             setChkCYes(false);
             setChkCNo(true);
         }
@@ -332,8 +329,8 @@ export default function HO6({name, date, setDateHO, date2}) {
                             <Input 
                                 className="text-center fw-bold"
                                 width="90px" 
-                                value={c1}
-                                {...(c1 === "" ? {bColor:"yellow"} : {})}
+                                bColor="yellow"
+                                disabled
                             />
                         </span>
                     </td>

@@ -13,7 +13,6 @@ export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
     const [d, setD] = useState('');
     const [e, setE] = useState('');
 
-    const [c1, setC1] = useState('');
     const [c2, setC2] = useState('');
     const [c3, setC3] = useState('');
     const [c4, setC4] = useState('');
@@ -92,11 +91,9 @@ export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
 
     useEffect(() => {
         if (dwelling.trim().length !== 0) {
-            setC1("Included");
             setChkAYes(true);
             setChkANo(false);
         } else {
-            setC1("");
             setChkAYes(false);
             setChkANo(true);
         }
@@ -215,7 +212,7 @@ export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
                             name = "inputA"
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange = {e => setDwelling(e.target.value)}
                         />
@@ -234,7 +231,7 @@ export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
                             name = "inputB"
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange = {e => setInputB(e.target.value)}
                         />
@@ -253,7 +250,7 @@ export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
                             name = "inputC"
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange = {e => setInputC(e.target.value)}
                         />
@@ -283,7 +280,7 @@ export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
                             name = "inputD"
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange = {e => setInputD(e.target.value)}
                         />
@@ -302,7 +299,7 @@ export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
                             name = "inputE"
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange = {e => setInputE(e.target.value)}
                         />
@@ -314,7 +311,7 @@ export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
                 <tr>
                     <td>F. Medical Payments</td>
                     <td>
-                        <CurrencyFormat 
+                        {/* <CurrencyFormat 
                             thousandSeparator={true} 
                             prefix={'$'} 
                             id = "inputF"
@@ -323,6 +320,14 @@ export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
                             maxlength="10"
                             style = {{width:"80px"}}
                             className='fw-bold text-center input-default'
+                            onChange = {e => setInputF(e.target.value)}
+                        /> */}
+                        <input 
+                            id = "inputF"
+                            name = "inputF"
+                            className='fw-bold text-center input-default'
+                            maxlength="15" 
+                            style = {{width:"110px"}}
                             onChange = {e => setInputF(e.target.value)}
                         />
                     </td>
@@ -339,7 +344,7 @@ export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
                             prefix={'$'}
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange={e => setDeductible(e.target.value)}
                         />
@@ -366,8 +371,8 @@ export default function DP3HO3Mobile({name, date, setDateHO, date2}) {
                             <Input 
                                 className="text-center fw-bold"
                                 width="90px" 
-                                value={c1}
-                                {...(c1 === "" ? {bColor:"yellow"} : {})}
+                                bColor="yellow"
+                                disabled
                             />
                         </span>
                     </td>

@@ -140,7 +140,7 @@ export default function HO4({name, date, setDateHO, date2}) {
                             name = "inputC"
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange = {e => setInputC(e.target.value)}
                         />
@@ -159,7 +159,7 @@ export default function HO4({name, date, setDateHO, date2}) {
                             name = "inputD"
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange = {e => setInputD(e.target.value)}
                         />
@@ -178,7 +178,7 @@ export default function HO4({name, date, setDateHO, date2}) {
                             name = "inputE"
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange = {e => setInputE(e.target.value)}
                         />
@@ -197,7 +197,7 @@ export default function HO4({name, date, setDateHO, date2}) {
                     </td>
                     <td>F. Medical Payments</td>
                     <td>
-                        <CurrencyFormat 
+                        {/* <CurrencyFormat 
                             thousandSeparator={true} 
                             prefix={'$'} 
                             id = "inputF"
@@ -206,6 +206,14 @@ export default function HO4({name, date, setDateHO, date2}) {
                             maxlength="10"
                             style = {{width:"80px"}}
                             className='fw-bold text-center input-default'
+                            onChange = {e => setInputF(e.target.value)}
+                        /> */}
+                        <input 
+                            id = "inputF"
+                            name = "inputF"
+                            className='fw-bold text-center input-default'
+                            maxlength="15" 
+                            style = {{width:"110px"}}
                             onChange = {e => setInputF(e.target.value)}
                         />
                     </td>
@@ -221,7 +229,7 @@ export default function HO4({name, date, setDateHO, date2}) {
                             prefix={'$'}
                             autoComplete = "off"
                             maxlength="10"
-                            style = {{width:"80px"}}
+                            style = {{width:"110px"}}
                             className='fw-bold text-center input-default'
                             onChange={e => setDeductible(e.target.value)}
                         />
