@@ -104,7 +104,7 @@ export default function SBFAutoInternals({name, date}) {
                             <b>Endorsment:</b>
                         </td>
                         <td>
-                            Up to $200 
+                            From $200 
                             <br/>
                             per transaction
                         </td>
