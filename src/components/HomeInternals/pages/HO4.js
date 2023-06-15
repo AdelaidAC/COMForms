@@ -359,7 +359,7 @@ export default function HO4({name, date, setDateHO, date2}) {
                         <b>6.</b>
                     </td>
                     <td className="col-9">
-                        I have been offered <u><b><i>Animal Liability</i></b></u> and I have elected to refuse such coverage.
+                        I have been offered <u><b><i>Limited Animal Liability</i></b></u> and I have elected to refuse such coverage.
                     </td>
                     <td className='text-end'>
                         <span>
